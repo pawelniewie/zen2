@@ -22,3 +22,7 @@ node_modules
 
 # Generated js bundles
 /app/assets/webpack/*
+
+.idea/
+
+app/assets/webpack/
