@@ -1,0 +1,2 @@
+class CreateOrganizationsUser < ApplicationRecord
+end
