@@ -1,24 +1,16 @@
-# README
+# Installing dependencies
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+`bundle && npm i`
 
-Things you may want to cover:
+# Running dev mode
 
-* Ruby version
+`heroku local -f Procfile.dev`
 
-* System dependencies
+# Creating a user
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+curl -H "Content-Type: application/json" \
+     -X POST \
+     -d '{"user":{"email":"test@example.com","password":"12345678"}}' \
+     http://localhost:5000/users.json
+```

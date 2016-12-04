@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :organizations
+  has_and_belongs_to_many :organizations
 
   accepts_nested_attributes_for :organizations
 
@@ -8,4 +8,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable,
     :confirmable, :lockable
+
+  validates :email, presence: true, uniqueness: true
 end

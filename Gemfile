@@ -73,4 +73,6 @@ source 'https://rubygems.org' do
   gem 'devise'
 
   gem 'uglifier'
+
+  gem 'slim'
 end
