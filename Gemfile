@@ -71,4 +71,6 @@ source 'https://rubygems.org' do
   gem 'mini_racer', platforms: :ruby
 
   gem 'devise'
+
+  gem 'uglifier'
 end

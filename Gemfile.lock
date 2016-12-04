@@ -238,6 +238,8 @@ GEM
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uglifier (3.0.4)
+      execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
@@ -282,6 +284,7 @@ DEPENDENCIES
   spring!
   spring-watcher-listen (~> 2.0.0)!
   tzinfo-data!
+  uglifier!
 
 RUBY VERSION
    ruby 2.3.3p222
