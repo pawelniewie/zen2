@@ -75,4 +75,6 @@ source 'https://rubygems.org' do
   gem 'uglifier'
 
   gem 'slim'
+
+  gem "zero_downtime_migrations"
 end
