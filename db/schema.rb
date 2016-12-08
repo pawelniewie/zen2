@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204135225) do
+ActiveRecord::Schema.define(version: 20161208205125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -30,7 +31,7 @@ ActiveRecord::Schema.define(version: 20161204135225) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
   end
 
-  create_table "organizations", force: :cascade do |t|
+  create_table "organizations", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name"
     t.string   "slug"
     t.datetime "created_at", null: false
@@ -44,7 +45,18 @@ ActiveRecord::Schema.define(version: 20161204135225) do
     t.index ["user_id"], name: "index_organizations_users_on_user_id", using: :btree
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "projects", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.string   "name",            null: false
+    t.string   "key",             null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.uuid     "organization_id"
+    t.index ["key"], name: "index_projects_on_key", unique: true, using: :btree
+    t.index ["name"], name: "index_projects_on_name", unique: true, using: :btree
+    t.index ["organization_id"], name: "index_projects_on_organization_id", using: :btree
+  end
+
+  create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -70,4 +82,5 @@ ActiveRecord::Schema.define(version: 20161204135225) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   end
 
+  add_foreign_key "projects", "organizations"
 end
