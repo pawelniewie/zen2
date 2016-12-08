@@ -271,6 +271,7 @@ DEPENDENCIES
   draper (~> 3.0.0.pre1)!
   gibbon!
   jbuilder (~> 2.0)!
+  jwt!
   listen (~> 3.0.5)!
   mailgun_rails!
   mini_racer!

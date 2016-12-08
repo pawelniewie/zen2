@@ -77,4 +77,6 @@ source 'https://rubygems.org' do
   gem 'slim'
 
   gem "zero_downtime_migrations"
+
+  gem 'jwt'
 end
