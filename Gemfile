@@ -62,6 +62,8 @@ source 'https://rubygems.org' do
 
   gem 'rails_12factor', group: :production
 
+  gem 'remote_syslog_logger', group: :production
+
   gem "bugsnag"
 
   gem 'delayed_job_active_record'
@@ -79,4 +81,6 @@ source 'https://rubygems.org' do
   gem "zero_downtime_migrations"
 
   gem 'jwt'
+
+  gem 'graphql-rails', github: 'pawelniewie/graphql-rails', branch: 'master'
 end
