@@ -27,6 +27,7 @@ services:
     volumes:
       - ..:/app
       - bundle:/bundle
+      - webpack:/app/app/assets/webpack
     depends_on:
       - db
     environment:
@@ -54,6 +55,7 @@ services:
     command: sh -c 'rm app/assets/webpack/* || true && cd client && npm run build:development'
     volumes:
       - ..:/app
+      - webpack:/app/app/assets/webpack
     environment:
       NODE_ENV: development
 
@@ -68,3 +70,4 @@ services:
 
 volumes:
   bundle:
+  webpack:
