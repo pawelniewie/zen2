@@ -1,10 +1,25 @@
 version: '2'
 services:
+  release:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: rails db:migrate
+    links:
+      - db
+    volumes:
+      - ..:/app
+      - bundle:/bundle
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://db:secret@db:5432/development
+
   web:
     build:
       context: .
       dockerfile: Dockerfile
-    command: foreman
+    command: puma -C config/puma.rb -p 5000
     ports:
       - "5000:5000"
     links:
@@ -16,6 +31,31 @@ services:
       - db
     environment:
       DATABASE_URL: postgres://db:secret@db:5432/development
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: rails jobs:work
+    links:
+      - db
+    volumes:
+      - ..:/app
+      - bundle:/bundle
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://db:secret@db:5432/development
+
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile-client
+    command: sh -c 'rm app/assets/webpack/* || true && cd client && npm run build:development'
+    volumes:
+      - ..:/app
+    environment:
+      NODE_ENV: development
 
   db:
     image: postgres

@@ -6,6 +6,10 @@ RUN apt-get update -qq && \
     xvfb qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+COPY ./entrypoint.sh /
+COPY ./wait-for-db.rb /
+RUN chmod +x /entrypoint.sh /wait-for-db.rb
+
 ENV app /app
 ENV BUNDLE_PATH=/bundle
 
@@ -15,9 +19,8 @@ WORKDIR $app
 
 ONBUILD COPY ../Gemfile /app/Gemfile
 ONBUILD COPY ../Gemfile.lock /app/Gemfile.lock
-ONBUILD COPY .. /app
 ONBUILD RUN bundle install
-ONBUILD COPY ./entrypoint.sh /
 
-CMD foreman start -f Procfile.dev
+ONBUILD COPY .. /app
 
+ENTRYPOINT ["/entrypoint.sh"]
