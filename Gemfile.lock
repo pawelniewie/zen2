@@ -288,6 +288,7 @@ DEPENDENCIES
   dotenv-heroku!
   dotenv-rails!
   draper (~> 3.0.0.pre1)!
+  foreman!
   gibbon!
   graphql-rails!
   jbuilder (~> 2.0)!

@@ -1,0 +1,30 @@
+version: '2'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: foreman
+    ports:
+      - "5000:5000"
+    links:
+      - db
+    volumes:
+      - ..:/app
+      - bundle:/bundle
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://db:secret@db:5432/development
+
+  db:
+    image: postgres
+    ports:
+      - "5432"
+    environment:
+      POSTGRES_USER: db
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: development
+
+volumes:
+  bundle:
