@@ -82,5 +82,7 @@ source 'https://rubygems.org' do
 
   gem 'jwt'
 
+  gem 'pundit'
+
   gem 'graphql-rails', git: 'https://github.com/pawelniewie/graphql-rails.git', branch: 'master'
 end
