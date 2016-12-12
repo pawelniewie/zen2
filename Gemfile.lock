@@ -1,12 +1,12 @@
 GIT
-  remote: git://github.com/pawelniewie/bottled_services.git
+  remote: https://github.com/pawelniewie/bottled_services.git
   revision: 17cc68ddc45ac6988ac643581925a3f91e95e289
   branch: master
   specs:
     bottled_services (0.1.3)
 
 GIT
-  remote: git://github.com/pawelniewie/graphql-rails.git
+  remote: https://github.com/pawelniewie/graphql-rails.git
   revision: 6d1f3718adedde18d10abf75332581eadff22aa3
   branch: master
   specs:
@@ -17,7 +17,7 @@ GIT
       rails (>= 4.0.0)
 
 GIT
-  remote: git://github.com/pawelniewie/rails-commons.git
+  remote: https://github.com/pawelniewie/rails-commons.git
   revision: 4543a8ec9bef5c8a4ff16a11f6fb10d55c84b438
   branch: master
   specs:
