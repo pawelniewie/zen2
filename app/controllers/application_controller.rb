@@ -4,4 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   include Pundit
+
+  # Make sure authorization was performed
+  after_action :verify_authorized
 end
