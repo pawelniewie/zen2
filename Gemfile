@@ -84,5 +84,7 @@ source 'https://rubygems.org' do
 
   gem 'pundit'
 
+  gem "active_record-updated_at"
+
   gem 'graphql-rails', git: 'https://github.com/pawelniewie/graphql-rails.git', branch: 'master'
 end
