@@ -68,6 +68,8 @@ source 'https://rubygems.org' do
 
   gem 'delayed_job_active_record'
 
+  gem "react_on_rails", "~> 6"
+
   gem 'mini_racer', platforms: :ruby
 
   gem 'devise'
