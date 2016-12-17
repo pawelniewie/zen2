@@ -7,7 +7,7 @@
     "npm": "3.5.0"
   },
   "scripts": {
-    "postinstall": "cd client && NODE_ENV=development npm install",
+    "postinstall": "cd client && npm install",
     "rails-server": "echo 'visit http://localhost:3000/hello_world' && heroku local -f Procfile.dev",
     "test": "rspec"
   }
