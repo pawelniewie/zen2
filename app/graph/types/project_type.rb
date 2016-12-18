@@ -1,3 +1,0 @@
-class ProjectType
-
-end
