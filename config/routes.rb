@@ -1,3 +1,5 @@
+# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -6,8 +8,8 @@ Rails.application.routes.draw do
 
   root 'root#index'
 
-  get 'hello_world', to: 'hello_world#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
   mount GraphQL::Rails::Engine => "/gql"
+
+  # Must be last route
+  get '*path', to: 'root#index'
 end
