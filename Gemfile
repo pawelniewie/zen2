@@ -64,6 +64,8 @@ source 'https://rubygems.org' do
 
   gem 'remote_syslog_logger', group: :production
 
+  gem 'multilogger', group: :production
+
   gem "bugsnag"
 
   gem 'delayed_job_active_record'
