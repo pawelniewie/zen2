@@ -6,6 +6,14 @@ GIT
     multilogger (0.0.1)
 
 GIT
+  remote: https://github.com/jalada/platform-api.git
+  revision: 45ddb3c1a7e2c7f85d979c0791db18e99affb237
+  branch: master
+  specs:
+    platform-api (0.8.0)
+      heroics (~> 0.0.17)
+
+GIT
   remote: https://github.com/pawelniewie/bottled_services.git
   revision: 17cc68ddc45ac6988ac643581925a3f91e95e289
   branch: master
@@ -191,8 +199,6 @@ GEM
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
     pg (0.19.0)
-    platform-api (0.8.0)
-      heroics (~> 0.0.17)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -327,6 +333,7 @@ DEPENDENCIES
   newrelic_rpm!
   nokogiri!
   pg (~> 0.18)!
+  platform-api!
   pry-byebug!
   puma (~> 3.0)!
   pundit!
