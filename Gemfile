@@ -64,7 +64,7 @@ source 'https://rubygems.org' do
 
   gem 'remote_syslog_logger', group: :production
 
-  gem 'multilogger', group: :production
+  gem 'multilogger', group: :production, git: 'https://github.com/ffmike/multilogger.git', branch: 'master'
 
   gem "bugsnag"
 

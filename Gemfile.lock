@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/ffmike/multilogger.git
+  revision: a851124d9438644dd8ee26259fb0a8d65834e41e
+  branch: master
+  specs:
+    multilogger (0.0.1)
+
+GIT
   remote: https://github.com/pawelniewie/bottled_services.git
   revision: 17cc68ddc45ac6988ac643581925a3f91e95e289
   branch: master
@@ -176,8 +183,6 @@ GEM
     moneta (0.8.1)
     multi_json (1.12.1)
     multi_xml (0.5.5)
-    multilogger (0.1.5)
-      activesupport
     multipart-post (2.0.0)
     netrc (0.11.0)
     newrelic_rpm (3.17.1.326)
