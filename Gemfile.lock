@@ -129,8 +129,6 @@ GEM
     graphiql-rails (1.4.0)
       rails
     graphql (0.19.4)
-    graphql-rails-resolver (0.2.8)
-      graphql (>= 0.19.0)
     graphql-relay (0.12.0)
       graphql (~> 0.17)
     http-cookie (1.0.3)
@@ -297,7 +295,6 @@ DEPENDENCIES
   draper (~> 3.0.0.pre1)!
   gibbon!
   graphql-rails!
-  graphql-rails-resolver!
   jbuilder (~> 2.0)!
   jwt!
   listen (~> 3.0.5)!
