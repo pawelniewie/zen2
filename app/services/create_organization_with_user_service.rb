@@ -18,7 +18,7 @@ class CreateOrganizationWithUserService < BottledService
       end
     end
 
-    result = result.map_err { |exception| Failure(exception.record.errors.to_h) }
+    result = result.map_err { |exception| Failure(exception) }
 
     if block_given?
       yield(result)
