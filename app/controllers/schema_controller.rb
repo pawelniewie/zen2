@@ -48,7 +48,8 @@ class SchemaController < ActionController::Base
 
   def internal_error(e)
     Rails.logger.error 'Unexpected exception during execution'
-    Rails.logger.exception e
+    Rails.logger.error "#{e.class.name} (#{e.message}):"
+    Rails.logger.error "  #{e.backtrace.join("\n  ")}"
     render_error 500, 'Internal error'
   end
 end

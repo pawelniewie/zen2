@@ -70,6 +70,7 @@ source 'https://rubygems.org' do
 
   gem 'graphql'
   gem 'graphiql-rails'
+  gem 'graphql-rails-resolver'
 
   group :production do
     gem 'rails_12factor'
