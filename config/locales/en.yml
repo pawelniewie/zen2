@@ -21,3 +21,13 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        organization:
+          attributes:
+            slug:
+              blank: "Please provide slug"
+              taken: "This slug is already taken"
+            name:
+              blank: "Please provide organization's name"
