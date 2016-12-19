@@ -72,6 +72,8 @@ source 'https://rubygems.org' do
   gem 'graphiql-rails'
   gem 'graphql-rails-resolver'
 
+  gem 'deterministic'
+
   group :production do
     gem 'rails_12factor'
     gem 'remote_syslog_logger'

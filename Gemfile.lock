@@ -108,6 +108,7 @@ GEM
     delayed_job_active_record (4.1.1)
       activerecord (>= 3.0, < 5.1)
       delayed_job (>= 3.0, < 5)
+    deterministic (0.16.0)
     devise (4.2.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -312,6 +313,7 @@ DEPENDENCIES
   bottled_services!
   bugsnag!
   delayed_job_active_record!
+  deterministic!
   devise!
   dotenv-heroku!
   dotenv-rails!
