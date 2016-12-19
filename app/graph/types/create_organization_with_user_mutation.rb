@@ -17,7 +17,7 @@ CreateOrganizationWithUserMutation = GraphQL::Relay::Mutation.define do
 
   resolve -> (_, inputs, _) {
     CreateOrganizationWithUserService.(organization: inputs[:organization].to_h, user: inputs[:user].to_h).match do
-      Success() { |s| {success: s} }
+      Success() { |s| {success: s, errors: []} }
       Failure() { |f| {errors: f.each_pair.map {|k, v| OpenStruct.new(field: k, message: v) } } }
     end
   }

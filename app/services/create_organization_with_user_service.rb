@@ -11,11 +11,10 @@ class CreateOrganizationWithUserService < BottledService
         org = Organization.create!(@organization.slice('name', 'slug'))
         user = org.users.create!(@user.slice('email', 'password'))
 
-        {
+        OpenStruct.new(
           user: user,
           organization: org,
-          token: 'test'
-        }
+          token: 'test')
       end
     end
 
