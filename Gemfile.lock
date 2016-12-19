@@ -31,7 +31,7 @@ GIT
 
 GIT
   remote: https://github.com/pawelniewie/graphql-rails.git
-  revision: d6753c0113e9a100d7b1d7d439e42a345cb8f439
+  revision: ab4f2dc919651ca5f8e80e7cae2b7828c6b6e211
   branch: master
   specs:
     graphql-rails (0.0.9)
