@@ -21,6 +21,10 @@
 
 en:
   hello: "Hello world"
+  errors:
+    messages:
+      required: "This value is required"
+      taken: "This one has already been taken"
   activerecord:
     errors:
       models:
