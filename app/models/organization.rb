@@ -4,7 +4,7 @@ class Organization < ApplicationRecord
   validates :name, presence: true
   validates :slug, presence: true, uniqueness: true
 
-  before_create :lowercase_slug
+  before_validation :lowercase_slug
 
   private
 
