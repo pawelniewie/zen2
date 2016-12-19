@@ -68,7 +68,8 @@ source 'https://rubygems.org' do
 
   gem "active_record-updated_at"
 
-  gem 'graphql-rails', git: 'https://github.com/pawelniewie/graphql-rails.git', branch: 'master'
+  gem 'graphql'
+  gem 'graphiql-rails'
 
   group :production do
     gem 'rails_12factor'

@@ -24,5 +24,7 @@ module Backend
     config.active_job.queue_adapter = :delayed_job
 
     config.active_record.primary_key = :uuid
+
+    config.autoload_paths += %w(app/graph/types app/graph/resolvers)
   end
 end

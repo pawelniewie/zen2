@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
   root 'root#index'
 
-  mount GraphQL::Rails::Engine => "/gql"
+  post '/gql', to: 'schema#execute'
+
+  if Rails.env.development?
+    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/gql"
+  end
 
   # Must be last route
   get '*path', to: 'root#index'
