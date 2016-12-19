@@ -10,6 +10,20 @@ CreateOrganizationWithUserMutation = GraphQL::Relay::Mutation.define do
   return_field :errors, !types[FieldErrorInterface]
 
   resolve -> (object, inputs, ctx) {
+    org = Organization.create(inputs[:organization].to_h.slice('name', 'slug'))
+    if org.valid?
+      user = org.users.create(inputs[:user].to_h.slice('email', 'password'))
+      if user.valid?
+        return {
+          user: user,
+          organization: org,
+          token: "test"
+        }
+      else
+      end
+    else
+    end
+
     {
       "user": User.first,
       "token": "test",
