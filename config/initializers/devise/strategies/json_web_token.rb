@@ -6,10 +6,12 @@ module Devise
       end
 
       def authenticate!
-        return fail! unless claims
-        return fail! unless claims.has_key?('user_id')
+        received_claims = claims
 
-        success! User.find_by_id claims['user_id']
+        return fail! unless received_claims
+        return fail! unless received_claims.has_key?('user_id')
+
+        success! User.find_by_id received_claims['user_id']
       end
 
       protected ######################## PROTECTED #############################

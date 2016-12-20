@@ -1,12 +1,16 @@
-class SchemaController < ActionController::Base
+class GraphqlController < ApplicationController
 
   # Defined in order of increasing specificity.
   rescue_from Exception, :with => :internal_error
   rescue_from GraphQL::ParseError, :with => :invalid_query
   rescue_from JSON::ParserError, :with => :invalid_variables
+  rescue_from Pundit::AuthorizationNotPerformedError, :with => :authorization_missing
+  rescue_from Pundit::NotAuthorizedError, :with => :permission_denied
 
   # Execute a GraphQL query against the current schema.
   def execute
+    authorize :graphql, :execute?
+
     query = GraphQL::Query.new(ZenSchema, params[:query], variables: to_hash(params[:variables]), context: context)
 
     render json: query.result
@@ -15,7 +19,10 @@ class SchemaController < ActionController::Base
   private
 
   def context
-    @context ||= {}
+    @context ||= {
+      current_user: current_user,
+      current_organization: current_user ? current_user.organizations.first : nil,
+    }
   end
 
   def to_hash(param)
@@ -38,8 +45,16 @@ class SchemaController < ActionController::Base
     render_error 400, message
   end
 
+  def permission_denied
+    render_error 403, "Permission denied"
+  end
+
   def invalid_query
     invalid_request 'Unable to parse query'
+  end
+
+  def authorization_missing
+    invalid_request 'Pundit authorization was not called'
   end
 
   def invalid_variables

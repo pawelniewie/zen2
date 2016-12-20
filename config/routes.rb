@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   root 'root#index'
 
-  post '/gql', to: 'schema#execute'
+  post '/gql', to: 'graphql#execute'
 
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/gql"

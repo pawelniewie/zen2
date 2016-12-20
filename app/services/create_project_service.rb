@@ -1,9 +1,7 @@
-class CreateProjectService < BottledService
+class CreateProjectService < ApplicationService
 
   att :project, Hash
   att :user, Hash
-
-  include Deterministic::Prelude::Result
 
   def call
     result = try! do

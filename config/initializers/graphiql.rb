@@ -1,7 +1,5 @@
-# if Rails.env.development?
-#   GraphiQL::Rails.config.headers['Authorization'] = -> (context) {
-#     ActionController::HttpAuthentication::Basic.encode_credentials(
-#       Rails.application.secrets.aircom_api_username,
-#       Rails.application.secrets.aircom_api_password)
-#   }
-# end
+if Rails.env.development?
+  GraphiQL::Rails.config.headers['Authorization'] = -> (context) {
+    "Bearer #{ JWTWrapper.encode({ user_id: User.first.id }) }" if User.first.present?
+  }
+end
