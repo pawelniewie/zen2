@@ -8,7 +8,7 @@ CreateProjectMutation = GraphQL::Relay::Mutation.define do
   name "CreateProject"
 
   input_field :project, !ProjectInput
-  input_field :organizationId, !types.String
+  input_field :organizationId, types.String
 
   return_field :errors, !types[FieldErrorInterface]
   return_field :success, CreateProjectMutationSuccessInterface
