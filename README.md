@@ -6,15 +6,6 @@
 
 `heroku local -f Procfile.dev`
 
-# Creating a user
-
-```
-curl -H "Content-Type: application/json" \
-     -X POST \
-     -d '{"user":{"email":"test@example.com","password":"12345678"}}' \
-     http://localhost:5000/users.json
-```
-
 # Sample GQL
 
 ## Create an organization
@@ -79,6 +70,35 @@ mutation CreateProject($input: CreateProjectInput!) {
       "key": "ano"
     },
     "organizationId": "202530d3-45cc-433b-b874-65c72707c763"
+  }
+}
+```
+
+## Create a JWT token
+
+```graphql
+mutation CreateUserToken($input: CreateUserTokenInput!) {
+  createUserToken(input: $input) {
+    success {
+      user {
+        organizations {
+          id
+          name
+        }
+        email
+      }
+    }
+    clientMutationId
+    errors {field, message}
+  }
+}
+```
+
+```json
+{
+  "input":{
+    "email": "11110000b@gmail.com",
+    "password": "dupa123"
   }
 }
 ```
