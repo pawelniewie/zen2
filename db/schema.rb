@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220135230) do
+ActiveRecord::Schema.define(version: 20161220151410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,21 @@ ActiveRecord::Schema.define(version: 20161220135230) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+  end
+
+  create_table "issues", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.integer "no",              null: false
+    t.string  "summary",         null: false
+    t.text    "description"
+    t.uuid    "project_id"
+    t.uuid    "organization_id"
+    t.uuid    "assignee_id"
+    t.uuid    "reporter_id"
+    t.index ["assignee_id"], name: "index_issues_on_assignee_id", using: :btree
+    t.index ["no", "project_id"], name: "index_issues_on_no_and_project_id", unique: true, using: :btree
+    t.index ["organization_id"], name: "index_issues_on_organization_id", using: :btree
+    t.index ["project_id"], name: "index_issues_on_project_id", using: :btree
+    t.index ["reporter_id"], name: "index_issues_on_reporter_id", using: :btree
   end
 
   create_table "organizations", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -92,5 +107,9 @@ ActiveRecord::Schema.define(version: 20161220135230) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   end
 
+  add_foreign_key "issues", "organizations"
+  add_foreign_key "issues", "projects"
+  add_foreign_key "issues", "users", column: "assignee_id"
+  add_foreign_key "issues", "users", column: "reporter_id"
   add_foreign_key "projects", "organizations"
 end

@@ -20,6 +20,7 @@ class GraphqlController < ApplicationController
 
   def context
     @context ||= {
+      request: request,
       current_user: current_user,
       current_organization: current_user ? current_user.organizations.first : nil,
     }
