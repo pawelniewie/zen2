@@ -1,5 +1,5 @@
 class ApplicationService < BottledService
-  att :context, Hash
+  att :context, GraphQL::Query::Context::FieldResolutionContext
 
   include Pundit
   include Deterministic::Prelude::Result
@@ -7,6 +7,6 @@ class ApplicationService < BottledService
   protected
 
   def pundit_user
-    context.is_a?(Hash) && context['current_user']
+    context[:current_user]
   end
 end

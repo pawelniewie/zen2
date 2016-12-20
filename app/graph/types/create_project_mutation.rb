@@ -14,7 +14,10 @@ CreateProjectMutation = GraphQL::Relay::Mutation.define do
   return_field :success, CreateProjectMutationSuccessInterface
 
   resolve -> (_, inputs, context) {
-    CreateProjectService.(project: inputs[:project].to_h, user: inputs[:user].to_h, context: context).match do
+    organization = Organization.find_by_id(inputs[:organizationId]) || context[:current_organization]
+    project = inputs[:project].to_h
+
+    CreateProjectService.(project: project, organization: organization, context: context).match do
       Success() { |s| { success: s, errors: [] } }
       Failure() { |exception|
         model_name = exception.record.class.name.downcase

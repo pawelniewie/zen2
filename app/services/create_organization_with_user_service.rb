@@ -18,8 +18,6 @@ class CreateOrganizationWithUserService < ApplicationService
       end
     end
 
-    result = result.map_err { |exception| Failure(exception) }
-
     if block_given?
       yield(result)
     else

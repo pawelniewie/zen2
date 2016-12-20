@@ -1,5 +1,7 @@
 class ProjectPolicy < ApplicationPolicy
   def create?
-    false
+    Pundit.authorize user, record.organization, :show?
+
+    true
   end
 end

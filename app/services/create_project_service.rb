@@ -1,22 +1,18 @@
 class CreateProjectService < ApplicationService
 
   att :project, Hash
-  att :user, Hash
+  att :organization, Organization
 
   def call
     result = try! do
-      Organization.transaction do
-        org = Organization.create!(@organization.slice('name', 'slug'))
-        user = org.users.create!(@user.slice('email', 'password'))
+      project = Project.new(@project.slice('name', 'key').merge(organization_id: @organization.id))
 
-        OpenStruct.new(
-          user: user,
-          organization: org,
-          token: 'test')
-      end
+      authorize project, :create?
+
+      project.save!
+
+      OpenStruct.new(project: project)
     end
-
-    result = result.map_err { |exception| Failure(exception) }
 
     if block_given?
       yield(result)

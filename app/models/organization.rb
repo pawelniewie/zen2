@@ -4,11 +4,11 @@ class Organization < ApplicationRecord
   validates :name, presence: true
   validates :slug, presence: true, uniqueness: true
 
-  before_validation :lowercase_slug
+  before_validation :downcase_slug
 
   private
 
-  def lowercase_slug
+  def downcase_slug
     self.slug = slug.downcase
   end
 end
