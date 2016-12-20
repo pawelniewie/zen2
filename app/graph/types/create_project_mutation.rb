@@ -17,17 +17,7 @@ CreateProjectMutation = GraphQL::Relay::Mutation.define do
     organization = Organization.find_by_id(inputs[:organizationId]) || context[:current_organization]
     project = inputs[:project].to_h
 
-    CreateProjectService.(project: project, organization: organization, context: context).match do
-      Success() { |s| { success: s, errors: [] } }
-      Failure() { |exception|
-        model_name = exception.record.class.name.downcase
-
-        errors = exception.record.errors.to_h.each_pair.map { |k, v|
-          OpenStruct.new(field: "#{model_name}.#{k}", message: v)
-        }
-
-        { errors: errors }
-      }
-    end
+    result = CreateProjectService.(project: project, organization: organization, context: context)
+    FormatMutationResultService.(result: result)
   }
 end

@@ -17,7 +17,7 @@ curl -H "Content-Type: application/json" \
 
 # Sample GQL
 
-## Create Organization
+## Create an organization
 
 ```graphql
 mutation CreateOrganizationWithUser($input: CreateOrganizationWithUserInput!) {
@@ -49,6 +49,36 @@ mutation CreateOrganizationWithUser($input: CreateOrganizationWithUserInput!) {
       "email": "11110000b@gmail.com",
       "password": "dupa123"
     }
+  }
+}
+```
+
+## Create a project
+
+```graphql
+mutation CreateProject($input: CreateProjectInput!) {
+  createProject(input: $input) {
+    success {
+      project {
+        key
+        id
+      }
+    }
+    clientMutationId
+    errors {field, message}
+  }
+}
+```
+
+```json
+{
+  "input":{
+    "clientMutationId": "test",
+    "project": {
+      "name": "Another",
+      "key": "ano"
+    },
+    "organizationId": "202530d3-45cc-433b-b874-65c72707c763"
   }
 }
 ```
