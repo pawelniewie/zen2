@@ -74,6 +74,8 @@ source 'https://rubygems.org' do
 
   gem 'deterministic'
 
+  gem 'activerecord-session_store'
+
   group :production do
     gem 'rails_12factor'
     gem 'remote_syslog_logger'
