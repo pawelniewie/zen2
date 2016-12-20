@@ -76,6 +76,8 @@ source 'https://rubygems.org' do
 
   gem 'activerecord-session_store'
 
+  gem 'sequenced'
+
   group :production do
     gem 'rails_12factor'
     gem 'remote_syslog_logger'

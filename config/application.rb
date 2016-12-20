@@ -25,6 +25,6 @@ module Backend
 
     config.active_record.primary_key = :uuid
 
-    config.autoload_paths += %w(app/graph/types app/graph/resolvers)
+    config.autoload_paths += %w(app/graph/types app/graph/resolvers app/graph/mutations)
   end
 end
