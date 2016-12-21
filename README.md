@@ -31,27 +31,32 @@ Error response:
 ## Authenticate a user
 
 ```bash
-
+curl -v -H 'Content-Type: application/json' \                                                                                                                                            [master↑4|✚2]
+     -X POST \
+     -d '{"user":{"email":"11110000b+ano@gmail.com","password":"12345678"}}' \
+     http://localhost:5000/users/sign_in.json
 ```
 
 Response:
 
 ```json
-
+{"id":"bfae6074-2ce5-4635-a127-4b75ce41cf95","email":"11110000b+ano@gmail.com","created_at":"2016-12-21T07:41:13.797Z","updated_at":"2016-12-21T09:00:37.717Z"}
 ```
 
 Error response:
 
 ```json
-
+{"error":"You need to sign in or sign up before continuing."}
 ```
 
 # Log out
 
 ```bash
-
+curl -v -H 'Content-Type: application/json' \                                                                                                                                            [master↑4|✚3]
+     -X DELETE \
+     -H 'Cookie: _zen_session=1808263b9893a87fbb93ef0af6c0022e; path=/; HttpOnly' \
+     http://localhost:5000/users/sign_out.json
 ```
-
 
 ## Create a project
 

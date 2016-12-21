@@ -1,4 +1,7 @@
 class Users::SessionsController < Devise::SessionsController
+
+  respond_to :json
+
 # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
