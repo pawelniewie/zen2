@@ -74,18 +74,14 @@ mutation CreateProject($input: CreateProjectInput!) {
 }
 ```
 
-## Create a JWT token
+## Create an issue
 
 ```graphql
-mutation CreateUserToken($input: CreateUserTokenInput!) {
-  createUserToken(input: $input) {
+mutation CreateIssue($input: CreateIssueInput!) {
+  createIssue(input: $input) {
     success {
-      user {
-        organizations {
-          id
-          name
-        }
-        email
+      issue {
+        key
       }
     }
     clientMutationId
@@ -97,8 +93,10 @@ mutation CreateUserToken($input: CreateUserTokenInput!) {
 ```json
 {
   "input":{
-    "email": "11110000b@gmail.com",
-    "password": "dupa123"
+    "issue": {
+      "summary": "This is a test"
+    },
+    "projectId": "f2882d16-8f28-4d23-b1f0-ffbde05f9f2d"
   }
 }
 ```
