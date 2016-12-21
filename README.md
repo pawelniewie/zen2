@@ -10,39 +10,48 @@
 
 ## Create an organization
 
-```graphql
-mutation CreateOrganizationWithUser($input: CreateOrganizationWithUserInput!) {
-  createOrganizationWithUser(input: $input) {
-    success {
-      token
-      user {
-        id
-      }
-      organization {
-        id
-      }
-    }
-    clientMutationId
-    errors {field, message}
-  }
-}
+```bash
+curl -H 'Content-Type: application/json' \                                                                                                                                                   [master|]
+     -X POST \
+     -d '{"user":{"email":"11110000b@gmail.com","password":"12345678", "organizations_attributes": [{"name": "Zen", "slug": "zen"}]}}' \
+     http://localhost:5000/users.json
 ```
 
+Response:
+
 ```json
-{
-  "input":{
-    "clientMutationId": "test",
-    "organization": {
-      "name": "Test",
-      "slug": "tet"
-    },
-    "user": {
-      "email": "11110000b@gmail.com",
-      "password": "dupa123"
-    }
-  }
-}
+{"id":"ee24f423-4539-4b7e-94c2-7498390c2290","email":"11110000b+test@gmail.com","created_at":"2016-12-21T07:33:53.319Z","updated_at":"2016-12-21T07:33:53.319Z"}
 ```
+
+Error response:
+```json
+{"errors":{"organizations.slug":["This slug is already taken"],"email":["This one has already been taken"]}}
+```
+
+## Authenticate a user
+
+```bash
+
+```
+
+Response:
+
+```json
+
+```
+
+Error response:
+
+```json
+
+```
+
+# Log out
+
+```bash
+
+```
+
 
 ## Create a project
 
