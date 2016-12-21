@@ -6,6 +6,15 @@
 
 `heroku local -f Procfile.dev`
 
+# Settings up credentials for GraphiQL
+
+Edit `.env` file and add your own credentials after you create a user:
+
+```bash
+GRAPHIQL_USER=11110000b@gmail.com
+GRAPHIQL_PASSWORD=secret
+```
+
 # Sample GQL
 
 ## Create an organization
