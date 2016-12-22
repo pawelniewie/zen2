@@ -5,13 +5,21 @@ QueryType = GraphQL::ObjectType.define do
   connection :projects, ProjectInterface.connection_type do
     argument :organization_id, types.ID
 
-    resolve ProjectResolver.new -> (obj, args, ctx) {
+    resolve ProjectResolver.new -> (_, _, ctx) {
       ProjectPolicy::Scope.new(ctx[:current_user], Project).resolve
     }
   end
 
+  connection :issues, IssueInterface.connection_type do
+    argument :organization_id, types.ID
+
+    resolve IssueResolver.new -> (_, _, ctx) {
+      IssuePolicy::Scope.new(ctx[:current_user], Issue).resolve
+    }
+  end
+
   field :organizations, types[OrganizationInterface] do
-    resolve OrganizationResolver.new -> (obj, args, ctx) {
+    resolve OrganizationResolver.new -> (_, _, ctx) {
       OrganizationPolicy::Scope.new(ctx[:current_user], Organization).resolve
     }
   end

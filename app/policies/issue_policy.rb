@@ -4,4 +4,14 @@ class IssuePolicy < ApplicationPolicy
 
     true
   end
+
+  class Scope < Scope
+    def resolve
+      if user
+        Issue.where(organization_id: user.organizations.map(&:id))
+      else
+        Issue.where("1 = 0")
+      end
+    end
+  end
 end
