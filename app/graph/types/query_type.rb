@@ -23,4 +23,10 @@ QueryType = GraphQL::ObjectType.define do
       OrganizationPolicy::Scope.new(ctx[:current_user], Organization).resolve
     }
   end
+
+  field :currentUser, UserInterface do
+    resolve -> (obj, args, ctx) {
+      ctx[:current_user]
+    }
+  end
 end
