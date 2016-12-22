@@ -22,7 +22,7 @@ GRAPHIQL_PASSWORD=secret
 ```bash
 curl -H 'Content-Type: application/json' \                                                                                                                                                   [master|]
      -X POST \
-     -d '{"user":{"email":"11110000b@gmail.com","password":"12345678", "organizations_attributes": [{"name": "Zen", "slug": "zen"}]}}' \
+     -d '{"user":{"email":"11110000b@gmail.com","password":"12345678", "organization_attributes": {"name": "Zen", "slug": "zen"}}}' \
      http://localhost:5000/users.json
 ```
 
@@ -34,7 +34,7 @@ Response:
 
 Error response:
 ```json
-{"errors":{"organizations.slug":["This slug is already taken"],"email":["This one has already been taken"]}}
+{"errors":{"organization.slug":["This slug is already taken"],"email":["This one has already been taken"]}}
 ```
 
 ## Authenticate a user
