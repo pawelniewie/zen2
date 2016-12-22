@@ -3,9 +3,7 @@
 one:
   name: 
   slug: 
-  timestamps: MyString
 
 two:
   name: 
   slug: 
-  timestamps: MyString
