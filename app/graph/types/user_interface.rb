@@ -5,5 +5,5 @@ UserInterface = GraphQL::ObjectType.define do
   field :id, !types.ID
   field :email, !types.String
 
-  field :organizations, !types[OrganizationInterface]
+  field :organization, !OrganizationInterface
 end

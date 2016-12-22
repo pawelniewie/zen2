@@ -10,7 +10,7 @@ class OrganizationPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       if user
-        user.organizations
+        user.organization
       else
         Organization.where('1 = 0')
       end

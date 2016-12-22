@@ -8,7 +8,7 @@ class IssuePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       if user
-        Issue.where(organization_id: user.organizations.map(&:id))
+        Issue.where(organization_id: user.organization.id)
       else
         Issue.where("1 = 0")
       end

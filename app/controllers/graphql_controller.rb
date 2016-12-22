@@ -22,7 +22,7 @@ class GraphqlController < PunditController
     @context ||= {
       request: request,
       current_user: current_user,
-      current_organization: current_user ? current_user.organizations.first : nil,
+      current_organization: current_user ? current_user.organization : nil,
     }
   end
 
