@@ -54,13 +54,6 @@ ActiveRecord::Schema.define(version: 20161220151410) do
     t.index ["slug"], name: "index_organizations_on_slug", unique: true, using: :btree
   end
 
-  create_table "organizations_users", id: false, force: :cascade do |t|
-    t.uuid "user_id",         null: false
-    t.uuid "organization_id", null: false
-    t.index ["organization_id"], name: "index_organizations_users_on_organization_id", using: :btree
-    t.index ["user_id"], name: "index_organizations_users_on_user_id", using: :btree
-  end
-
   create_table "projects", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name",            null: false
     t.string   "key",             null: false
@@ -101,8 +94,10 @@ ActiveRecord::Schema.define(version: 20161220151410) do
     t.datetime "locked_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.uuid     "organization_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["organization_id"], name: "index_users_on_organization_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   end
@@ -112,4 +107,5 @@ ActiveRecord::Schema.define(version: 20161220151410) do
   add_foreign_key "issues", "users", column: "assignee_id"
   add_foreign_key "issues", "users", column: "reporter_id"
   add_foreign_key "projects", "organizations"
+  add_foreign_key "users", "organizations"
 end
