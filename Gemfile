@@ -83,7 +83,6 @@ source 'https://rubygems.org' do
     gem 'remote_syslog_logger'
     gem 'multilogger', git: 'https://github.com/ffmike/multilogger.git', branch: 'master'
     gem 'platform-api', git: 'https://github.com/jalada/platform-api.git', branch: 'master'
-    gem 'letsencrypt-rails-heroku', git: 'https://github.com/fjg/letsencrypt-rails-heroku.git', branch: 'new_challenge_result'
   end
 
   group :development, :test do

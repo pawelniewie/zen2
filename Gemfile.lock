@@ -6,15 +6,6 @@ GIT
     multilogger (0.0.1)
 
 GIT
-  remote: https://github.com/fjg/letsencrypt-rails-heroku.git
-  revision: 7c9d0386bdf6326455e83f5e8c73983e21f65a6b
-  branch: new_challenge_result
-  specs:
-    letsencrypt-rails-heroku (0.2.7)
-      acme-client (~> 0.4.1)
-      platform-api
-
-GIT
   remote: https://github.com/jalada/platform-api.git
   revision: 45ddb3c1a7e2c7f85d979c0791db18e99affb237
   branch: master
@@ -51,8 +42,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    acme-client (0.4.1)
-      faraday (~> 0.9, >= 0.9.1)
     actioncable (5.0.0.1)
       actionpack (= 5.0.0.1)
       nio4r (~> 1.2)
@@ -340,7 +329,6 @@ DEPENDENCIES
   graphql-rails-resolver!
   jbuilder (~> 2.0)!
   jwt!
-  letsencrypt-rails-heroku!
   listen (~> 3.0.5)!
   mailgun_rails!
   mini_racer!
