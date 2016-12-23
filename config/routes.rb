@@ -6,6 +6,17 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  # match urls where the host starts with 'www.'
+  constraints(subdomain: 'www') do
+    redirect_to_base_url = redirect { |_, request|
+      # parse the current request url
+      # tap in and remove www.
+      URI.parse(request.url).tap { |uri| uri.host.sub!(/^www\./i, '') }.to_s
+    }
+    match '*path', via: :all, to: redirect_to_base_url
+    root to: redirect_to_base_url
+  end
+
   root 'root#index'
 
   post '/gql', to: 'graphql#execute'

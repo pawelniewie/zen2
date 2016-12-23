@@ -23,6 +23,16 @@ module Backend
     # -- all .rb files in that directory are automatically loaded.
     config.active_job.queue_adapter = :delayed_job
 
+    config.action_mailer.default_url_options = { host: Rails.application.secrets.base_url }
+    config.action_mailer.delivery_method = :mailgun
+    config.action_mailer.deliver_later_queue_name = 'zen-mailer'
+    config.action_mailer.mailgun_settings = {
+      api_key: Rails.application.secrets.mailgun_key,
+      domain: Rails.application.secrets.mailgun_domain,
+    }
+
+    config.action_dispatch.tld_length = Rails.application.secrets.base_url.count '.'
+
     config.active_record.primary_key = :uuid
 
     config.autoload_paths += %w(app/graph/types app/graph/resolvers app/graph/mutations)
