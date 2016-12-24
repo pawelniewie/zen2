@@ -1,6 +1,6 @@
 import RegistrationForm from './RegistrationForm';
 
-export default {
+export default (store) => ({
     path: 'registration',
     component: RegistrationForm
-}
+});

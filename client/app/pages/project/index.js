@@ -1,6 +1,8 @@
-export default {
+import issuesRoute from './issues';
+
+export default (store) => ({
     path: 'project',
     childRoutes: [
-        require('./issues').default
+        issuesRoute(store)
     ]
-};
+});

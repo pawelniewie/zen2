@@ -1,3 +1,4 @@
-body {
-    font-size: 10px;
-}
+@import './vendor/reset';
+@import './fonts';
+@import './default';
+@import './components/components';

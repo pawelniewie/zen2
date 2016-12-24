@@ -1,0 +1,25 @@
+@import './config';
+
+*, *:after, *:before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: $fontSize-normal;
+    line-height: 1.4;
+    overflow-x: hidden;
+    font-family: $fontFamily-basic;
+    background-color: $color-wildSand;
+    color: $color-mineshaft;
+}
+
+a {
+    color: $color-blueDeFrance;
+    text-decoration: none;
+    
+    &:hover {
+        text-decoration: underline;
+    }
+}

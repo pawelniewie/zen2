@@ -1,0 +1,47 @@
+@import '../config';
+
+.button {
+    display: inline-block;
+    font-family: $fontFamily-basic;
+    font-size: $fontSize-normal;
+    cursor: pointer;
+    
+    padding: 8px 16px;
+    background-color: transparent;
+    
+    border-radius: 2px;
+    border: 1px solid $color-iron;
+    
+    outline: 0;
+    user-select: none;
+    
+    transition-property: background-color, border-color;
+    transition-duration: $transitionSpeed-normal;
+    
+    &:hover,
+    &:focus {
+        border-color: $color-bombay;
+    }
+    
+    + .button {
+        margin-left: 5px;
+    }
+    
+    &.button__primary {
+        background-color: $color-blueDeFrance;
+        border-color: $color-blueDeFrance;
+        color: $color-white;
+        
+        &:hover,
+        &:focus {
+            background-color: darken($color-blueDeFrance, 5%);
+            border-color: darken($color-blueDeFrance, 20%);
+        }
+    }
+    
+    &.button__link {
+        border: 0;
+        padding: 8px;
+    }
+}
+

@@ -1,0 +1,31 @@
+@import '../styles/config';
+
+.separator {
+    margin: 10px 0;
+    display: flex;
+    font-size: $fontSize-tiny;
+    color: $color-bombay;
+    
+    .separator--content {
+        display: inline-flex;
+        flex-grow: 1;
+        
+        &:before,
+        &:after {
+            flex-grow: 1;
+            display: inline-flex;
+            content: "";
+            border-bottom: 1px solid $color-bombay;
+            transform: translateY(-50%);
+        }
+        
+        &:before {
+            margin-right: 15px;
+        }
+        
+        &:after {
+            margin-left: 15px;
+        }
+    }
+    
+}

@@ -27,3 +27,4 @@ node_modules
 
 app/assets/webpack/
 .env
+client/tests.js

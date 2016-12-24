@@ -1,6 +1,6 @@
 import IssuesList from './IssuesList';
 
-export default {
+export default (store) => ({
     path: ':projectName',
     component: IssuesList
-}
+})

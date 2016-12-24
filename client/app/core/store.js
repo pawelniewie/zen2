@@ -1,13 +1,14 @@
-import {createStore} from 'redux';
-import createReducer from './reducers';
+import {createStore, applyMiddleware} from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import createLogger from 'redux-logger';
+import reducers from './reducers';
+
+const logger = createLogger();
 
 export default function configureStore(initialState) {
-    let store = createStore(createReducer(), initialState);
-    store.asyncReducers = {};
-    return store;
-}
-
-export function injectAsyncReducer(store, name, asyncReducer) {
-    store.asyncReducers[name] = asyncReducer;
-    store.replaceReducer(createReducer(store.asyncReducers));
+    return createStore(
+        reducers,
+        initialState,
+        applyMiddleware(thunkMiddleware, logger)
+    );
 }

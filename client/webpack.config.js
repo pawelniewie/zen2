@@ -1,47 +1,14 @@
 const webpack = require('webpack');
-const path = require('path');
 
 const devBuild = process.env.NODE_ENV !== 'production';
-const nodeEnv = devBuild ? 'development' : 'production';
 
-const config = {
-    entry: [
-        './app/core/index.js'
-    ],
-    stats: {
-        warnings: false
-    },
-    output: {
-        filename: 'webpack-bundle.js',
-        path: '../app/assets/webpack'
-    },
-    resolve: {
-        extensions: ['', '.js', '.jsx'],
-        alias: {
-            react: path.resolve('./node_modules/react'),
-            'react-dom': path.resolve('./node_modules/react-dom')
-        },
-    },
-    plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify(nodeEnv)
-            }
-        })
-    ],
-    module: {
-        loaders: [
-            {
-                test: /\.jsx?$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/
-            },
-            {
-                test: /\.scss$/,
-                loaders: ["style-loader", "css-loader", "sass-loader"]
-            }
-        ]
-    }
+const config = require('./webpack_base.config');
+config.entry = [
+    './app/core/index.js'
+];
+config.output = {
+    filename: 'webpack-bundle.js',
+    path: '../app/assets/webpack'
 };
 
 module.exports = config;

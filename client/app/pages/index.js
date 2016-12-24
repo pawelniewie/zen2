@@ -1,11 +1,15 @@
 import ProjectsList from './project/list/ProjectsList';
 
-export default {
+import projectRoute from './project';
+import userRoute from './user';
+import errorsRoute from './errors';
+
+export default (store) => ({
     path: '/',
     indexRoute: {component: ProjectsList},
     childRoutes: [
-        require('./project').default,
-        require('./user').default,
-        require('./errors').default
+        projectRoute(store),
+        userRoute(store),
+        errorsRoute(store)
     ]
-}
+});

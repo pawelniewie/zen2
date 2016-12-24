@@ -1,0 +1,21 @@
+@import '../config';
+
+.input {
+    font-family: $fontFamily-basic;
+    font-size: $fontSize-normal;
+    padding: 8px;
+    border-radius: 2px;
+    border: 1px solid $color-iron;
+    transition-property: border-color;
+    transition-duration: $transitionSpeed-normal;
+    
+    &:hover {
+        border-color: $color-bombay;
+    }
+    
+    &:focus {
+        outline: 0;
+        border-color: $color-blueDeFrance;
+        background-color: transparent;
+    }
+}

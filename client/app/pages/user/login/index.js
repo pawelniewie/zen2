@@ -1,6 +1,6 @@
-import LoginForm from './LoginForm';
+import LoginFormPage from './LoginFormPage';
 
-export default {
+export default (store) => ({
     path: 'login',
-    component: LoginForm
-}
+    component: LoginFormPage
+})
