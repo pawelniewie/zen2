@@ -1,6 +1,6 @@
 @import '../styles/config';
 
-.branded-page {
+.focused-task {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -15,8 +15,8 @@
     box-shadow: 0 1px 2px 0 rgba(#000000, 0.2);
 }
 
-.branded-page--header {
-    text-align: center;
-    padding: 40px;
-    font-size: 20px;
+.focused-task--header {
+    font-size: $fontSize-huge;
+    font-weight: $fontWeight-light;
+    margin-bottom: 20px;
 }

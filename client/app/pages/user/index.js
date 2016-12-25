@@ -1,14 +1,11 @@
-import BrandedPage from '../../layouts/BrandedPage';
+import FocusedTask from '../../layouts/FocusedTask';
 
 import loginRoute from './login';
-import registrationRoute from './registration';
 
-export default (store) => ({
+export default (app) => ({
     path: 'user',
-    component: BrandedPage,
+    component: FocusedTask,
     childRoutes: [
-        loginRoute(store),
-        registrationRoute(store)
+        loginRoute(app)
     ]
-})
-;
+});

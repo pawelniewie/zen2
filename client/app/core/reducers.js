@@ -1,9 +1,11 @@
 import {combineReducers} from 'redux';
-import userLoginReducer from '../pages/user/login/reducers';
 
-export default combineReducers({
-    stubReducer: () => {
-        return {test: 1}
-    },
-    loginForm: userLoginReducer
-});
+/**
+ * @param {App} app
+ * @returns {Reducer}
+ */
+export default function(app) {
+    return combineReducers({
+        apollo: app.apolloClient.reducer()
+    });
+}

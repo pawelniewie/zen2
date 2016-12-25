@@ -4,14 +4,21 @@ export const userLogin = function(login, password) {
     return (dispatch) => {
         dispatch(userLoginStarted());
 
-        setTimeout(() => {
-            const date = new Date();
-            if (date % 2) {
-                dispatch(userLoginFailed());
-            } else {
-                dispatch(userLoginSuccess());
-            }
-        }, 1000);
+        fetch('/users/sign_in.json', {
+            method: 'POST',
+            body: JSON.stringify({
+                user: {
+                    email: login,
+                    password: password
+                }
+            })
+        })
+            .then(() => {
+                dispatch(userLoginSuccess);
+            })
+            .catch((err) => {
+                dispatch(userLoginFailed(err));
+            })
     }
 };
 

@@ -1,6 +1,6 @@
 import NotFoundPage from './404/NotFoundPage';
 
-export default (store) => ({
+export default (app) => ({
     path: '*',
     component: NotFoundPage
 })

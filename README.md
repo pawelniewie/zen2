@@ -1,3 +1,10 @@
+# Prerequisites
+* Install rbenv
+* Install postgres server and make sure it's started
+* Install heroku cli
+* `rbenv install 2.3.3`
+* `rake db:setup`
+
 # Installing dependencies
 
 `bundle && npm i`

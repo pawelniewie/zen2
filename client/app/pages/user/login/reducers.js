@@ -6,7 +6,7 @@ export default handleActions({
         return {...state, isLogging: true};
     },
     [actions.userLoginSuccess]: (state) => {
-        return {...state, isLogging: false};
+        return state;
     },
     [actions.userLoginFailed]: (state, action) => {
         return {...state, isLogging: false, error: action.error};

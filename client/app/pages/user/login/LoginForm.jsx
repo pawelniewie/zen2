@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './login-form.scss';
-import {Link} from 'react-router';
+
+import {FocusedTaskHeader} from '../../../layouts/FocusedTask';
+import Button from 'app/components/Button';
 
 export default class LoginForm extends React.Component {
     constructor(props) {
@@ -11,10 +13,10 @@ export default class LoginForm extends React.Component {
 
     render() {
         return <div className="login-form">
+            <FocusedTaskHeader>Login</FocusedTaskHeader>
             <form onSubmit={this.onSubmit} className="login-form form form__label-top">
-                {this.props.isLogging ? 'Logging...' : ''}
                 <div className="form--field">
-                    <label className="form--field--label" htmlFor="login-id">Login</label>
+                    <label className="form--field--label" htmlFor="login-id">Email or login</label>
                     <input type="text" ref="login" className="form--field--control input" id="login-id"/>
                 </div>
                 <div className="form--field">
@@ -22,12 +24,12 @@ export default class LoginForm extends React.Component {
                     <input type="password" ref="password" className="form--field--control input" id="password-id"/>
                 </div>
 
-
                 <div className="form--buttons login-form--buttons">
-                    <button className="button button__primary login-form--submit">Login</button>
-
-                    <a href="#">Forgot your password?</a><br/>
-                    <Link to="/user/register">Register</Link>
+                    <Button className="login-form--submit"
+                            isLoading={this.isLogging}
+                            isPrimary={true}
+                            loadingLabel="Logging...">Login</Button>
+                    <a href="#" className="login-form--forgot-password">Forgot your password?</a>
                 </div>
             </form>
         </div>;

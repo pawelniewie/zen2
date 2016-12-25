@@ -3,7 +3,6 @@ import {userLogin} from './actions';
 import LoginForm from './LoginForm';
 import React from 'react';
 
-
 const LoginFormPage = connect(
     (state) => (state.loginForm || {}),
     (dispatch) => {

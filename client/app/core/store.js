@@ -1,14 +1,32 @@
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import createLogger from 'redux-logger';
-import reducers from './reducers';
+import createReducers from './reducers';
 
-const logger = createLogger();
-
-export default function configureStore(initialState) {
+/**
+ * @param {App} app
+ * @param {Object} initialState
+ * @returns {Store}
+ */
+export default function configureStore(app, initialState) {
     return createStore(
-        reducers,
+        createReducers(app),
         initialState,
-        applyMiddleware(thunkMiddleware, logger)
+        compose(
+            applyMiddleware(
+                thunkMiddleware,
+                app.apolloClient.middleware()
+            ),
+            window.devToolsExtension ? window.devToolsExtension() : f => f
+        )
     );
+}
+
+export function injectAsyncReducer(app, name, asyncReducer) {
+    app.asyncReducers[name] = asyncReducer;
+    app.store.replaceReducer(createReducers(app));
+}
+
+export function removeAsyncReducer(app, name) {
+    delete app.asyncReducers[name];
+    app.store.replaceReducer(createReducers(app));
 }

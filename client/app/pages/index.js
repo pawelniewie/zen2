@@ -4,12 +4,12 @@ import projectRoute from './project';
 import userRoute from './user';
 import errorsRoute from './errors';
 
-export default (store) => ({
+export default (app) => ({
     path: '/',
     indexRoute: {component: ProjectsList},
     childRoutes: [
-        projectRoute(store),
-        userRoute(store),
-        errorsRoute(store)
+        projectRoute(app),
+        userRoute(app),
+        errorsRoute(app)
     ]
 });
