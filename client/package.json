@@ -5,7 +5,8 @@
   "scripts": {
     "test": "webpack --config webpack_test.config.js && mocha tests.js",
     "build:production": "NODE_ENV=production webpack --config webpack.config.js",
-    "build:development": "webpack -w --config webpack.config.js"
+    "build:development": "webpack -w --config webpack.config.js",
+    "preinstall": "rm -rf ../node_modules/app || true"
   },
   "cacheDirectories": [
     "node_modules",
