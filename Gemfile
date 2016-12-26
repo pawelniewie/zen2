@@ -78,6 +78,9 @@ source 'https://rubygems.org' do
 
   gem 'sequenced'
 
+  # Workflow
+  gem 'aasm'
+
   group :production do
     gem 'rails_12factor'
     gem 'remote_syslog_logger'
