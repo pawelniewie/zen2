@@ -13,8 +13,9 @@ export default function configureStore(app, initialState) {
         initialState,
         compose(
             applyMiddleware(
+                app.actionListener.middleware(),
                 thunkMiddleware,
-                app.apolloClient.middleware()
+                app.apolloClient.middleware(),
             ),
             window.devToolsExtension ? window.devToolsExtension() : f => f
         )

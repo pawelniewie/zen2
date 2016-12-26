@@ -1,13 +1,15 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {Router, browserHistory} from 'react-router';
-import ApolloClient from 'apollo-client';
+import ApolloClient, {createNetworkInterface} from 'apollo-client';
 import {ApolloProvider} from 'react-apollo';
 
 import createRoutes from '../pages';
 import configureStore from './store';
+import ActionListener from '../libs/ActionListener';
 
 import style from '../styles/main.scss';
+
 
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
@@ -22,13 +24,17 @@ require('isomorphic-fetch');
  * @property {History} history
  * @property {Store} store
  * @property {Object} asyncReducers
+ * @property {ActionListener} actionListener
  */
 
-const client = new ApolloClient();
+const client = new ApolloClient({
+    networkInterface: createNetworkInterface({uri: '/gql'})
+});
 
 const app = {
     apolloClient: client,
-    history: browserHistory
+    history: browserHistory,
+    actionListener: new ActionListener()
 };
 
 app.store = configureStore(app, {});

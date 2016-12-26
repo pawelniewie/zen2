@@ -2,7 +2,14 @@ const webpack = require('webpack');
 const path = require('path');
 
 const devBuild = process.env.NODE_ENV !== 'production';
-const nodeEnv = devBuild ? 'development' : 'production';
+
+const svgoConfig = JSON.stringify({
+    plugins: [
+        {removeTitle: true},
+        {convertColors: {shorthex: false}},
+        {convertPathData: false}
+    ]
+});
 
 const config = {
     stats: {
@@ -34,7 +41,16 @@ const config = {
                 loaders: ["style-loader", "css-loader", "sass-loader", "postcss-loader"]
             },
             {
+                test: /.*\.svg$/,
+                exclude: /fonts/,
+                loaders: [
+                    'svg-inline',
+                    'svgo-loader?' + svgoConfig
+                ]
+            },
+            {
                 test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+                exclude: /images/,
                 loader: 'file-loader'
             }
         ]

@@ -1,0 +1,30 @@
+@import '../config';
+
+.main-header {
+    background-color: $color-white;
+    min-height: 40px;
+    position: fixed;
+    width: 100%;
+    z-index: $zIndex-header;
+}
+
+.main-header--user {
+    float: right;
+}
+
+.main-header--logo {
+    float: left;
+    padding: 10px 9px;
+    height: 40px;
+    
+    > svg {
+        width: 18px;
+        height: 22px;
+        display: block;
+    }
+}
+
+.main-header--login {
+    line-height: 40px;
+    margin-right: 10px;
+}

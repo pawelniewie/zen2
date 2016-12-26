@@ -1,5 +1,6 @@
 import {createAction} from 'redux-actions';
 import AppError from 'app/libs/AppError';
+import {browserHistory} from 'react-router';
 
 export const userLogin = function(login, password) {
     return (dispatch) => {
@@ -20,7 +21,6 @@ export const userLogin = function(login, password) {
             .then(response => response.json())
             .then(json => {
                 if (json.error) {
-                    console.dir(new AppError(json.error));
                     dispatch(userLoginFailed(new AppError(json.error)));
                 } else {
                     dispatch(userLoginSuccess());
