@@ -39,3 +39,13 @@
 .form--buttons {
     margin-top: 10px;
 }
+
+.form--errors {
+    margin-top: 5px;
+}
+
+.form--errors--error {
+    color: $color-alizarin;
+    font-size: $fontSize-tiny;
+    
+}

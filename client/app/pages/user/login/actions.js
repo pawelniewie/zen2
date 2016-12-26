@@ -1,4 +1,5 @@
 import {createAction} from 'redux-actions';
+import AppError from 'app/libs/AppError';
 
 export const userLogin = function(login, password) {
     return (dispatch) => {
@@ -6,6 +7,9 @@ export const userLogin = function(login, password) {
 
         fetch('/users/sign_in.json', {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 user: {
                     email: login,
@@ -13,8 +17,14 @@ export const userLogin = function(login, password) {
                 }
             })
         })
-            .then(() => {
-                dispatch(userLoginSuccess);
+            .then(response => response.json())
+            .then(json => {
+                if (json.error) {
+                    console.dir(new AppError(json.error));
+                    dispatch(userLoginFailed(new AppError(json.error)));
+                } else {
+                    dispatch(userLoginSuccess());
+                }
             })
             .catch((err) => {
                 dispatch(userLoginFailed(err));

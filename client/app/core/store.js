@@ -23,10 +23,10 @@ export default function configureStore(app, initialState) {
 
 export function injectAsyncReducer(app, name, asyncReducer) {
     app.asyncReducers[name] = asyncReducer;
-    app.store.replaceReducer(createReducers(app));
+    app.store.replaceReducer(createReducers(app, app.asyncReducers));
 }
 
 export function removeAsyncReducer(app, name) {
     delete app.asyncReducers[name];
-    app.store.replaceReducer(createReducers(app));
+    app.store.replaceReducer(createReducers(app, app.asyncReducers));
 }

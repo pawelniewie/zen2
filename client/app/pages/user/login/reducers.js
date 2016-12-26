@@ -9,7 +9,7 @@ export default handleActions({
         return state;
     },
     [actions.userLoginFailed]: (state, action) => {
-        return {...state, isLogging: false, error: action.error};
+        return {...state, isLogging: false, error: action.payload};
     }
 }, {
     isLogging: false

@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './login-form.scss';
 
-import {FocusedTaskHeader} from '../../../layouts/FocusedTask';
+import {FocusedTaskHeader} from 'app/layouts/FocusedTask';
+import {FormErrors, FormField} from 'app/components/Form';
 import Button from 'app/components/Button';
 
 export default class LoginForm extends React.Component {
@@ -15,14 +16,15 @@ export default class LoginForm extends React.Component {
         return <div className="login-form">
             <FocusedTaskHeader>Login</FocusedTaskHeader>
             <form onSubmit={this.onSubmit} className="login-form form form__label-top">
-                <div className="form--field">
+                <FormField>
                     <label className="form--field--label" htmlFor="login-id">Email or login</label>
                     <input type="text" ref="login" className="form--field--control input" id="login-id"/>
-                </div>
-                <div className="form--field">
+                </FormField>
+                <FormField>
                     <label className="form--field--label" htmlFor="password-id">Password</label>
                     <input type="password" ref="password" className="form--field--control input" id="password-id"/>
-                </div>
+                    <FormErrors errors={this.props.error && this.props.error.message}/>
+                </FormField>
 
                 <div className="form--buttons login-form--buttons">
                     <Button className="login-form--submit"
