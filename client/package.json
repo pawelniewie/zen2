@@ -6,7 +6,7 @@
 	"test": "webpack --config webpack_test.config.js && mocha tests.js",
 	"build:production": "NODE_ENV=production webpack --config webpack.config.js",
 	"build:development": "webpack -w --config webpack.config.js",
-	"postinstall": "ln -s app ../node_modules/app"
+	"postinstall": "ln -s ../app node_modules/app"
   },
   "cacheDirectories": [
 	"node_modules",
