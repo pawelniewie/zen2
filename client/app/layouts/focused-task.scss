@@ -5,18 +5,15 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: $color-white;
     
     padding: 20px;
-    border-radius: 5px;
     
     width: 450px;
     max-width: 450px;
-    box-shadow: 0 1px 2px 0 rgba(#000000, 0.2);
 }
 
 .focused-task--header {
-    font-size: $fontSize-huge;
+    font-size: $fontSize-large;
     font-weight: $fontWeight-light;
     margin-bottom: 20px;
 }

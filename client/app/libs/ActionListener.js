@@ -42,14 +42,22 @@ export default class ActionListener {
         this.listeners = [];
     }
 
+    /**
+     * @param {(string|Function)} actionPredicate
+     * @param {Function} func
+     * @returns {Function}
+     */
     afterAction(actionPredicate, func) {
-        addListener.call(this, LIFECYCLE_AFTER, actionPredicate, func);
-        return this;
+        return addListener.call(this, LIFECYCLE_AFTER, actionPredicate, func);
     }
 
+    /**
+     * @param {(string|Function)} actionPredicate
+     * @param {Function} func
+     * @returns {Function}
+     */
     beforeAction(actionPredicate, func) {
-        addListener.call(this, LIFECYCLE_BEFORE, actionPredicate, func);
-        return this;
+        return addListener.call(this, LIFECYCLE_BEFORE, actionPredicate, func);
     }
 
     middleware() {

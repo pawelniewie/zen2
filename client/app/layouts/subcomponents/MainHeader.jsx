@@ -4,6 +4,7 @@ import InlineSVG from 'react-svg-inline';
 
 import logo from 'app/images/logo.svg';
 import {Link} from 'react-router';
+import SearchBar from 'app/components/SearchBar';
 
 export default function MainHeader(props) {
     return <header className="main-header">
@@ -12,6 +13,7 @@ export default function MainHeader(props) {
         </div>
 
         <InlineSVG svg={logo} component={Link} to="/" className="main-header--logo"/>
+        <SearchBar className="main-header--search" placeholder="Search issues, actions..."/>
     </header>
 }
 

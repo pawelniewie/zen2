@@ -1,0 +1,28 @@
+@import '../styles/config';
+
+.search-bar {
+    position: relative;
+    display: inline-block;
+    
+    .search-bar--input {
+        padding-left: 30px;
+        font-size: $fontSize-small;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        min-width: 400px;
+    }
+}
+
+.search-bar--icon {
+    user-select: none;
+    pointer-events: none;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -10px;
+    
+    > svg {
+        width: 15px;
+    }
+}
+

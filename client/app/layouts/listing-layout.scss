@@ -1,0 +1,17 @@
+@import "../styles/config";
+
+.listing-layout {
+    margin: 20px 50px;
+}
+
+.listing-layout--title {
+    font-size: $fontSize-large;
+}
+
+.listing-layout--filter {
+    margin-left: 10px;
+}
+
+.listing-layout--side-header-content {
+    float: right;
+}

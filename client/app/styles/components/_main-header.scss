@@ -6,6 +6,7 @@
     position: fixed;
     width: 100%;
     z-index: $zIndex-header;
+    border-bottom: 1px solid $color-iron;
 }
 
 .main-header--user {
@@ -13,9 +14,11 @@
 }
 
 .main-header--logo {
-    float: left;
-    padding: 10px 9px;
+    display: inline-block;
+    padding: 9px;
     height: 40px;
+    margin-left: 20px;
+    vertical-align: middle;
     
     > svg {
         width: 18px;
@@ -27,4 +30,10 @@
 .main-header--login {
     line-height: 40px;
     margin-right: 10px;
+}
+
+.main-header--search {
+    display: inline-block;
+    margin-left: 20px;
+    vertical-align: middle;
 }

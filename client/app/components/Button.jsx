@@ -5,8 +5,8 @@ export default function Button(props) {
     const newProps = {
         className: classNames({
             button: true,
-            'button__primary': props.isPrimary
-
+            button__primary: props.isPrimary,
+            button__small: props.isSmall
         }, props.className),
         disabled: props.isLoading || props.disabled
     };
@@ -18,6 +18,7 @@ export default function Button(props) {
 Button.propTypes = {
     isPrimary: React.PropTypes.bool,
     isLoading: React.PropTypes.bool,
+    isSmall: React.PropTypes.bool,
     loadingLabel: React.PropTypes.string,
     disable: React.PropTypes.bool
 };

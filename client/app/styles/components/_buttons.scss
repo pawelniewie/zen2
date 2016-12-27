@@ -26,6 +26,11 @@
     + .button {
         margin-left: 5px;
     }
+    
+    &.button__small {
+        padding: 6px 14px;
+        font-size: $fontSize-small;
+    }
 }
 
 .button__primary {
