@@ -5,7 +5,7 @@ import SearchBar from 'app/components/SearchBar';
 
 export default function ProjectsList() {
     return <ListingLayout title="Projects" sideHeaderContent={[
-        <Button isSmall={true}>Create project</Button>,
+        <Button isSmall={true} isLink={true} to="/">Create project</Button>,
         <SearchBar placeholder="Filter projects" className={ListingLayout.filterClass}/>
     ]}>
 

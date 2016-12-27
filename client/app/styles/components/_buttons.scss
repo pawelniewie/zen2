@@ -1,9 +1,12 @@
 @import '../config';
 
-.button {
+a.button,
+.button{
     display: inline-block;
     font-family: $fontFamily-basic;
     font-size: $fontSize-normal;
+    color: $color-mineshaft;
+    text-decoration: none;
     cursor: pointer;
     
     padding: 8px 16px;
