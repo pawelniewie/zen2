@@ -10,4 +10,5 @@ class User < ApplicationRecord
     :confirmable, :lockable, :rememberable
 
   validates :email, presence: true, uniqueness: true
+  validates :organization, presence: true
 end
