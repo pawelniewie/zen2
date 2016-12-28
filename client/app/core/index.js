@@ -28,7 +28,12 @@ require('isomorphic-fetch');
  */
 
 const client = new ApolloClient({
-    networkInterface: createNetworkInterface({uri: '/gql'})
+    networkInterface: createNetworkInterface({
+        uri: '/gql',
+        opts: {
+            credentials: 'same-origin'
+        }
+    })
 });
 
 const app = {
@@ -40,6 +45,7 @@ const app = {
 app.store = configureStore(app, {});
 app.asyncReducers = Object.create(null);
 
+global.app = app;
 const routes = createRoutes(app);
 render(
     <ApolloProvider store={app.store} client={client}>

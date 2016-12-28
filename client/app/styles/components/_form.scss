@@ -11,13 +11,13 @@
     
 }
 
-.form--field--label {
+.form--label {
     float: left;
     width: 200px;
     font-size: $fontSize-small;
 }
 
-.form--field--control {
+.form--control {
     width: 100%;
 }
 
@@ -27,10 +27,10 @@
         margin-left: 0;
     }
     
-    .form--field--label {
+    .form--label {
         display: block;
         float: none;
-        width: auto;
+        width: 100%;
         margin-bottom: 4px;
         font-size: $fontSize-small;
     }
@@ -47,5 +47,10 @@
 .form--errors--error {
     color: $color-alizarin;
     font-size: $fontSize-tiny;
-    
+}
+
+.form--description {
+    margin-top: 5px;
+    font-size: $fontSize-tiny;
+    color: $semColor-discreteText;
 }

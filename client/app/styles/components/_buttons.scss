@@ -1,7 +1,7 @@
 @import '../config';
 
 a.button,
-.button{
+.button {
     display: inline-block;
     font-family: $fontFamily-basic;
     font-size: $fontSize-normal;
@@ -33,6 +33,11 @@ a.button,
     &.button__small {
         padding: 6px 14px;
         font-size: $fontSize-small;
+    }
+    
+    &.button__link {
+        padding: 0 16px;
+        color: $color-blueDeFrance;
     }
 }
 

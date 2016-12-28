@@ -16,7 +16,10 @@ export default function ListingLayout(props) {
 
 ListingLayout.propTypes = {
     title: React.PropTypes.string,
-    sideHeaderContent: React.PropTypes.element
+    sideHeaderContent: React.PropTypes.oneOfType([
+        React.PropTypes.element,
+        React.PropTypes.array
+    ])
 };
 
 ListingLayout.filterClass = 'listing-layout--filter';

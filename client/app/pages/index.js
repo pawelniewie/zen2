@@ -1,4 +1,4 @@
-import ProjectsList from './project/list/ProjectsList';
+import ProjectsListWithData from './project/list/ProjectsListWithData';
 
 import projectRoute from './project';
 import userRoute from './user';
@@ -9,7 +9,7 @@ import AppLayoutWithData from '../layouts/AppLayoutWithData';
 export default (app) => ({
     path: '/',
     component: AppLayoutWithData,
-    indexRoute: {component: ProjectsList},
+    indexRoute: {component: ProjectsListWithData},
     childRoutes: [
         projectRoute(app),
         userRoute(app),

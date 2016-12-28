@@ -18,11 +18,12 @@ export default function Button(props) {
         className: classNames({
             button: true,
             button__primary: isPrimary,
-            button__small: isSmall
+            button__small: isSmall,
+            button__link: isLink
         }, className),
         disabled: isLoading || disabled
     };
-    const Element = isLink ? Link : 'button';
+    const Element = (props.to) ? Link : 'button';
 
     const content = isLoading ? (loadingLabel || 'Loading...') : children;
     return (
@@ -36,5 +37,6 @@ Button.propTypes = {
     isSmall: React.PropTypes.bool,
     loadingLabel: React.PropTypes.string,
     disabled: React.PropTypes.bool,
-    isLink: React.PropTypes.bool
+    isLink: React.PropTypes.bool,
+    to: React.PropTypes.string
 };

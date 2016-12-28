@@ -16,7 +16,8 @@ export const userLogin = function(login, password) {
                     email: login,
                     password: password
                 }
-            })
+            }),
+            credentials: 'same-origin'
         })
             .then(response => response.json())
             .then(json => {
