@@ -16,6 +16,12 @@ QueryType = GraphQL::ObjectType.define do
     }
   end
 
+  connection :users, UserInterface.connection_type do
+    resolve UserResolver.new -> (_, _, ctx) {
+      UserPolicy::Scope.new(ctx[:current_user], User).resolve
+    }
+  end
+
   field :currentUser, UserInterface do
     resolve -> (obj, args, ctx) {
       ctx[:current_user]
