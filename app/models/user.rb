@@ -16,4 +16,8 @@ class User < ApplicationRecord
     message: 'Only letters and digits allowed'
   }
 
+  def full_name
+    "#{first_name} #{last_name}".chomp
+  end
+
 end
