@@ -9,6 +9,8 @@ QueryType = GraphQL::ObjectType.define do
   end
 
   connection :issues, IssueInterface.connection_type do
+    argument :project, ProjectSelector
+
     resolve IssueResolver.new -> (_, _, ctx) {
       IssuePolicy::Scope.new(ctx[:current_user], Issue).resolve
     }

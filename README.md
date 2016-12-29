@@ -130,3 +130,31 @@ mutation CreateIssue($input: CreateIssueInput!) {
   }
 }
 ```
+
+## Getting list of issues
+
+```graphql
+query IssueQuery($project:ProjectSelector) {
+  issues(project: $project) {
+    edges {
+      node {
+        id
+        summary
+      }
+    }
+  }
+}
+```
+
+Variables:
+
+```json
+{
+  "project": {
+    "key": "TEST"
+  }
+}
+```
+
+Output:
+

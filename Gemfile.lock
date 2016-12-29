@@ -22,7 +22,7 @@ GIT
 
 GIT
   remote: https://github.com/pawelniewie/graphql-rails-resolver.git
-  revision: 4e315caf77deaa2ffae8045480471e340faec0db
+  revision: 3e8b09b14e6b79dc0ac89c100fcdc74faa0dfcbd
   branch: master
   specs:
     graphql-rails-resolver (0.2.8)
@@ -364,4 +364,4 @@ RUBY VERSION
    ruby 2.3.3p222
 
 BUNDLED WITH
-   1.13.6
+   1.13.7
