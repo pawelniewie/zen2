@@ -30,6 +30,14 @@ resource "cloudflare_record" "certum_usezen_it" {
   ttl = 360
 }
 
+resource "cloudflare_record" "spf_usezen_it" {
+  domain = "usezen.it"
+  name = "usezen.it"
+  value = "v=spf1 include:mailgun.org ~all"
+  type = "TXT"
+  ttl = 360
+}
+
 resource "cloudflare_record" "spf_mail_usezen_it" {
   domain = "usezen.it"
   name = "mail.usezen.it"
@@ -71,5 +79,3 @@ resource "cloudflare_record" "mxb_usezen_it" {
   type = "MX"
   ttl = 360
 }
-
-
