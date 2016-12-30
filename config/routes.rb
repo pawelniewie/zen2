@@ -8,13 +8,13 @@ Rails.application.routes.draw do
 
   # match urls where the host starts with 'www.'
   constraints(subdomain: 'www') do
-    redirect_to_base_url = redirect { |_, request|
+    redirect_to_root_domain = redirect { |_, request|
       # parse the current request url
       # tap in and remove www.
       URI.parse(request.url).tap { |uri| uri.host.sub!(/^www\./i, '') }.to_s
     }
-    match '*path', via: :all, to: redirect_to_base_url
-    root to: redirect_to_base_url
+    match '*path', via: :all, to: redirect_to_root_domain
+    root to: redirect_to_root_domain
   end
 
   root 'root#index'
