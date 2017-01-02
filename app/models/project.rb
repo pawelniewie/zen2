@@ -1,5 +1,8 @@
 class Project < ApplicationRecord
   belongs_to :organization
+  
+  has_many :issue_types
+  has_many :statuses
 
   validates :name, presence: true, uniqueness: true
   validates :key, presence: true, uniqueness: true, format: {
