@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161229175417) do
+ActiveRecord::Schema.define(version: 20170102153227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,17 @@ ActiveRecord::Schema.define(version: 20161229175417) do
     t.index ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
   end
 
+  create_table "statuses", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "position"
+    t.string   "category"
+    t.uuid     "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name", "project_id"], name: "index_statuses_on_name_and_project_id", unique: true, using: :btree
+    t.index ["project_id"], name: "index_statuses_on_project_id", using: :btree
+  end
+
   create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -124,5 +135,6 @@ ActiveRecord::Schema.define(version: 20161229175417) do
   add_foreign_key "issues", "users", column: "assignee_id"
   add_foreign_key "issues", "users", column: "reporter_id"
   add_foreign_key "projects", "organizations"
+  add_foreign_key "statuses", "projects"
   add_foreign_key "users", "organizations"
 end
