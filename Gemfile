@@ -81,6 +81,9 @@ source 'https://rubygems.org' do
   # Workflow
   gem 'aasm'
 
+  gem 'wisper', '2.0.0.rc1'
+  gem "trailblazer-rails"
+
   group :production do
     gem 'rails_12factor'
     gem 'remote_syslog_logger'
