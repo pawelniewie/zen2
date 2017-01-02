@@ -3,6 +3,7 @@ class ApplicationService < BottledService
 
   include Pundit
   include Deterministic::Prelude::Result
+  include Wisper::Publisher
 
   protected
 

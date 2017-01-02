@@ -11,6 +11,8 @@ class CreateIssueService < ApplicationService
 
       issue.save!
 
+      broadcast(:issue_created, issue)
+
       OpenStruct.new(issue: issue)
     end
 

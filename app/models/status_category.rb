@@ -1,4 +1,4 @@
-class StatusCategory
+module StatusCategory
   DONE = "done".freeze
   NEW = "new".freeze
   IN_PROGRESS = "in_progress".freeze

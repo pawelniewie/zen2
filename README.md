@@ -98,9 +98,7 @@ mutation CreateProject($input: CreateProjectInput!) {
     "project": {
       "name": "Another",
       "key": "ano"
-    },
-    "organizationId": "202530d3-45cc-433b-b874-65c72707c763"
-  }
+    }
 }
 ```
 

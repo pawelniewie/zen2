@@ -83,6 +83,7 @@ source 'https://rubygems.org' do
 
   gem 'wisper', '2.0.0.rc1'
   gem "trailblazer-rails"
+  gem "cells-rails"
 
   group :production do
     gem 'rails_12factor'

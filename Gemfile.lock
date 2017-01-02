@@ -102,6 +102,12 @@ GEM
     bugsnag (5.0.1)
     builder (3.2.2)
     byebug (9.0.6)
+    cells (4.1.5)
+      tilt (>= 1.4, < 3)
+      uber (>= 0.1.0, < 0.2.0)
+    cells-rails (0.0.6)
+      actionpack (>= 3.0)
+      cells (>= 4.1)
     coderay (1.1.1)
     concurrent-ruby (1.0.3)
     connection_pool (2.2.1)
@@ -353,6 +359,7 @@ DEPENDENCIES
   attr_encrypted!
   bottled_services!
   bugsnag!
+  cells-rails!
   delayed_job_active_record!
   deterministic!
   devise!

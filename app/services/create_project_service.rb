@@ -5,13 +5,17 @@ class CreateProjectService < ApplicationService
 
   def call
     result = try! do
-      project = Project.new(@project.slice('name', 'key').merge(organization_id: @organization.id))
+      Project.transaction do
+        project = Project.new(@project.slice('name', 'key').merge(organization_id: @organization.id))
 
-      authorize project, :create?
+        authorize project, :create?
 
-      project.save!
+        project.save!
 
-      OpenStruct.new(project: project)
+        broadcast(:project_created, project)
+
+        OpenStruct.new(project: project)
+      end
     end
 
     if block_given?
