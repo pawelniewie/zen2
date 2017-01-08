@@ -9,4 +9,9 @@ IssueInterface = GraphQL::ObjectType.define do
   field :description, types.String
   field :assignee, UserInterface
   field :reporter, UserInterface
+  field :transitions, !types[IssueTransitionInterface] do
+    resolve -> (obj, args, ctx) {
+      obj.project.statuses
+    }
+  end
 end
