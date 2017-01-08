@@ -95,6 +95,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
+    anbt-sql-formatter (0.0.5)
     arel (7.1.4)
     attr_encrypted (3.0.3)
       encryptor (~> 3.0.0)
@@ -211,6 +212,9 @@ GEM
     pg (0.19.0)
     pipetree (0.0.5)
       uber
+    pp_sql (0.2.0)
+      anbt-sql-formatter (~> 0.0.5)
+      rails (>= 4.0.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -380,6 +384,7 @@ DEPENDENCIES
   nokogiri!
   pg (~> 0.18)!
   platform-api!
+  pp_sql!
   pry-byebug!
   puma (~> 3.0)!
   pundit!
