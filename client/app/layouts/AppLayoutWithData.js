@@ -7,9 +7,16 @@ const query = gql`{
     user: currentUser {
         id
         email
+        username
+        first_name
+        last_name
     }
 }
 `;
-const AppLayoutWithData = graphql(query)(AppLayout);
+const AppLayoutWithData = graphql(query, {
+    props: ({data: {user}}) => {
+        return {user};
+    }
+})(AppLayout);
 
 export default AppLayoutWithData;
