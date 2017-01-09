@@ -2,7 +2,7 @@
 
 .main-header {
     background-color: $color-white;
-    min-height: 40px;
+    height: 48px;
     position: fixed;
     width: 100%;
     z-index: $zIndex-header;
@@ -11,20 +11,21 @@
 
 .main-header--user {
     float: right;
+    height: 100%;
 }
 
 .main-header--user--avatar {
-    margin-top: 5px;
+    margin-top: 7px;
     margin-right: 20px;
     display: inline-block;
 }
 
 .main-header--logo {
-    display: inline-block;
-    padding: 9px;
-    height: 40px;
+    padding: 12px;
+    height: 100%;
     margin-left: 20px;
     vertical-align: middle;
+    float: left;
     
     > svg {
         width: 18px;
@@ -34,13 +35,18 @@
 }
 
 .main-header--login {
-    line-height: 40px;
-    margin-right: 10px;
+    margin-top: 7px;
+    margin-right: 20px;
 }
 
 .main-header--search {
-    display: inline-block;
+    float: left;
     margin-left: 20px;
     vertical-align: middle;
-    width: 400px;
+    height: 100%;
+}
+
+.main-header--search--search-bar {
+    min-width: 300px;
+    margin-top: 8px;
 }

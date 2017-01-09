@@ -14,8 +14,8 @@ const query = gql`{
 }
 `;
 const AppLayoutWithData = graphql(query, {
-    props: ({data: {user}}) => {
-        return {user};
+    props: ({data: {user, isLoading}}) => {
+        return {user, isLoading};
     }
 })(AppLayout);
 

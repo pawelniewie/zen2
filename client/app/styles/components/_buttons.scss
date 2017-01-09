@@ -39,21 +39,22 @@ a.button,
         padding: 0 16px;
         color: $color-blueDeFrance;
     }
-}
-
-.button__primary {
-    background-color: $color-blueDeFrance;
-    border-color: $color-blueDeFrance;
-    color: $color-white;
     
-    &:hover,
-    &:focus {
-        background-color: darken($color-blueDeFrance, 5%);
-        border-color: darken($color-blueDeFrance, 20%);
+    &.button__primary {
+        background-color: $color-blueDeFrance;
+        border-color: $color-blueDeFrance;
+        color: $color-white;
+        
+        &:hover,
+        &:focus {
+            background-color: darken($color-blueDeFrance, 5%);
+            border-color: darken($color-blueDeFrance, 20%);
+        }
+    }
+    
+    &.button__link {
+        border: 0;
+        padding: 8px;
     }
 }
 
-.button__link {
-    border: 0;
-    padding: 8px;
-}

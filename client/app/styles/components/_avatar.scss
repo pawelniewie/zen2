@@ -1,7 +1,12 @@
+@import "../config";
+
 .avatar {
     
 }
 
 .avatar--image {
     border-radius: 50%;
+    background-color: $color-iron;
+    border: 1px solid $color-iron;
+    box-sizing: content-box;
 }
