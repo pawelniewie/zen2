@@ -37,7 +37,9 @@ const CreateProjectFormPage = compose(
         props: ({mutate, ownProps}) => {
             return {
                 onSubmit: (project) => {
-                    return mutate({variables: {project}})
+                    return mutate({
+                        variables: {project}
+                    })
                         .then((gqlResult) => {
                             const result = gqlResult.data.createProject;
                             if (result.errors && result.errors.length) {

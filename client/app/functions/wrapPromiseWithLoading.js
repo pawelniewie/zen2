@@ -2,7 +2,9 @@ export default function wrapPromiseWithLoading(component, promise, options) {
     component.setState({...component.state, isLoading: true});
 
     const makeLoaded = () => {
-        component.setState({...component.state, isLoading: false});
+        if (component.isMounted) {
+            component.setState({...component.state, isLoading: false});
+        }
     };
 
     const onLoaded = () => {

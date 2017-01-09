@@ -24,6 +24,9 @@ const ProjectsListWithData = graphql(query, {
             };
         }
         return {};
+    },
+    options: {
+        forceFetch: true
     }
 })(ProjectsList);
 
