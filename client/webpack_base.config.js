@@ -23,7 +23,7 @@ const config = {
         alias: {
             react: path.resolve('./node_modules/react'),
             'react-dom': path.resolve('./node_modules/react-dom')
-        },
+        }
     },
     plugins: [
         new webpack.DefinePlugin({
@@ -41,20 +41,33 @@ const config = {
             },
             {
                 test: /\.scss$/,
-                loaders: ["style-loader", "css-loader", "sass-loader", "postcss-loader"]
+                loaders: ["style-loader", "css-loader", "resolve-url-loader", "sass-loader?sourceMap", "postcss-loader"]
             },
             {
                 test: /.*\.svg$/,
                 exclude: /fonts/,
                 loaders: [
-                    'svg-inline',
-                    'svgo-loader?' + svgoConfig
+                    'url-loader'
                 ]
             },
             {
                 test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
                 exclude: /images/,
                 loader: 'file-loader'
+            },
+            {
+                test: /\.(graphql|gql)$/,
+                exclude: /node_modules/,
+                loader: 'graphql-tag/loader'
+            }
+        ],
+        preLoaders: [
+            {
+                test: /.*\.svg$/,
+                exclude: /fonts/,
+                loaders: [
+                    'svgo-loader?' + svgoConfig
+                ]
             }
         ]
     },
@@ -66,11 +79,9 @@ const config = {
 module.exports = config;
 
 if (devBuild) {
-    console.log('Webpack dev build');
     module.exports.devtool = 'eval-source-map';
 } else {
     config.plugins.push(
         new webpack.optimize.DedupePlugin()
     );
-    console.log('Webpack production build');
 }

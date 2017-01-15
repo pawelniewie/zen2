@@ -38,6 +38,10 @@ a.button,
     &.button__link {
         padding: 0 16px;
         color: $color-blueDeFrance;
+        
+        &:hover {
+            text-decoration: underline;
+        }
     }
     
     &.button__primary {

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './login-form.scss';
+require('./login-form.scss');
 
 import {FocusedTaskHeader} from 'app/layouts/FocusedTask';
 import {FormErrors, FormField} from 'app/components/Form';

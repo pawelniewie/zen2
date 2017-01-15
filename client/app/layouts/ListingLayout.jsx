@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './listing-layout.scss';
+require('./listing-layout.scss');
 
 export default function ListingLayout(props) {
     return <div className="listing-layout">

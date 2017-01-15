@@ -1,13 +1,15 @@
 import React from 'react';
 import cx from 'classnames';
 import InlineSVG from 'react-svg-inline';
-import magnifierIcon from 'app/images/icons/magnifier.svg';
-import style from './search-bar.scss';
 
+require('./search-bar.scss');
+
+
+const icon = require('!!svg-inline-loader!app/images/icons/magnifier.svg');
 export default function SearchBar({placeholder, className, ...otherProps}) {
 
-    return <div className={cx('search-bar', className)}>
-        <InlineSVG svg={magnifierIcon} className="search-bar--icon"/>
+    return <div className={cx('search-bar', className)} {...otherProps}>
+        <InlineSVG svg={icon} className="search-bar--icon"/>
         <input type="search" className="input search-bar--input" placeholder={placeholder}/>
     </div>
 }

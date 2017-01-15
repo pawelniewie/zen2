@@ -2,9 +2,10 @@ import React from 'react';
 import UserInHeader from './UserInHeader';
 import InlineSVG from 'react-svg-inline';
 
-import logo from 'app/images/logo.svg';
 import {Link} from 'react-router';
 import SearchBar from 'app/components/SearchBar';
+
+const logo = require('!!svg-inline!app/images/logo.svg');
 
 export default function MainHeader(props) {
     let headerUser;

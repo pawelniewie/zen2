@@ -1,8 +1,9 @@
 import React from 'react';
 import {FormErrors, FormField, FormLabel, FormButtons, FormDescription} from 'app/components/Form';
 import Button from 'app/components/Button';
-import styles from './create-project-form.scss';
-import wrapPromiseWithLoading from 'app/functions/wrapPromiseWithLoading';
+require('./create-project-form.scss');
+import loadingIndicator from 'app/mixins/loadingIndicator';
+import reactMixin from 'react-mixin';
 
 export default class CreateProjectForm extends React.Component {
     constructor() {
@@ -30,7 +31,7 @@ export default class CreateProjectForm extends React.Component {
             <FormField>
                 <FormLabel htmlFor="project-key-id">Project key</FormLabel>
                 <input type="text" ref="key" className="input form--control create-project-form--project-key"
-                       id="project-key-id" maxLength="4"/>
+                       id="project-key-id" maxLength="20"/>
                 <FormErrors errors={this.getErrorsForField('key')}/>
                 <FormDescription>Used as prefix for every issue id in this project</FormDescription>
             </FormField>
@@ -83,7 +84,7 @@ export default class CreateProjectForm extends React.Component {
                         this.setState({errors: errors});
                     }
                 }),
-            {delay: 400}
+            {rejectDelay: 400}
         )
     }
 
@@ -98,3 +99,5 @@ CreateProjectForm.propTypes = {
     onCancel: React.PropTypes.func,
     errors: React.PropTypes.object
 };
+
+reactMixin.onClass(CreateProjectForm, loadingIndicator);
