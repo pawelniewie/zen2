@@ -8,7 +8,7 @@ import createRoutes from '../pages';
 import configureStore from './store';
 import ActionListener from '../libs/ActionListener';
 
-import style from '../styles/main.scss';
+require('../styles/main.scss');
 
 
 require('es6-promise').polyfill();

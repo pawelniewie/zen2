@@ -1,52 +1,61 @@
 @import '../config';
 
 .main-header {
-    background-color: $color-white;
-    height: 48px;
-    position: fixed;
-    width: 100%;
-    z-index: $zIndex-header;
-    border-bottom: 1px solid $color-iron;
+  background-color: $color-white;
+  height: 48px;
+  position: fixed;
+  width: 100%;
+  z-index: $zIndex-header;
+  border-bottom: 1px solid $color-iron;
 }
 
 .main-header--user {
-    float: right;
-    height: 100%;
+  float: right;
+  height: 100%;
+  margin-top: 7px;
+  margin-right: 20px;
+  line-height: 0;
+}
+
+.main-header--user--name {
+  vertical-align: middle;
+  margin-right: 10px;
+  font-size: $fontSize-small;
 }
 
 .main-header--user--avatar {
-    margin-top: 7px;
-    margin-right: 20px;
-    display: inline-block;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .main-header--logo {
-    padding: 12px;
-    height: 100%;
-    margin-left: 20px;
-    vertical-align: middle;
-    float: left;
-    
-    > svg {
-        width: 18px;
-        height: 22px;
-        display: block;
-    }
+  padding: 12px;
+  height: 100%;
+  margin-left: 20px;
+  vertical-align: middle;
+  float: left;
+
+  > svg {
+    width: 18px;
+    height: 22px;
+    display: block;
+  }
 }
 
 .main-header--login {
-    margin-top: 7px;
-    margin-right: 20px;
+  margin-top: 7px;
+  margin-right: 20px;
+  float: right;
 }
 
 .main-header--search {
-    float: left;
-    margin-left: 20px;
-    vertical-align: middle;
-    height: 100%;
+  float: left;
+  margin-left: 20px;
+  vertical-align: middle;
+  height: 100%;
 }
 
 .main-header--search--search-bar {
-    min-width: 300px;
-    margin-top: 8px;
+  min-width: 300px;
+  margin-top: 8px;
 }

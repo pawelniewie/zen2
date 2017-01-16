@@ -1,12 +1,13 @@
 @import '../config';
 
-.input {
-    
-    @mixin placeholder() {
-        color: $color-iron;
-        font-weight: $fontWeight-light;
-    }
-    
+@mixin placeholder() {
+    color: $color-iron;
+    font-weight: $fontWeight-light;
+}
+
+.input,
+.select,
+.textarea {
     font-family: $fontFamily-basic;
     font-size: $fontSize-normal;
     padding: 8px;
@@ -14,6 +15,8 @@
     border: 1px solid $color-iron;
     transition-property: border-color;
     transition-duration: $transitionSpeed-normal;
+    background-color: $color-white;
+    -webkit-appearance: none;
     
     &::-webkit-input-placeholder {
         @include placeholder();
@@ -39,5 +42,17 @@
         outline: 0;
         border-color: $color-blueDeFrance;
         background-color: transparent;
+    }
+}
+
+.select {
+    min-width: 50px;
+
+    padding-right: 40px;
+    background: {
+        image: url('../../images/icons/chevron-down.svg');
+        repeat: no-repeat;
+        position: calc(100% - 10px) center;
+        size: 15px 15px;
     }
 }

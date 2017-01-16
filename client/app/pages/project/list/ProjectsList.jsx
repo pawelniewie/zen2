@@ -2,7 +2,7 @@ import React from 'react';
 import ListingLayout from 'app/layouts/ListingLayout';
 import Button from 'app/components/Button';
 import {Link} from 'react-router';
-import styles from './projects-list.scss';
+require('./projects-list.scss');
 
 export default function ProjectsList({projects}) {
     return <ListingLayout title="Projects" sideHeaderContent={[

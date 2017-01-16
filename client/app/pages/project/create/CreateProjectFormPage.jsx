@@ -1,11 +1,11 @@
 import FocusedTask, {FocusedTaskHeader} from 'app/layouts/FocusedTask';
 import React from 'react';
-import {graphql, compose} from 'react-apollo';
+import {graphql} from 'react-apollo';
 import gql from 'graphql-tag';
-import {connect} from 'react-redux';
 import CreateProjectForm from './CreateProjectForm';
 import {createProjectCanceled, createProjectSuccess} from './actions';
 import createFormErrors from 'app/functions/createFormErrors';
+import createComponent from 'app/functions/createComponent';
 
 
 const mutation = gql`mutation ProjectCreation($project: ProjectInput!) {
@@ -22,19 +22,10 @@ const mutation = gql`mutation ProjectCreation($project: ProjectInput!) {
     }
 }`;
 
-const CreateProjectFormPage = compose(
-    connect(undefined, (dispatch) => {
-            return {
-                onCancel: () => {
-                    dispatch(createProjectCanceled());
-                },
-                // temporary fix
-                dispatch: dispatch
-            }
-        }
-    ),
-    graphql(mutation, {
-        props: ({mutate, ownProps}) => {
+
+export default createComponent((app) => {
+    return graphql(mutation, {
+        props: ({mutate}) => {
             return {
                 onSubmit: (project) => {
                     return mutate({
@@ -47,19 +38,22 @@ const CreateProjectFormPage = compose(
                                     stripPrefix: 'project.'
                                 }));
                             } else {
-                                ownProps.dispatch(createProjectSuccess());
+                                app.store.dispatch(createProjectSuccess());
                             }
                         });
+                },
+                onCancel: () => {
+                    app.store.dispatch(createProjectCanceled());
                 }
             }
         }
-    }),
-)(
-    function CreateProjectWithData(props) {
-        return <FocusedTask>
-            <FocusedTaskHeader>Create new project</FocusedTaskHeader>
-            <CreateProjectForm {...props}/>
-        </FocusedTask>
-    }
-);
-export default CreateProjectFormPage;
+    })
+    (
+        function CreateProjectWithData(props) {
+            return <FocusedTask>
+                <FocusedTaskHeader>Create new project</FocusedTaskHeader>
+                <CreateProjectForm {...props}/>
+            </FocusedTask>
+        }
+    );
+});

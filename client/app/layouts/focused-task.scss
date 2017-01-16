@@ -10,6 +10,11 @@
     
     width: 450px;
     max-width: 450px;
+    
+    .focused-task__wide {
+        width: 700px;
+        max-width: 700px;
+    }
 }
 
 .focused-task--header {
@@ -17,3 +22,4 @@
     font-weight: $fontWeight-light;
     margin-bottom: 20px;
 }
+

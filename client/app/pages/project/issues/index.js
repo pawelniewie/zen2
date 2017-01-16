@@ -1,6 +1,6 @@
-import IssuesList from './IssuesList';
+import IssuesPage from './IssuesPage';
 
 export default (app) => ({
     path: ':projectName',
-    component: IssuesList
+    component: IssuesPage(app)
 })
