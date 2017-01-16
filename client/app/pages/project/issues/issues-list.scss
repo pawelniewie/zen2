@@ -1,11 +1,27 @@
+@import '../../../styles/config';
+
 .issues-list {
-    
+
+}
+
+.issues-list--entry {
+  border: 1px solid $semColor-border;
+    padding: 5px;
+  border-radius: 3px;
+  + .issues-list--entry {
+    margin-top: 5px;
+  }
 }
 
 .issues-list--key {
-    width: 150px;
+  width: 150px;
 }
 
 .issues-list--status {
-    float: right;
+  float: right;
+}
+
+.issues-list--summary {
+  max-width: 400px;
+  margin-left: 16px;
 }

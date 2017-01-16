@@ -30,7 +30,7 @@ $labels: (
     border-radius: 3px;
     
     @each $name, $config in $labels {
-        .label__#{$name} {
+        &.label__#{$name} {
             background-color: map-get($config, 'color');
             color: map-get($config, 'secondaryColor');
         }
