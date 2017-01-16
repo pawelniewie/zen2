@@ -8,6 +8,9 @@ class Project < ApplicationRecord
   validates :key, presence: true, uniqueness: true, format: {
     with: /[A-Z][A-Z_\-0-9]+/,
     message: 'Only upper case letters allowed'
+  }, length: {
+    minimum: 2,
+    maximum: 10,
   }
 
   before_validation :upcase_key
