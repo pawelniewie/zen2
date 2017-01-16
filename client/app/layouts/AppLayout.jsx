@@ -7,5 +7,8 @@ export default function AppLayout(props) {
         <main className="main-content">
             {props.children}
         </main>
+        <footer className="main-footer">
+            <span className="main-footer--product-version">Zen 0.1.5</span>
+        </footer>
     </div>
 }

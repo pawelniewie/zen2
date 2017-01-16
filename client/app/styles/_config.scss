@@ -9,8 +9,10 @@ $fontWeight-light: 300;
 $fontWeight-normal: 400;
 $fontWeight-bold: 700;
 
-
 $zIndex-header: 100;
+$zIndex-dropdowns: 200;
+$zIndex-inBackground: 1;
+$zIndex-onFront: 2;
 
 $transitionSpeed-normal: 0.2s;
 
@@ -21,6 +23,7 @@ $color-iron: #D3D6D9;
 $color-bombay: #AFB3B5;
 $color-wildSand: #F4F4F4;
 $color-mineshaft: #333333;
+$color-whisper: #F5F7FA;
 $color-alizarin: #e74c3c;
 $color-carrot: #e67e22;
 $color-amethyst: #9b59b6;
@@ -29,3 +32,4 @@ $color-nephritis: #27ae60;
 $semColor-text: $color-mineshaft;
 $semColor-discreteText: rgba($color-mineshaft, 0.8);
 $semColor-border: $color-iron;
+

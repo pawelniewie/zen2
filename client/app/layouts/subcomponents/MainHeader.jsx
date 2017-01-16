@@ -12,10 +12,10 @@ export default function MainHeader(props) {
     let headerUser;
     if (props.showUserMenu) {
         if (props.user && props.user.email) {
-            headerUser = <div className="main-header--user">
+            headerUser = <button className="main-header--user">
                 <span key="1" className="main-header--user--name">Paweł Niewiadomski</span>
                 <Avatar key="2" email={props.user.email} className="main-header--user--avatar"/>
-            </div>;
+            </button>;
         } else {
             headerUser =
                 <Button isPrimary={true} isSmall={true} className="main-header--login" to="/user/login">Log in</Button>;
@@ -26,7 +26,7 @@ export default function MainHeader(props) {
 
         <InlineSVG svg={logo} component={Link} to="/" className="main-header--logo"/>
         <div className="main-header--search">
-            <SearchBar className="main-header--search--search-bar" placeholder="Search issues, actions..."/>
+            <SearchBar className="main-header--search--search-bar" placeholder="Search issues, actions, projects..."/>
         </div>
     </header>
 }

@@ -1,3 +1,10 @@
+@import '../config';
+
 .main-content {
     padding-top: 48px;
+    height: calc(100vh - 30px);
+
+    padding-bottom: 30px;
+
+    position: relative;
 }

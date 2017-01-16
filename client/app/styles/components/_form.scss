@@ -1,14 +1,14 @@
 @import '../config';
 
 .form {
-    
+
 }
 
 .form--field {
     margin-left: 200px;
     margin-bottom: 10px;
     margin-top: 10px;
-    
+
 }
 
 .form--label {
@@ -22,11 +22,11 @@
 }
 
 .form__label-top {
-    
+
     .form--field {
         margin-left: 0;
     }
-    
+
     .form--label {
         display: block;
         float: none;

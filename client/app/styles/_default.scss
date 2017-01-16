@@ -12,12 +12,13 @@ body {
     overflow-x: hidden;
     font-family: $fontFamily-basic;
     color: $semColor-text;
+    background-color: $color-whisper;
 }
 
 a {
     color: $color-blueDeFrance;
     text-decoration: none;
-    
+
     &:hover {
         text-decoration: underline;
     }

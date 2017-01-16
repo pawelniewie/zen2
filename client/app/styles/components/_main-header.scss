@@ -1,61 +1,79 @@
 @import '../config';
 
+@mixin hoverableHeaderItem {
+    background-color: inherit;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $color-whisper;
+    }
+}
+
 .main-header {
-  background-color: $color-white;
-  height: 48px;
-  position: fixed;
-  width: 100%;
-  z-index: $zIndex-header;
-  border-bottom: 1px solid $color-iron;
+    background-color: $color-white;
+    height: 48px;
+    position: fixed;
+    width: 100%;
+    z-index: $zIndex-header;
+    box-shadow: 0 2px 4px rgba($color-bombay, 0.5);
 }
 
 .main-header--user {
-  float: right;
-  height: 100%;
-  margin-top: 7px;
-  margin-right: 20px;
-  line-height: 0;
+    float: right;
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    line-height: 0;
+    border: 0;
+
+    @include hoverableHeaderItem;
+}
+
+.main-header--notifications {
+    @include hoverableHeaderItem;
 }
 
 .main-header--user--name {
-  vertical-align: middle;
-  margin-right: 10px;
-  font-size: $fontSize-small;
+    vertical-align: middle;
+    margin-right: 10px;
+    font-size: $fontSize-small;
 }
 
 .main-header--user--avatar {
-  display: inline-block;
-  vertical-align: middle;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .main-header--logo {
-  padding: 12px;
-  height: 100%;
-  margin-left: 20px;
-  vertical-align: middle;
-  float: left;
+    padding: 12px;
+    height: 100%;
+    margin-left: 20px;
+    vertical-align: middle;
+    float: left;
 
-  > svg {
-    width: 18px;
-    height: 22px;
-    display: block;
-  }
+    > svg {
+        width: 18px;
+        height: 22px;
+        display: block;
+    }
+
+    @include hoverableHeaderItem;
 }
 
 .main-header--login {
-  margin-top: 7px;
-  margin-right: 20px;
-  float: right;
+    margin-top: 7px;
+    margin-right: 20px;
+    float: right;
 }
 
 .main-header--search {
-  float: left;
-  margin-left: 20px;
-  vertical-align: middle;
-  height: 100%;
+    float: left;
+    margin-left: 20px;
+    vertical-align: middle;
+    height: 100%;
 }
 
 .main-header--search--search-bar {
-  min-width: 300px;
-  margin-top: 8px;
+    min-width: 260px;
+    margin-top: 8px;
 }

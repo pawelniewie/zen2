@@ -28,11 +28,17 @@ $labels: (
     font-weight: $fontWeight-bold;
     padding: 2px 5px;
     border-radius: 3px;
-    
+
     @each $name, $config in $labels {
         &.label__#{$name} {
             background-color: map-get($config, 'color');
             color: map-get($config, 'secondaryColor');
+
+            &.label__outline {
+                background-color: map-get($config, 'secondaryColor');
+                color: map-get($config, 'color');
+                border: 1px solid map-get($config, 'color');
+            }
         }
     }
 }

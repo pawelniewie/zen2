@@ -5,9 +5,9 @@ import {Link} from 'react-router';
 require('./projects-list.scss');
 
 export default function ProjectsList({projects}) {
-    return <ListingLayout title="Projects" sideHeaderContent={[
-        <Button key="add" isSmall={true} to="/project/create">Create project</Button>,
-    ]}>
+    return <ListingLayout title="Projects" sideHeaderContent={
+        <Button isSmall={true} to="/project/create">Create project</Button>
+    }>
         <table className="table projects-list">
             <thead>
             <tr>

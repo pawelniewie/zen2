@@ -1,0 +1,14 @@
+@import '../config';
+
+.main-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 8px;
+    height: 30px;
+}
+
+.main-footer--product-version {
+    float: right;
+    font-size: $fontSize-tiny;
+}

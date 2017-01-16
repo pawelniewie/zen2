@@ -1,0 +1,34 @@
+@import '../config';
+
+.buttons-group {
+
+    // necessary for stacking ordere
+    transform: translate(0);
+
+    .button {
+        z-index: $zIndex-inBackground;
+        position: relative;
+
+        &:hover {
+            z-index: $zIndex-onFront;
+        }
+
+        &:first-child {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        &:not(:first-child):not(:last-child) {
+            border-radius: 0;
+        }
+
+        &:last-child {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+        }
+
+        + .button {
+            margin-left: -1px;
+        }
+    }
+}

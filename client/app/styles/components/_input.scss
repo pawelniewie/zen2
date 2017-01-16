@@ -1,7 +1,7 @@
 @import '../config';
 
 @mixin placeholder() {
-    color: $color-iron;
+    color: $color-bombay;
     font-weight: $fontWeight-light;
 }
 
@@ -17,27 +17,27 @@
     transition-duration: $transitionSpeed-normal;
     background-color: $color-white;
     -webkit-appearance: none;
-    
+
     &::-webkit-input-placeholder {
         @include placeholder();
     }
-    
+
     &::-moz-placeholder {
         @include placeholder();
     }
-    
+
     &:-ms-input-placeholder {
         @include placeholder();
     }
-    
+
     &:-moz-placeholder {
         @include placeholder();
     }
-    
+
     &:hover {
         border-color: $color-bombay;
     }
-    
+
     &:focus {
         outline: 0;
         border-color: $color-blueDeFrance;
