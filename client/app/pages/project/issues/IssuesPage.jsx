@@ -4,6 +4,7 @@ import React from 'react';
 
 import createComponent from 'app/functions/createComponent';
 import ListingLayout from 'app/layouts/ListingLayout';
+import Button from 'app/components/Button';
 import IssuesList from './IssuesList';
 
 const query = gql`
@@ -37,9 +38,11 @@ export default createComponent((app) => {
             }
             return data;
         }
-    })(function IssuesPage(props) {
-        return <ListingLayout title="Issues">
-            <IssuesList {...props} />
+    })(function IssuesPage({issues, params}) {
+        return <ListingLayout title="Issues" sideHeaderContent={
+            <Button isSmall={true} to={`/project/${params.projectName}/create-issue`}>New issue</Button>
+        }>
+            <IssuesList issues={issues} />
         </ListingLayout>;
     });
 });

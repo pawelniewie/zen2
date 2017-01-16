@@ -1,10 +1,9 @@
-const key = '__createdComponent';
-
 export default function createComponent(func) {
+    let result;
     return function (app) {
-        if (func[key]) {
-            return func[key];
+        if (result) {
+            return result;
         }
-        return func[key] = func(app);
+        return result = func(app);
     }
 };
