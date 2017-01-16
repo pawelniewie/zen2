@@ -4,7 +4,10 @@ class Project < ApplicationRecord
   has_many :issue_types
   has_many :statuses
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true, length: {
+    in: 2..80
+  }
+
   validates :key, presence: true, uniqueness: true, format: {
     with: /[A-Z][A-Z_\-0-9]+/,
     message: 'Only upper case letters allowed'
