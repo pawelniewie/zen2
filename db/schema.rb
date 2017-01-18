@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170102154221) do
+ActiveRecord::Schema.define(version: 20170118192815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,14 +53,16 @@ ActiveRecord::Schema.define(version: 20170102154221) do
   end
 
   create_table "issues", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.integer "no",              null: false
-    t.string  "summary",         null: false
-    t.text    "description"
-    t.uuid    "project_id"
-    t.uuid    "organization_id"
-    t.uuid    "assignee_id"
-    t.uuid    "reporter_id"
-    t.string  "status"
+    t.integer  "no",                                              null: false
+    t.string   "summary",                                         null: false
+    t.text     "description"
+    t.uuid     "project_id"
+    t.uuid     "organization_id"
+    t.uuid     "assignee_id"
+    t.uuid     "reporter_id"
+    t.string   "status"
+    t.datetime "created_at",      default: '2017-01-18 19:30:40', null: false
+    t.datetime "updated_at",      default: '2017-01-18 19:30:40', null: false
     t.index ["assignee_id"], name: "index_issues_on_assignee_id", using: :btree
     t.index ["no", "project_id"], name: "index_issues_on_no_and_project_id", unique: true, using: :btree
     t.index ["organization_id"], name: "index_issues_on_organization_id", using: :btree
