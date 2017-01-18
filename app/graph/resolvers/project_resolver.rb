@@ -1,5 +1,6 @@
 class ProjectResolver < GraphQL::Rails::Resolver
-  resolve :organization_id
+  resolve :key
+  resolve :id
 
   def model
     Project

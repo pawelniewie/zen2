@@ -2,6 +2,16 @@ QueryType = GraphQL::ObjectType.define do
   name "Query"
   description "The query root for this schema"
 
+
+  field :project, ProjectInterface do
+    argument :key, types.String
+    argument :id, types.ID
+
+    resolve ProjectResolver.new -> (_, _, ctx) {
+      ProjectPolicy::Scope.new(ctx[:current_user], Project).resolve
+    }
+  end
+
   connection :projects, ProjectInterface.connection_type do
     resolve ProjectResolver.new -> (_, _, ctx) {
       ProjectPolicy::Scope.new(ctx[:current_user], Project).resolve
