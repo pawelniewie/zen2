@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-atlassian:
-  name: Atlassian
-  slug: atlas
-
-unizeto:
-  name: Unizeto
-  slug: unizeto
