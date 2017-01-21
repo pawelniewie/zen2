@@ -1,0 +1,9 @@
+open:
+  name: Open
+  position: 0
+  project: test
+
+closed:
+  name: Closed
+  position: 1
+  project: test

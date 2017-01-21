@@ -1,6 +1,4 @@
-require 'rails_helper'
-
-describe Organization do
+RSpec.describe Organization do
   it "should reject restricted slug name" do
     org = Organization.new(name: 'Test', slug: 'zen')
 
