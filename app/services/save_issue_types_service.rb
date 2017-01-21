@@ -5,12 +5,16 @@ class SaveIssueTypesService < VirtusService
 
   def call
     try! do
-      authorize issue, :create?
+      authorize project, :edit?
 
       Project.transaction do
         stored = issue_types
           .each_with_index
-          .map { |it, idx| project.issue_types.find_or_initialize_by(id: it.id).update(it.slice(:name, :color).merge(position: idx)) }
+          .map do |it, idx|
+          issue_type = project.issue_types.find_or_initialize_by(id: it[:id])
+          issue_type.update(it.slice(:name, :color).merge(position: idx))
+          issue_type
+        end
 
         project.issue_types.where.not(id: stored.map(&:id)).destroy_all
 

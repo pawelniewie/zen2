@@ -1,9 +1,11 @@
 open:
   name: Open
   position: 0
+  category: new
   project: test
 
 closed:
   name: Closed
   position: 1
+  category: done
   project: test
