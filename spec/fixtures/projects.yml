@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: projects
+#
+#  id              :uuid             not null, primary key
+#  name            :string           not null
+#  key             :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  organization_id :uuid
+#
+# Indexes
+#
+#  index_projects_on_key_and_organization_id   (key,organization_id) UNIQUE
+#  index_projects_on_name_and_organization_id  (name,organization_id) UNIQUE
+#  index_projects_on_organization_id           (organization_id)
+#
+
 test:
   name: Test
   key: TST

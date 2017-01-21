@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: organizations
+#
+#  id         :uuid             not null, primary key
+#  name       :string
+#  slug       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_organizations_on_slug  (slug) UNIQUE
+#
+
 RSpec.describe Organization do
   it "should reject restricted slug name" do
     org = Organization.new(name: 'Test', slug: 'zen')

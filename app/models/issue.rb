@@ -1,3 +1,28 @@
+# == Schema Information
+#
+# Table name: issues
+#
+#  id              :uuid             not null, primary key
+#  no              :integer          not null
+#  summary         :string           not null
+#  description     :text
+#  project_id      :uuid
+#  organization_id :uuid
+#  assignee_id     :uuid
+#  reporter_id     :uuid
+#  status          :string
+#  created_at      :datetime         default("2017-01-18 19:30:40.551879"), not null
+#  updated_at      :datetime         default("2017-01-18 19:30:40.671611"), not null
+#
+# Indexes
+#
+#  index_issues_on_assignee_id        (assignee_id)
+#  index_issues_on_no_and_project_id  (no,project_id) UNIQUE
+#  index_issues_on_organization_id    (organization_id)
+#  index_issues_on_project_id         (project_id)
+#  index_issues_on_reporter_id        (reporter_id)
+#
+
 class Issue < ApplicationRecord
   # include AASM
 
