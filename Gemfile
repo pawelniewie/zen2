@@ -78,6 +78,8 @@ source 'https://rubygems.org' do
 
   gem 'sequenced'
 
+  gem 'virtus'
+
   # Workflow
   gem 'aasm'
 

@@ -20,7 +20,7 @@ QueryType = GraphQL::ObjectType.define do
 
   connection :issues, IssueInterface.connection_type do
     argument :project, ProjectSelector
-    argument :order_by, OrderSelector
+    argument :order_by, types[OrderSelector]
 
     resolve IssueResolver.new -> (_, _, ctx) {
       IssuePolicy::Scope.new(ctx[:current_user], Issue).resolve

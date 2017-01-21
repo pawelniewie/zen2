@@ -9,9 +9,7 @@ class IssueResolver < GraphQL::Rails::Resolver
   end
 
   def resolve_order(args)
-    @result = column_names(args[:asc]).reduce(@result) { |result, key| result.order(key.to_sym) } if args[:asc]
-    @result = column_names(args[:desc]).reduce(@result) { |result, key| result.order({ key.to_sym => :desc }) } if args[:desc]
-    @result
+    @result = args.reduce(@result) { |result, os| result.order(os[:key] => (os[:direction].presence || :asc)) }
   end
 
   def model
