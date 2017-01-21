@@ -1,10 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+bug:
+  name: Bug
   position: 1
-  color: MyString
-  project: one
+  color: red
+  project:
 
 two:
   name: MyString

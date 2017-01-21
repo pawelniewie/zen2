@@ -17,7 +17,7 @@ SaveIssueTypesMutation = GraphQL::Relay::Mutation.define do
     project = Project.find_by_id(inputs[:projectId])
     issue_type = inputs[:issue_type].to_h
 
-    result = CreateIssueService.(issue: issue_type, project: project, context: context)
+    result = CreateIssueTypesService.(issue: issue_type, project: project, context: context)
     FormatMutationResultService.(result: result)
   }
 end

@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  position: 
-  category: MyString
+  name: Open
+  position: 0
+  category: new
   project: one
 
 two:
-  name: MyString
-  position: 
-  category: MyString
+  name: Open
+  position: 0
+  category: new
   project: two
