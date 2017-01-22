@@ -21,6 +21,7 @@ a.button,
     transition-property: background-color, border-color;
     transition-duration: $transitionSpeed-normal;
 
+    &.button__pressed,
     &:hover,
     &:focus {
         border-color: $color-bombay;
