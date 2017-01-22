@@ -5,12 +5,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
+
     padding: 20px;
-    
-    width: 450px;
-    max-width: 450px;
-    
+
+    width: 500px;
+    max-width: 500px;
+
     .focused-task__wide {
         width: 700px;
         max-width: 700px;
@@ -18,8 +18,14 @@
 }
 
 .focused-task--header {
-    font-size: $fontSize-large;
+    font-size: $fontSize-huge;
     font-weight: $fontWeight-light;
     margin-bottom: 20px;
 }
 
+.focused-task--content {
+    border-radius: 3px;
+    padding: 20px;
+    background-color: $color-white;
+    box-shadow: 0 4px 8px $semColor-shadow;
+}

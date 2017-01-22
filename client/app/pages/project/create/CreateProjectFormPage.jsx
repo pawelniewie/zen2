@@ -1,4 +1,4 @@
-import FocusedTask, {FocusedTaskHeader} from 'app/layouts/FocusedTask';
+import FocusedTask, {FocusedTaskHeader, FocusedTaskContent} from 'app/layouts/FocusedTask';
 import React from 'react';
 import {graphql} from 'react-apollo';
 import gql from 'graphql-tag';
@@ -52,7 +52,9 @@ export default createComponent((app) => {
         function CreateProjectWithData(props) {
             return <FocusedTask>
                 <FocusedTaskHeader>Create new project</FocusedTaskHeader>
-                <CreateProjectForm {...props}/>
+                <FocusedTaskContent>
+                    <CreateProjectForm {...props}/>
+                </FocusedTaskContent>
             </FocusedTask>
         }
     );

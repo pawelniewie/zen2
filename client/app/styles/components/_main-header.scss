@@ -15,7 +15,7 @@
     position: fixed;
     width: 100%;
     z-index: $zIndex-header;
-    box-shadow: 0 2px 4px rgba($color-bombay, 0.5);
+    box-shadow: 0 2px 4px $semColor-shadow;
 }
 
 .main-header--user {

@@ -1,5 +1,6 @@
 $fontFamily-basic: 'Lato', sans-serif;
 
+$fontSize-huge: 24px;
 $fontSize-large: 20px;
 $fontSize-normal: 16px;
 $fontSize-small: 14px;
@@ -33,4 +34,5 @@ $semColor-text: $color-mineshaft;
 $semColor-discreteText: rgba($color-mineshaft, 0.8);
 $semColor-disabledText: rgba($color-mineshaft, 0.4);
 $semColor-border: $color-iron;
+$semColor-shadow: darken($color-whisper, 10%);
 
