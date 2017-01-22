@@ -5,6 +5,10 @@ class ProjectPolicy < ApplicationPolicy
     true
   end
 
+  def edit?
+    create?
+  end
+
   class Scope < Scope
     def resolve
       if user

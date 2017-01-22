@@ -16,12 +16,14 @@
 #  index_statuses_on_project_id           (project_id)
 #
 
-class Status < ApplicationRecord
-  belongs_to :project
+open:
+  name: Open
+  position: 0
+  category: new
+  project: test
 
-  validates :name, presence: true, uniqueness: { scope: :project_id }
-  validates :category, inclusion: { in: StatusCategory.all }
-  validates :project, presence: true
-
-  acts_as_sequenced column: :position, scope: :project_id
-end
+closed:
+  name: Closed
+  position: 1
+  category: done
+  project: test
