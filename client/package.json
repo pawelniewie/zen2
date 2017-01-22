@@ -14,6 +14,7 @@
   "dependencies": {
     "apollo-client": "^0.5.25",
     "babel-runtime": "^6.20.0",
+    "bootstrap-sass": "^3.3.7",
     "classnames": "^2.2.5",
     "core-decorators": "^0.15.0",
     "es6-promise": "^4.0.5",
@@ -22,6 +23,7 @@
     "lodash.partialright": "^4.2.1",
     "react": "^15.4.1",
     "react-apollo": "^0.7.2",
+    "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.1",
     "react-gravatar": "^2.6.1",
     "react-mixin": "^2.0.2",
