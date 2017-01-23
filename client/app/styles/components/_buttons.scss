@@ -12,7 +12,7 @@ a.button,
     padding: 8px 16px;
     background-color: transparent;
 
-    border-radius: 2px;
+    border-radius: 3px;
     border: 1px solid $color-iron;
 
     outline: 0;
@@ -40,6 +40,7 @@ a.button,
         padding: 0 16px;
         color: $color-blueDeFrance;
 
+        &:focus,
         &:hover {
             text-decoration: underline;
         }
@@ -54,6 +55,7 @@ a.button,
         &:focus {
             background-color: darken($color-blueDeFrance, 5%);
             border-color: darken($color-blueDeFrance, 20%);
+            box-shadow: 0 0 10px $semColor-focusShadow;
         }
     }
 
