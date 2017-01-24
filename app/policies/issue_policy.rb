@@ -5,12 +5,16 @@ class IssuePolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    create?
+  end
+
   class Scope < Scope
     def resolve
       if user
         Issue.where(organization_id: user.organization.id)
       else
-        Issue.where("1 = 0")
+        Issue.none
       end
     end
   end

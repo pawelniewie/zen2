@@ -14,7 +14,7 @@ CreateIssueMutation = GraphQL::Relay::Mutation.define do
   return_field :success, CreateIssueMutationSuccessInterface
 
   resolve -> (_, inputs, context) {
-    project = Project.find_by_id(inputs[:projectId])
+    project = context[:current_organization].projects.find_by_id(inputs[:projectId])
     issue = inputs[:issue].to_h
 
     result = CreateIssueService.(issue: issue, project: project, context: context)

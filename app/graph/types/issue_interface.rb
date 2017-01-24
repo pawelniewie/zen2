@@ -14,4 +14,5 @@ IssueInterface = GraphQL::ObjectType.define do
       obj.project.statuses
     }
   end
+  connection :comments, CommentInterface.connection_type
 end
