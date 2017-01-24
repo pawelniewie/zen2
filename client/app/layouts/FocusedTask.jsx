@@ -22,5 +22,9 @@ FocusedTask.propTypes = {
 };
 
 export function FocusedTaskHeader(props) {
-    return <h1 className="focused-task--header">{props.children}</h1>
+    return <h1 className="focused-task--header">{props.children}</h1>;
+}
+
+export function FocusedTaskContent(props) {
+    return <div className="focused-task--content">{props.children}</div>;
 }

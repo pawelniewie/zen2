@@ -11,8 +11,8 @@
 #  assignee_id     :uuid
 #  reporter_id     :uuid
 #  status          :string
-#  created_at      :datetime         default("2017-01-18 19:30:40.551879"), not null
-#  updated_at      :datetime         default("2017-01-18 19:30:40.671611"), not null
+#  created_at      :datetime         default("2017-01-22 11:05:01.621278"), not null
+#  updated_at      :datetime         default("2017-01-22 11:05:01.644787"), not null
 #
 # Indexes
 #

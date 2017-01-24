@@ -75,8 +75,7 @@ export default class CreateProjectForm extends React.Component {
             name: this.refs.name.value,
             key: this.refs.key.value.toUpperCase()
         };
-        wrapPromiseWithLoading(
-            this,
+        this.wrapPromiseWithLoading(
             this.props
                 .onSubmit(data)
                 .catch((errors) => {

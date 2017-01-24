@@ -11,7 +11,7 @@
     font-family: $fontFamily-basic;
     font-size: $fontSize-normal;
     padding: 8px;
-    border-radius: 2px;
+    border-radius: 3px;
     border: 1px solid $color-iron;
     transition-property: border-color;
     transition-duration: $transitionSpeed-normal;
@@ -41,6 +41,7 @@
     &:focus {
         outline: 0;
         border-color: $color-blueDeFrance;
+        box-shadow: 0 0 10px $semColor-focusShadow;
         background-color: transparent;
     }
 }
