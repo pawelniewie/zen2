@@ -8,7 +8,7 @@ class UserPolicy < ApplicationPolicy
       if user
         User.where(organization_id: user.organization.id)
       else
-        User.where("1 = 0")
+        User.none
       end
     end
   end

@@ -15,6 +15,8 @@
 
 class Organization < ApplicationRecord
   has_many :users
+  has_many :projects
+  has_many :issues
 
   validates :name, presence: true
   validates :slug, presence: true, uniqueness: true, format: {

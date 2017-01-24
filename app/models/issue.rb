@@ -31,6 +31,8 @@ class Issue < ApplicationRecord
   belongs_to :assignee, class_name: 'User'
   belongs_to :reporter, class_name: 'User'
 
+  has_many :comments
+
   acts_as_sequenced column: :no, scope: :project_id
 
   before_validation :set_organization
