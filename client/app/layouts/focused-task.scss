@@ -1,4 +1,5 @@
 @import '../styles/config';
+@import '../styles/mixins/card';
 
 .focused-task {
     position: absolute;
@@ -25,8 +26,7 @@
 }
 
 .focused-task--content {
-    border-radius: 3px;
     padding: 20px;
-    background-color: $color-white;
-    box-shadow: 0 4px 8px $semColor-shadow;
+
+    @include card;
 }

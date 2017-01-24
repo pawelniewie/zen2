@@ -1,4 +1,5 @@
 @import "../styles/config";
+@import "../styles/mixins/card";
 
 .listing-layout {
     margin: 20px 50px;
@@ -6,10 +7,9 @@
 
 .listing-layout--content {
     margin-top: 20px;
-    background-color: $color-white;
     padding: 20px;
-    border-radius: 3px;
-    box-shadow: 0 4px 8px $semColor-shadow;
+
+    @include card;
 }
 
 .listing-layout--title {

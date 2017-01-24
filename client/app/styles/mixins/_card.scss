@@ -1,0 +1,7 @@
+@import "../config";
+
+@mixin card {
+    border-radius: 3px;
+    background-color: $color-white;
+    box-shadow: 0 4px 8px $semColor-shadow;
+}
