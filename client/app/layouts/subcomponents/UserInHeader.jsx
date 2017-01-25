@@ -38,8 +38,8 @@ export default class UserInHeader extends React.PureComponent {
                 onClose={() => this.setState({isOpen: false})}
             >
                 <button className={classes}>
-                    <span key="1" className="main-header--user--name">Paweł Niewiadomski</span>
                     <Avatar key="2" email='wokieb@gmail.com' className="main-header--user--avatar"/>
+                    <span key="1" className="main-header--user--name">Paweł Niewiadomski</span>
                 </button>
             </Dropdown>;
         }

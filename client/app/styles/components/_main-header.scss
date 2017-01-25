@@ -35,7 +35,7 @@
         image: url('../../images/icons/chevron-down.svg');
         repeat: no-repeat;
         position: calc(100% - 10px) center;
-        size: 15px 15px;
+        size: 12px 12px;
     }
 
     @include hoverableHeaderItem;
@@ -51,13 +51,13 @@
 
 .main-header--user--name {
     vertical-align: middle;
-    margin-right: 10px;
     font-size: $fontSize-small;
 }
 
 .main-header--user--avatar {
     display: inline-block;
     vertical-align: middle;
+    margin-right: 10px;
 }
 
 .main-header--logo {
