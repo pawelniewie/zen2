@@ -1,7 +1,7 @@
 import IssueForm from './IssueForm';
 import {graphql} from 'react-apollo';
 import gql from 'graphql-tag';
-import FocusedTask from 'app/layouts/FocusedTask';
+import FocusedTask, {FocusedTaskContent, FocusedTaskHeader} from 'app/layouts/FocusedTask';
 import React from 'react';
 import {createIssueCanceled, createIssueSuccess} from './actions';
 import createComponent from 'app/functions/createComponent';
@@ -52,7 +52,10 @@ export default createComponent((app) => {
         }
     })((props) => {
         return <FocusedTask isWide={true}>
-            <IssueForm {...props}/>
+            <FocusedTaskHeader>Create new issue</FocusedTaskHeader>
+            <FocusedTaskContent>
+                <IssueForm {...props}/>
+            </FocusedTaskContent>
         </FocusedTask>
     });
 })
