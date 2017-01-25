@@ -11,6 +11,17 @@ class GraphqlController < PunditController
   def execute
     authorize :graphql, :execute?
 
+    # Check if basic auth headers were sent, if they were try to authenticate
+    authenticate_with_http_basic do |username, password|
+      resource = User.find_by_email(username)
+      if resource.valid_password?(password)
+        sign_in :user, resource, store: false
+      else
+        request_http_basic_authentication(Devise.http_authentication_realm)
+        return
+      end
+    end
+
     query = GraphQL::Query.new(ZenSchema, params[:query], variables: to_hash(params[:variables]), context: context)
 
     render json: query.result
