@@ -9,7 +9,12 @@ const enableClickOutside = function () {
 
     if (this.content) {
         this._unbinbClickOutside && this._unbinbClickOutside();
-        this._unbinbClickOutside = clickOutside(this.content, this.close);
+        this._unbinbClickOutside = clickOutside(this.content, (e) => {
+            if (this.trigger && (this.trigger.contains(e.target) || this.trigger === e.target)) {
+                return;
+            }
+            this.close();
+        });
     }
 };
 
@@ -29,7 +34,8 @@ export default class Dropdown extends React.PureComponent {
     render() {
         const children = React.cloneElement(
             React.Children.only(this.props.children), {
-                onClick: this.onClickToggle
+                onClick: this.onClickToggle,
+                ref: trigger => this.trigger = trigger
             }
         );
 
@@ -45,7 +51,6 @@ export default class Dropdown extends React.PureComponent {
 
 
     componentDidMount() {
-        console.log('mounted');
         document.body.addEventListener('keydown', this.onKeyDown);
     }
 
