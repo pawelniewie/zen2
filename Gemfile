@@ -89,13 +89,6 @@ source 'https://rubygems.org' do
   gem "trailblazer-rails"
   gem "cells-rails"
 
-  group :production do
-    gem 'rails_12factor'
-    gem 'remote_syslog_logger'
-    gem 'multilogger', git: 'https://github.com/ffmike/multilogger.git', branch: 'master'
-    gem 'platform-api', git: 'https://github.com/jalada/platform-api.git', branch: 'master'
-  end
-
   group :development, :test do
     # Call 'byebug' anywhere in the code to stop execution and get a debugger console
     gem 'pry-byebug', platform: :mri
