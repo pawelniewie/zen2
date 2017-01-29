@@ -103,4 +103,6 @@ source 'https://rubygems.org' do
     gem 'dotenv-heroku'
     gem 'pp_sql'
   end
+
+  gem 'lograge', group: :production
 end

@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   after_action :add_user_headers
 
+  before_action :add_info_to_payload
+
   before_bugsnag_notify :add_user_info_to_bugsnag
 
   protected
@@ -12,6 +14,12 @@ class ApplicationController < ActionController::Base
       email: current_user.email,
       id: current_user.id,
     }
+  end
+
+  def add_info_to_payload
+    payload[:user_id] = current_user.try(:id)
+    payload[:host] = request.host
+    payload[:source_ip] = request.remote_ip
   end
 
   def add_user_headers
