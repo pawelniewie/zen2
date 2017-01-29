@@ -46,6 +46,8 @@ source 'https://rubygems.org' do
 
   gem 'solid_assert'
 
+  gem 'rails_12factor', group: :production
+
   gem "bugsnag"
 
   gem 'delayed_job_active_record'

@@ -69,8 +69,7 @@ Rails.application.configure do
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
-  loggers = []
-  loggers << ActiveSupport::TaggedLogging.new(
+  config.logger = ActiveSupport::TaggedLogging.new(
     RemoteSyslogLogger.new(
       'logs.papertrailapp.com',
       35575,
@@ -80,10 +79,8 @@ Rails.application.configure do
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
-    loggers << ActiveSupport::TaggedLogging.new(logger)
+    config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
-
-  config.logger = MultiLogger.new(loggers)
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false

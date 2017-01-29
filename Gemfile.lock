@@ -416,7 +416,6 @@ DEPENDENCIES
   listen (~> 3.0.5)!
   mailgun_rails!
   mini_racer!
-  multilogger!
   newrelic_rpm!
   nokogiri!
   pg (~> 0.18)!
