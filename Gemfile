@@ -4,7 +4,7 @@ source 'https://rubygems.org' do
   gem 'rails', '>= 5.0.0'
   gem 'responders'
   # Use postgresql as the database for Active Record
-  gem 'pg', '~> 0.18'
+  gem 'pg'
   # Use Puma as the app server
   gem 'puma', '~> 3.0'
   # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -45,8 +45,6 @@ source 'https://rubygems.org' do
   gem 'rails-commons', git: 'https://github.com/pawelniewie/rails-commons.git', branch: 'master'
 
   gem 'solid_assert'
-
-  gem 'rails_12factor', group: :production
 
   gem "bugsnag"
 
