@@ -9,6 +9,10 @@ class IssuePolicy < ApplicationPolicy
     create?
   end
 
+  def update?
+    create?
+  end
+
   class Scope < Scope
     def resolve
       if user

@@ -18,6 +18,8 @@ class Organization < ApplicationRecord
   has_many :projects
   has_many :issues
 
+  has_associated_audits
+
   validates :name, presence: true
   validates :slug, presence: true, uniqueness: true, format: {
     with: /[a-z][a-z_\-0-9]+/,

@@ -19,6 +19,8 @@
 class IssueType < ApplicationRecord
   belongs_to :project
 
+  audited associated_with: :project
+
   validates :name, presence: true, uniqueness: { scope: :project_id }
   validates :color, presence: true
   validates :project, presence: true

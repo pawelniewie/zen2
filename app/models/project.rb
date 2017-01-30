@@ -18,6 +18,8 @@
 
 class Project < ApplicationRecord
   belongs_to :organization
+
+  has_associated_audits
   
   has_many :issue_types
   has_many :statuses

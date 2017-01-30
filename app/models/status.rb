@@ -19,6 +19,8 @@
 class Status < ApplicationRecord
   belongs_to :project
 
+  audited associated_with: :project
+
   validates :name, presence: true, uniqueness: { scope: :project_id }
   validates :category, inclusion: { in: StatusCategory.all }
   validates :project, presence: true

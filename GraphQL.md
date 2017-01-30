@@ -164,3 +164,34 @@ mutation CreateComment($input:CreateCommentInput!) {
   }
 }
 ```
+
+## Update issue
+
+```graphql
+mutation UpdateIssue($issue:UpdateIssueInput!) {
+  updateIssue(input:$issue) {
+    success {
+      issue {
+        summary
+        description
+      }
+    }
+    errors {
+      field
+      message
+    }
+  }
+}
+```
+
+```json
+{
+  "issue": {
+    "issue_id": "4fe93613-ad27-4c90-b3f8-ce10a9016f3f",
+    "fields": [
+      {"field_id": "summary", "serialized_value": "Another"},
+      {"field_id": "description", "serialized_value": "Test"}
+    ]
+  }
+}
+```

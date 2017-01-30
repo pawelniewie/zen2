@@ -11,8 +11,8 @@
 #  assignee_id     :uuid
 #  reporter_id     :uuid
 #  status          :string
-#  created_at      :datetime         default("2017-01-22 11:05:01.621278"), not null
-#  updated_at      :datetime         default("2017-01-22 11:05:01.644787"), not null
+#  created_at      :datetime         default(Wed, 18 Jan 2017 19:30:40 UTC +00:00), not null
+#  updated_at      :datetime         default(Wed, 18 Jan 2017 19:30:40 UTC +00:00), not null
 #
 # Indexes
 #
@@ -30,6 +30,9 @@ class Issue < ApplicationRecord
   belongs_to :project
   belongs_to :assignee, class_name: 'User'
   belongs_to :reporter, class_name: 'User'
+
+  audited associated_with: :project
+  has_associated_audits
 
   has_many :comments
 

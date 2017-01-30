@@ -87,6 +87,10 @@ source 'https://rubygems.org' do
   gem "trailblazer-rails"
   gem "cells-rails"
 
+  # Auditing
+  gem "rails-observers", git: 'https://github.com/rails/rails-observers.git'
+  gem "audited", "~> 4.3"
+
   group :development, :test do
     # Call 'byebug' anywhere in the code to stop execution and get a debugger console
     gem 'pry-byebug', platform: :mri

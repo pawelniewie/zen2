@@ -3,8 +3,10 @@ MutationType = GraphQL::ObjectType.define do
   description "The mutation root for this schema"
 
   field :createProject, field: CreateProjectMutation.field
-  field :createIssue, field: CreateIssueMutation.field
   field :createComment, field: CreateCommentMutation.field
   field :saveIssueTypes, field: SaveIssueTypesMutation.field
   field :saveStatuses, field: SaveStatusesMutation.field
+
+  field :createIssue, field: CreateIssueMutation.field
+  field :updateIssue, field: UpdateIssueMutation.field
 end
