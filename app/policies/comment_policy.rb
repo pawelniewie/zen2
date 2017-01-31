@@ -4,4 +4,8 @@ class CommentPolicy < ApplicationPolicy
 
     true
   end
+
+  def update?
+    record.author.id == current_user.id
+  end
 end

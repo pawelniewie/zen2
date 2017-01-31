@@ -11,10 +11,11 @@ class UpdateIssueService < VirtusService
       authorize issue, :update?
 
       issue.update!(issue_update_params)
+      issue = issue.reload
 
       broadcast(:issue_updated, issue)
 
-      OpenStruct.new(issue: issue.reload)
+      OpenStruct.new(issue: issue)
     end
   end
 

@@ -27,6 +27,15 @@ QueryType = GraphQL::ObjectType.define do
     }
   end
 
+  field :issue, IssueInterface do
+    argument :key, types.String
+    argument :id, types.ID
+
+    resolve IssueResolver.new -> (_, _, ctx) {
+      IssuePolicy::Scope.new(ctx[:current_user], Issue).resolve
+    }
+  end
+
   connection :users, UserInterface.connection_type do
     argument :username, UsernameSelector
 
