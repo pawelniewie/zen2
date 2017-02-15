@@ -2,7 +2,7 @@ class IssueResolver < GraphQL::Rails::Resolver
   resolve :project, :resolve_project
   resolve :order_by, :resolve_order
 
-  resolve :key
+  resolve :key, :resolve_key
   resolve :id
 
   def resolve_project(args)
@@ -13,6 +13,17 @@ class IssueResolver < GraphQL::Rails::Resolver
 
   def resolve_order(args)
     @result = args.reduce(@result) { |result, os| result.order(os[:key] => (os[:direction].presence || :asc)) }
+  end
+
+  def resolve_key(issue_key)
+    project_key, issue_no = ParseKey.(issue_key)
+
+    if project_key
+      @result = resolve_project({key: project_key})
+      @result = @result.where(no: issue_no)
+    else
+      @result = @result.none
+    end
   end
 
   def model
