@@ -27,7 +27,7 @@ class Organization < ApplicationRecord
   }, exclusion: {
     in: ReservedSlugs.all,
     message: "Subdomain %{value} is reserved"
-  }
+  }, on: :create
 
   before_validation :downcase_slug
 

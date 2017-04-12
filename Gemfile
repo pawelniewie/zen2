@@ -70,7 +70,7 @@ source 'https://rubygems.org' do
 
   gem 'graphql'
   gem 'graphiql-rails'
-  gem 'graphql-rails-resolver', git: 'https://github.com/pawelniewie/graphql-rails-resolver.git', branch: 'master'
+  gem 'graphql-rails-resolver', git: 'https://github.com/colepatrickturner/graphql-rails-resolver.git', branch: 'master'
 
   gem 'deterministic'
 

@@ -23,6 +23,7 @@ class Project < ApplicationRecord
   
   has_many :issue_types
   has_many :statuses
+  has_many :issues
 
   validates :name, presence: true, uniqueness: true, length: {
     in: 2..80
