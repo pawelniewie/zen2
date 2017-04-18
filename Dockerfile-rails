@@ -1,0 +1,28 @@
+FROM ruby:2.4.1-slim
+
+RUN set -ex \
+    && apt-get update \
+    && apt-get install -qq -y --no-install-recommends build-essential libpq-dev git curl \
+    && (curl -sL https://deb.nodesource.com/setup_7.x | bash -) \
+    && apt-get install -qq -y nodejs
+
+ENV INSTALL_PATH /zen
+
+RUN mkdir -p $INSTALL_PATH{,/client}
+
+WORKDIR $INSTALL_PATH
+
+COPY Gemfile Gemfile.lock package.json ./
+COPY client/package.json ./client/
+
+RUN set -ex \
+    && bundle install --binstubs \
+    && npm i
+
+COPY . ./
+
+#RUN bundle exec rake RAILS_ENV=production DATABASE_URL=postgresql://user:pass@127.0.0.1/dbname SECRET_KEY_BASE=dummytoken assets:precompile
+#
+#VOLUME ["$INSTALL_PATH/public"]
+#
+#CMD puma -C config/puma.rb

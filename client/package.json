@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "test": "webpack --config webpack_test.config.js && mocha tests.js",
-    "build:production": "NODE_ENV=production webpack --config webpack.config.js",
-    "build:development": "webpack -w --config webpack.config.js"
+    "test": "node_modules/.bin/webpack --config webpack_test.config.js && mocha tests.js",
+    "build:production": "NODE_ENV=production node_modules/.bin/webpack --config webpack.config.js",
+    "build:development": "node_modules/.bin/webpack -w --config webpack.config.js"
   },
   "cacheDirectories": [
     "node_modules",
