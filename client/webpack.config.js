@@ -9,6 +9,9 @@ const devBuild = process.env.NODE_ENV !== 'production';
 
 const config = require('./webpack_base.config');
 config.entry = [
+    'es5-shim/es5-shim',
+    'es5-shim/es5-sham',
+    'babel-polyfill',
     './app/core/index.js'
 ];
 config.output = {
