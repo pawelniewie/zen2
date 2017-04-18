@@ -5,7 +5,7 @@ import {Link} from 'react-router';
 import SearchBar from 'app/components/SearchBar';
 import UserInHeader from './UserInHeader';
 
-const logo = require('!!svg-inline!app/images/logo.svg');
+const logo = require('!!svg-inline-loader!app/images/logo.svg');
 
 export default function MainHeader(props) {
     return <header className="main-header">
