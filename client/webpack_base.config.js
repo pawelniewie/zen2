@@ -16,10 +16,11 @@ const config = {
         warnings: false
     },
     resolve: {
-        root: [
-            path.resolve('./')
+        modules: [
+            path.join(__dirname, "."),
+            "node_modules",
         ],
-        extensions: ['', '.js', '.jsx'],
+        extensions: ['.js', '.jsx'],
         alias: {
             react: path.resolve('./node_modules/react'),
             'react-dom': path.resolve('./node_modules/react-dom')
@@ -33,7 +34,7 @@ const config = {
         })
     ],
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
@@ -59,21 +60,20 @@ const config = {
                 test: /\.(graphql|gql)$/,
                 exclude: /node_modules/,
                 loader: 'graphql-tag/loader'
-            }
-        ],
-        preLoaders: [
+            },
             {
                 test: /.*\.svg$/,
                 exclude: /fonts/,
+                enforce: "pre",
                 loaders: [
                     'svgo-loader?' + svgoConfig
                 ]
             }
-        ]
+        ],
     },
-    postcss: function() {
-        return [require('autoprefixer')];
-    }
+    // postcss: function() {
+    //     return [require('autoprefixer')];
+    // }
 };
 
 module.exports = config;
