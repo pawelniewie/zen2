@@ -110,3 +110,5 @@ source 'https://rubygems.org' do
 
   gem 'lograge', group: :production
 end
+
+gem 'mini_racer', platforms: :ruby

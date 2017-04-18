@@ -3,11 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "engines": {
-    "node": "5.10.0",
-    "npm": "3.5.0"
+    "node": "6.9.0",
+    "npm": "4.1.1"
   },
   "scripts": {
-    "postinstall": "cd client && npm install",
+    "postinstall": "cd client && yarn install",
     "rails-server": "echo 'visit http://localhost:3000/hello_world' && heroku local -f Procfile.dev",
     "test": "rspec"
   }
