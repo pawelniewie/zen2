@@ -80,6 +80,8 @@ source 'https://rubygems.org' do
 
   gem 'virtus'
 
+  gem 'activeadmin', github: 'activeadmin'
+
   # Workflow
   gem 'aasm'
 
