@@ -1,4 +1,4 @@
-if Organization.find_by_name('Zen').empty?
+if Organization.find_by_name('Zen').blank?
   zen = Organization.create!(name: 'Zen', slug: 'zentest')
   zen.update!(slug: 'zen')
 
