@@ -12,3 +12,7 @@ if Organization.find_by_name('Zen').blank?
 
   project_b.issues.create!(summary: "Issue from another project")
 end
+
+if God.find_by_email('11110000b@gmail.com').blank?
+  God.create!(first_name: "Pawel", last_name: "Niewiadomski", password: "password", email: "11110000b@gmail.com")
+end
