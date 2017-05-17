@@ -17,6 +17,7 @@ class Organization < ApplicationRecord
   has_many :users
   has_many :projects
   has_many :issues
+  has_many :teams
 
   has_associated_audits
 

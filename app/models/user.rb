@@ -40,6 +40,8 @@
 class User < ApplicationRecord
   belongs_to :organization
 
+  has_and_belongs_to_many :teams, join_table: :teams_users
+
   audited associated_with: :organization
 
   accepts_nested_attributes_for :organization
