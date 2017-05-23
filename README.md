@@ -3,6 +3,7 @@
 * Install postgres server and make sure it's started
 * Install heroku cli
 * `rbenv install 2.3.3`
+* `gem install bundler` (if you don't have it already)
 * `rake db:setup`
 
 # Installing dependencies
