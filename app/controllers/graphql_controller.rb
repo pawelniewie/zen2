@@ -22,7 +22,11 @@ class GraphqlController < PunditController
       end
     end
 
-    query = GraphQL::Query.new(ZenSchema, params[:query], variables: to_hash(params[:variables]), context: context)
+    query = MultiTenant.with(Organization.find_by_slug(request.subdomains&.last&.downcase)) do
+      GraphQL::Query.new(ZenSchema, params[:query],
+        variables: to_hash(params[:variables]),
+        context: context)
+    end
 
     render json: query.result
   end
@@ -33,7 +37,7 @@ class GraphqlController < PunditController
     @context ||= {
       request: request,
       current_user: current_user,
-      current_organization: current_user ? current_user.organization : nil,
+      current_organization: current_tenant,
     }
   end
 

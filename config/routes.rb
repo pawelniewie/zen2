@@ -17,7 +17,8 @@ Rails.application.routes.draw do
     root to: redirect_to_root_domain
   end
 
-  root 'root#index'
+  root 'organizations#index', constraints: { subdomain: '' }
+  root 'spa#index', constraints: lambda { |request| request.subdomain.present? }
 
   post '/gql', to: 'graphql#execute'
 
@@ -26,5 +27,5 @@ Rails.application.routes.draw do
   end
 
   # Must be last route
-  get '*path', to: 'root#index'
+  get '*path', to: 'spa#index'
 end

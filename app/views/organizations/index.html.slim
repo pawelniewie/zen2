@@ -1,0 +1,2 @@
+- @organization.each do |organization|
+  = link_to organization.name, "#{request.scheme}://#{organization.slug}.#{request.host_with_port}"
