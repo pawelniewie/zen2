@@ -95,7 +95,7 @@ source 'https://rubygems.org' do
 
   gem 'activerecord-clean-db-structure'
 
-  gem 'activerecord-multi-tenant'
+  gem 'acts_as_tenant'
 
   group :development, :test do
     # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -111,7 +111,8 @@ source 'https://rubygems.org' do
     gem 'spring-watcher-listen', '~> 2.0.0'
     gem 'dotenv-rails'
     gem 'dotenv-heroku'
-    gem 'pp_sql'
+    gem "better_errors"
+    gem "binding_of_caller"
   end
 
   gem 'lograge', group: :production

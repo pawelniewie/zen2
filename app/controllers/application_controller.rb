@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
+  
+  set_current_tenant_by_subdomain(:organization, :slug)
 
   after_action :add_user_headers
 
