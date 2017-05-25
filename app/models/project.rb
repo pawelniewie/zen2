@@ -8,6 +8,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  organization_id :uuid
+#  visibility      :integer          not null
 #
 # Indexes
 #
@@ -17,7 +18,9 @@
 #
 
 class Project < ApplicationRecord
-  belongs_to :organization
+  acts_as_tenant :organization
+  
+  enum visibility: [ :private, :public ], _suffix: true
 
   has_associated_audits
   
@@ -25,11 +28,13 @@ class Project < ApplicationRecord
   has_many :statuses
   has_many :issues
 
-  validates :name, presence: true, uniqueness: true, length: {
+  validates_uniqueness_to_tenant [:name, :key]
+  
+  validates :name, presence: true, length: {
     in: 2..80
   }
 
-  validates :key, presence: true, uniqueness: true, format: {
+  validates :key, presence: true, format: {
     with: /[A-Z][A-Z_\-0-9]+/,
     message: 'Only upper case letters allowed'
   }, length: {

@@ -12,9 +12,9 @@ class ProjectPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       if user
-        Project.where(organization_id: user.organization.id)
+        Project.all
       else
-        Project.none
+        Project.public_visibility
       end
     end
   end

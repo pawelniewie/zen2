@@ -21,7 +21,7 @@ class GraphqlController < PunditController
         return
       end
     end
-
+    
     query = GraphQL::Query.new(ZenSchema, params[:query],
         variables: to_hash(params[:variables]),
         context: context)
