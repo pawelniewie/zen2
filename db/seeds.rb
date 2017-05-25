@@ -16,3 +16,8 @@ end
 if God.find_by_email('11110000b@gmail.com').blank?
   God.create!(first_name: "Pawel", last_name: "Niewiadomski", password: "password", email: "11110000b@gmail.com")
 end
+
+zen = Organization.find_by_name('Zen')
+if zen.projects.find_by_name('Zen').blank?
+	zen.projects.create!(name: 'Zen', visibility: :public, key: 'ZEN')
+end
