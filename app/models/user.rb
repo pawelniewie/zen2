@@ -26,11 +26,19 @@
 #  username               :string           not null
 #  first_name             :string
 #  last_name              :string
+#  invitation_token       :string
+#  invitation_created_at  :datetime
+#  invitation_sent_at     :datetime
+#  invitation_accepted_at :datetime
+#  invitation_limit       :integer
+#  invited_by_id          :integer
+#  invited_by_type        :string
 #
 # Indexes
 #
 #  index_users_on_confirmation_token            (confirmation_token) UNIQUE
 #  index_users_on_email                         (email) UNIQUE
+#  index_users_on_invitation_token              (invitation_token) UNIQUE
 #  index_users_on_organization_id               (organization_id)
 #  index_users_on_reset_password_token          (reset_password_token) UNIQUE
 #  index_users_on_unlock_token                  (unlock_token) UNIQUE
@@ -50,7 +58,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
     :recoverable, :trackable, :validatable,
-    :confirmable, :lockable, :rememberable
+    :confirmable, :lockable, :rememberable,
+    :invitable
 
   validates :email, presence: true, uniqueness: true
   validates :organization, presence: true

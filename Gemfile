@@ -55,6 +55,7 @@ source 'https://rubygems.org' do
   gem 'mini_racer', platforms: :ruby
 
   gem 'devise'
+  gem 'devise_invitable'
 
   gem 'uglifier'
 
