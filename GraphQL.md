@@ -3,7 +3,17 @@
 ```bash
 curl -H 'Content-Type: application/json' \                                                                                                                                                   [master|]
      -X POST \
-     -d '{"user":{"email":"11110000b@gmail.com","password":"12345678", "organization_attributes": {"name": "Zen", "slug": "zen"}}}' \
+     -d '{"user": {
+    "email": "pavvelpe+zen@gmail.com",
+    "password": "12345678",
+    "organization": "ZEN",
+    "username": "pawel",
+    "organization_attributes": {
+      "name": "Zen",
+      "slug": "zen"
+    }
+  }
+}' \
      http://localhost:5000/users.json
 ```
 
