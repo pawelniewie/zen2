@@ -4,8 +4,8 @@ if Organization.find_by_name('Zen').blank?
 
   zen.users.create!(first_name: "Pawel", last_name: "Niewiadomski", username: "pin", password: "password", confirmed_at: Time.now, email: "11110000b@gmail.com")
 
-  project_a = zen.projects.create!(name: "Project A", key: "PA")
-  project_b = zen.projects.create!(name: "Project B", key: "PB")
+  project_a = zen.projects.create!(name: "Project A", key: "PA", visibility: :private)
+  project_b = zen.projects.create!(name: "Project B", key: "PB", visibility: :private)
 
   project_a.issues.create!(summary: "This is a test issue")
   project_a.issues.create!(summary: "Please fix this before releasing")
