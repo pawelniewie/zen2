@@ -1,0 +1,38 @@
+# This references the default Ruby container from
+# the Docker Hub.
+# https://registry.hub.docker.com/_/ruby/
+# If you want to use a specific version you would use a tag:
+# ruby:2.2.2
+box: ruby:2.4.1
+# You can also use services such as databases. Read more on our dev center:
+# http://devcenter.wercker.com/docs/services/index.html
+services:
+  # http://devcenter.wercker.com/docs/services/postgresql.html
+  - postgres:
+    env:
+      POSTGRES_ENV_PG_MAJOR: 9.6
+
+# This is the build pipeline. Pipelines are the core of wercker
+# Read more about pipelines on our dev center
+# http://devcenter.wercker.com/docs/pipelines/index.html
+build:
+  # Steps make up the actions in your pipeline
+  # Read more about steps on our dev center:
+  # http://devcenter.wercker.com/docs/steps/index.html
+  steps:
+    - bundle-install:
+      jobs: 4
+
+    - rails-database-yml
+
+    - install-packages:
+      name: Install node.js, build-essential, libpq-dev
+      packages: build-essential libpq-dev nodejs
+
+    - script:
+      name: Set up db
+      code: RAILS_ENV=test bundle exec rake db:schema:load
+
+    - script:
+      name: rspec
+      code: bundle exec rspec
