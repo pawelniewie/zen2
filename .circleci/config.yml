@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/zen
+    working_directory: /zen
     
     docker:
       - image: circleci/ruby:2.4.1-node
@@ -19,11 +19,11 @@ jobs:
         key: zen-{{ checksum "Gemfile.lock" }}
 
       - restore_cache:
-        key: zen-{{ checksum "package.json" }}-{{ checksum "client/package.json" }}
+          key: zen-{{ checksum "package.json" }}-{{ checksum "client/package.json" }}
 
       - run:
-        name: update-yarn
-        command: 'sudo npm install -g yarn@latest'
+          name: update-yarn
+          command: 'sudo npm install -g yarn@latest'
 
       # Bundle install dependencies
       - run: bundle install --path vendor/bundle
@@ -31,13 +31,13 @@ jobs:
       - type: cache-save
         key: zen-{{ checksum "Gemfile.lock" }}
         paths:
-          - vendor/bundle
+            - vendor/bundle
 
-      - save_cache:
+      - type: cache-save
         key: zen-{{ checksum "package.json" }}-{{ checksum "client/package.json" }}
         paths:
-          - .node_modules
-          - client/.node_modules
+            - .node_modules
+            - client/.node_modules
 
       # Database setup
       - run: bundle exec rake db:create
