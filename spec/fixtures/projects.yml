@@ -21,3 +21,4 @@ test:
   name: Test
   key: TST
   organization: atlas
+  visibility: :private

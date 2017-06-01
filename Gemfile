@@ -96,7 +96,7 @@ source 'https://rubygems.org' do
 
   gem 'activerecord-clean-db-structure'
 
-  gem 'acts_as_tenant'
+  gem 'acts_as_tenant', git: 'https://github.com/a3ammar/acts_as_tenant.git'
 
   group :development, :test do
     # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/a3ammar/acts_as_tenant.git
+  revision: 4916bd42287bf7a8a9d2b24cb71bf70fa7cb3dce
+  specs:
+    acts_as_tenant (0.4.1)
+      rails (>= 3.1)
+      request_store (>= 1.0.5)
+
+GIT
   remote: https://github.com/activeadmin/activeadmin.git
   revision: d941aaa88c6e9011f7e9d1c7d85b2cd871160f0f
   specs:
@@ -107,9 +115,6 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    acts_as_tenant (0.4.1)
-      rails (>= 3.1)
-      request_store (>= 1.0.5)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     annotate (2.7.1)

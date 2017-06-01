@@ -6,7 +6,7 @@ class CreateProjectService < ApplicationService
   def call
     result = try! do
       Project.transaction do
-        project = Project.new(@project.slice('name', 'key').merge(organization_id: @organization.id))
+        project = Project.new(@project.slice('name', 'key', 'visibility').merge(organization_id: @organization.id))
 
         authorize project, :create?
 
