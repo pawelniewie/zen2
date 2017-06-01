@@ -10,7 +10,8 @@ services:
   # http://devcenter.wercker.com/docs/services/postgresql.html
   - postgres:
     env:
-      POSTGRES_ENV_PG_MAJOR: 9.6
+      POSTGRES_PASSWORD: secret
+      POSTGRES_USER: zen
 
 # This is the build pipeline. Pipelines are the core of wercker
 # Read more about pipelines on our dev center
