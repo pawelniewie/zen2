@@ -103,6 +103,7 @@ source 'https://rubygems.org' do
     gem 'pry-byebug', platform: :mri
     gem 'rspec-rails'
     gem 'annotate'
+	  gem 'rspec_junit_formatter'
   end
 
   group :development do
