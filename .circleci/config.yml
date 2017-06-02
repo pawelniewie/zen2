@@ -22,7 +22,7 @@ jobs:
         key: zen-{{ checksum "Gemfile.lock" }}
 
       - restore_cache:
-          key: zen-{{ checksum "package.json" }}-{{ checksum "client/package.json" }}
+          key: zen-{{ checksum "yarn.lock" }}-{{ checksum "client/yarn.lock" }}
 
       - run:
           name: update-yarn
@@ -37,7 +37,7 @@ jobs:
             - vendor/bundle
 
       - type: cache-save
-        key: zen-{{ checksum "package.json" }}-{{ checksum "client/package.json" }}
+        key: zen-{{ checksum "yarn.lock" }}-{{ checksum "client/yarn.lock" }}
         paths:
             - .node_modules
             - client/.node_modules
