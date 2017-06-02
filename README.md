@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/pawelniewie/zen2.svg?style=svg)](https://circleci.com/gh/pawelniewie/zen2)
+
 # Prerequisites
 * Install rbenv
 * Install postgres server and make sure it's started
