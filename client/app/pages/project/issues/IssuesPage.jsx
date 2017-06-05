@@ -27,7 +27,6 @@ query IssuesForProject($project: ProjectSelector) {
 }`;
 
 export default createComponent((app) => {
-    debugger;
     return graphql(query, {
         props: ({data: {issues}}) => {
             const data = {
