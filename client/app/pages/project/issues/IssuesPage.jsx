@@ -8,8 +8,8 @@ import Button from 'app/components/Button';
 import IssuesList from './IssuesList';
 
 const query = gql`
-{
-  issues {
+query IssuesForProject($project: ProjectSelector) {
+  issues(project: $project) {
     edges {
       node {
         id
@@ -24,10 +24,10 @@ const query = gql`
       }
     }
   }
-}
-`;
+}`;
 
 export default createComponent((app) => {
+    debugger;
     return graphql(query, {
         props: ({data: {issues}}) => {
             const data = {
@@ -37,7 +37,14 @@ export default createComponent((app) => {
                 data.issues = issues.edges.map(e => e.node);
             }
             return data;
-        }
+        },
+        options: (ownProps) => ({
+            variables: {
+                project: {
+                    key: ownProps.params.projectName
+                }
+            }
+        })
     })(function IssuesPage({issues, params}) {
         return <ListingLayout title="Issues" sideHeaderContent={
             <Button isSmall={true} to={`/project/${params.projectName}/create-issue`}>New issue</Button>
