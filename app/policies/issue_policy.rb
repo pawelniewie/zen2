@@ -16,9 +16,9 @@ class IssuePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       if user
-        Issue.where(organization_id: user.organization.id)
+        Issue.all
       else
-        Issue.none
+        Issue.joins(:project).where(projects: {visibility: :public})
       end
     end
   end

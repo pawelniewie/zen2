@@ -24,9 +24,8 @@
 #
 
 class Issue < ApplicationRecord
-  # include AASM
-
-  belongs_to :organization
+  acts_as_tenant :organization
+  
   belongs_to :project
   belongs_to :assignee, class_name: 'User'
   belongs_to :reporter, class_name: 'User'
