@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/activeadmin/activeadmin.git
-  revision: d941aaa88c6e9011f7e9d1c7d85b2cd871160f0f
+  revision: e558e8c08e8c5d625a2d01369bfe2704cecdc296
   specs:
     activeadmin (1.0.0)
       arbre (>= 1.1.1)
@@ -117,9 +117,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
-    annotate (2.7.1)
+    annotate (2.7.2)
       activerecord (>= 3.2, < 6.0)
-      rake (>= 10.4, < 12.0)
+      rake (>= 10.4, < 13.0)
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     arel (8.0.0)
@@ -227,7 +227,7 @@ GEM
       activesupport (>= 4.2.0)
     graphiql-rails (1.4.1)
       rails
-    graphql (1.6.1)
+    graphql (1.6.2)
     has_scope (0.7.1)
       actionpack (>= 4.1, < 5.2)
       activesupport (>= 4.1, < 5.2)
@@ -310,7 +310,7 @@ GEM
       byebug (~> 9.0)
       pry (~> 0.10)
     public_suffix (2.0.5)
-    puma (3.9.0)
+    puma (3.9.1)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (2.0.3)
@@ -342,7 +342,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (2.2.2)
       rake
-    rake (11.3.0)
+    rake (12.0.0)
     ransack (1.8.2)
       actionpack (>= 3.0)
       activerecord (>= 3.0)
@@ -438,7 +438,7 @@ GEM
       declarative
       reform (>= 2.2.0, < 3.0.0)
       trailblazer-operation (>= 0.0.12, < 0.1.0)
-    trailblazer-loader (0.1.0)
+    trailblazer-loader (0.1.1)
     trailblazer-operation (0.0.13)
       declarative
       pipetree (>= 0.1.1, < 0.2.0)
