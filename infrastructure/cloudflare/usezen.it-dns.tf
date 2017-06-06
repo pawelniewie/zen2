@@ -79,3 +79,11 @@ resource "cloudflare_record" "mxb_usezen_it" {
   type = "MX"
   ttl = 360
 }
+
+resource "cloudflare_record" "deleteGAPPSnotBefore20170608utc_usezen_it" {
+  domain = "usezen.it"
+  name = "deleteGAPPSnotBefore20170608utc.usezen.it"
+  value = "case-12892002-for-usezen.it-at.google.com"
+  type = "CNAME"
+  ttl = 360
+}
