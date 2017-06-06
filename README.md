@@ -4,12 +4,12 @@
 * Install rbenv
 * Install postgres server and make sure it's started
 * Install heroku cli
-* `rbenv install 2.3.3`
+* `rbenv install 2.4.1`
 * `rake db:setup`
 
 # Installing dependencies
 
-`bundle && npm i`
+`bundle && yarn install`
 
 # Running dev mode
 
@@ -21,7 +21,7 @@ Edit `.env` file and add your own credentials after you create a user:
 
 ```bash
 GRAPHIQL_USER=11110000b@gmail.com
-GRAPHIQL_PASSWORD=secret
+GRAPHIQL_PASSWORD=password
 ```
 
 # Sample GQL
