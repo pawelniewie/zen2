@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  devise_for :gods, controllers: {
+    sessions: 'gods/sessions'
+  }
+
   # match urls where the host starts with 'www.'
   constraints(subdomain: 'www') do
     redirect_to_root_domain = redirect { |_, request|
