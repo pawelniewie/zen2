@@ -10,11 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170530070926) do
+ActiveRecord::Schema.define(version: 20170607074625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+
+  create_table "attachments", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "attachment_file_name", null: false
+    t.string "attachment_content_type", null: false
+    t.integer "attachment_file_size", null: false
+    t.datetime "attachment_updated_at", null: false
+    t.uuid "organization_id"
+    t.uuid "issue_id"
+    t.index ["issue_id"], name: "index_attachments_on_issue_id"
+    t.index ["organization_id"], name: "index_attachments_on_organization_id"
+  end
 
   create_table "audits", id: :serial, force: :cascade do |t|
     t.uuid "auditable_id"
@@ -211,6 +224,8 @@ ActiveRecord::Schema.define(version: 20170530070926) do
     t.index ["username", "organization_id"], name: "index_users_on_username_and_organization_id", unique: true
   end
 
+  add_foreign_key "attachments", "issues"
+  add_foreign_key "attachments", "organizations"
   add_foreign_key "comments", "issues"
   add_foreign_key "comments", "users", column: "author_id"
   add_foreign_key "issue_types", "projects"
