@@ -18,8 +18,8 @@ jobs:
           name: Install build-essential, libpq-dev
           command: 'sudo apt-get install -y build-essential libpq-dev'
 
-      - type: cache-restore
-        key: zen-{{ checksum "Gemfile.lock" }}
+      - restore_cache:
+          key: zen-{{ checksum "Gemfile.lock" }}
 
       - restore_cache:
           key: zen-{{ checksum "yarn.lock" }}-{{ checksum "client/yarn.lock" }}
