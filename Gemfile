@@ -118,6 +118,14 @@ source 'https://rubygems.org' do
     gem "better_errors"
     gem "binding_of_caller"
   end
+  
+  group :test do
+    gem "capybara"
+    gem "capybara-selenium"
+    gem "chromedriver-helper"
+	  gem 'database_cleaner'
+	  gem 'site_prism'
+  end
 
   gem 'lograge', group: :production
 end

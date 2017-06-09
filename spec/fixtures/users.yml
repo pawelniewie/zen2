@@ -50,3 +50,16 @@ admin:
   last_name: Strator
   username: admin
   organization: atlas
+  confirmed_at: <%= 3.days.ago %>
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  email: admin@usezen.it
+
+joe:
+  first_name: Joe
+  last_name: Smith
+  username: joe
+  organization: atlas
+  confirmed_at: <%= 3.days.ago %>
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  email: joe@usezen.it
+
