@@ -87,3 +87,11 @@ resource "cloudflare_record" "deleteGAPPSnotBefore20170608utc_usezen_it" {
   type = "CNAME"
   ttl = 360
 }
+
+resource "cloudflare_record" "gsuite_veritication_usezen_it" {
+  domain = "usezen.it"
+  name = "sfo537gpaaqd.usezen.it"
+  value = "gv-feitkpzwvdd4hn.dv.googlehosted.com"
+  type = "CNAME"
+  ttl = 360
+}
