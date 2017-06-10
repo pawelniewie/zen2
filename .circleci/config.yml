@@ -74,6 +74,8 @@ jobs:
       # Save artifacts
       - store_test_results:
           path: tmp/test-results
+          destination: artifacs
 
       - store_artifacts:
           path: tmp/reports
+          destination: artifacs
