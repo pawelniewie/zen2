@@ -1,5 +1,9 @@
 Capybara.register_driver :selenium do |app|
-	Capybara::Selenium::Driver.new(app, browser: :chrome)
+	chrome_args = ['--window-size=1920,1080']
+	chrome_args << '--headless' if ENV['CIRCLECI'].present?
+	
+	Capybara::Selenium::Driver.new(app,
+		browser: :chrome, args: chrome_args)
 end
 
 Capybara.configure do |config|
