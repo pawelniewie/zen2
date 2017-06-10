@@ -14,6 +14,12 @@ class ApplicationController < ActionController::Base
       email: current_user.email,
       id: current_user.id,
     }
+
+    notification.organization = {
+      slug: current_tenant&.slug,
+      name: current_tenant&.name,
+      id: current_tenant&.id,
+    }
   end
 
   def append_info_to_payload(payload)

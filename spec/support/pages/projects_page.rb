@@ -3,10 +3,10 @@ module Pages
 	class ProjectsPage < SitePrism::Page
 		set_url '/'
 		
-		element :main_title, '.listing-layout--title'
+		element :projects_list, '.projects-list'
 		
 		load_validation do
-			has_main_title?
+			has_projects_list?
 		end
 	end
 	

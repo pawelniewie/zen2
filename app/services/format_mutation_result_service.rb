@@ -16,6 +16,8 @@ class FormatMutationResultService < BottledService
             unknown_error(exception)
         end
       }
+    end.tap do |result|
+      Rails.logger.debug(result)
     end
   end
 

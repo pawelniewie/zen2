@@ -45,13 +45,15 @@
 #  index_users_on_username_and_organization_id  (username,organization_id) UNIQUE
 #
 
+<% password = User.new.send(:password_digest, 'password') %>
+
 admin:
   first_name: Admini
   last_name: Strator
   username: admin
   organization: atlas
   confirmed_at: <%= 3.days.ago %>
-  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  encrypted_password: <%= password %>
   email: admin@usezen.it
 
 joe:
@@ -60,6 +62,6 @@ joe:
   username: joe
   organization: atlas
   confirmed_at: <%= 3.days.ago %>
-  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  encrypted_password: <%= password %>
   email: joe@usezen.it
 

@@ -7,7 +7,7 @@ export default (app) => {
         app.history.push('/');
     };
 
-    return createRoute(app, 'create')
+    return createRoute(app, 'new')
         .useComponent(CreateProjectFormPath(app))
         .afterActionListener(createProjectCanceled, redirectToMainPage)
         .afterActionListener(createProjectSuccess, redirectToMainPage)
