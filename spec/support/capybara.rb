@@ -9,6 +9,12 @@ end
 Capybara.configure do |config|
 	config.always_include_port = true
 	config.default_driver = :selenium
-	# config.block_unknown_urls
 	config.default_host = "http://127.0.0.1.xip.io"
+end
+
+RSpec.configure do |config|
+	config.before(:each, :feature) do
+		# page.driver.block_unknown_urls
+		# page.driver.allow_url("*.xip.io")
+	end
 end
