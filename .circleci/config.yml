@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/zen
+    working_directory: /tmp/zen
     
     docker:
       - image: circleci/ruby:2.4.1-node-browsers
@@ -36,6 +36,7 @@ jobs:
 
       # Bundle install dependencies
       - run: bundle install --path vendor/bundle --jobs 3
+      - run: yarn install
 
       - type: cache-save
         key: zen-{{ checksum "Gemfile.lock" }}
