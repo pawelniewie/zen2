@@ -46,7 +46,7 @@ export default createComponent((app) => {
         })
     })(function IssuesPage({issues, params}) {
         return <ListingLayout title="Issues" sideHeaderContent={
-            <Button isSmall={true} to={`/project/${params.projectName}/create-issue`}>New issue</Button>
+            <Button isSmall={true} to={`/projects/${params.projectName}/create-issue`}>New issue</Button>
         }>
             <IssuesList issues={issues} />
         </ListingLayout>;

@@ -1,7 +1,7 @@
 module Pages
 	
 	class LoginPage < SitePrism::Page
-		set_url '/user/login'
+		set_url '/users/login'
 		
 		element :login, '#login-id'
 		element :password, '#password-id'

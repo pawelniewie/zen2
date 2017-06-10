@@ -3,7 +3,7 @@ import createProjectRoute from './create';
 import createIssue from './create_issue';
 
 export default (app) => ({
-    path: 'project',
+    path: 'projects',
     childRoutes: [
         createProjectRoute(app),
         issuesRoute(app),

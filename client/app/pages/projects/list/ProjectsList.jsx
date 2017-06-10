@@ -8,7 +8,7 @@ require('./projects-list.scss');
 
 export default function ProjectsList({projects}) {
     return <ListingLayout title="Projects" sideHeaderContent={
-        <Button isSmall={true} to="/project/create">Create project</Button>
+        <Button isSmall={true} to="/projects/create">Create project</Button>
     }>
         <table className="table projects-list">
             <thead>
@@ -21,7 +21,7 @@ export default function ProjectsList({projects}) {
             {(projects || []).map(project => (
                 <tr key={project.key}>
                     <td className="projects-list--key">{project.key}</td>
-                    <td className="projects-list--name"><Link to={`/project/${project.key}`}>{project.name}</Link></td>
+                    <td className="projects-list--name"><Link to={`/projects/${project.key}`}>{project.name}</Link></td>
                 </tr>
             ))}
             </tbody>

@@ -44,7 +44,7 @@ export default class UserInHeader extends React.PureComponent {
             </Dropdown>;
         }
 
-        return <Button isPrimary={true} isSmall={true} className="main-header--login" to="/user/login">Log in</Button>;
+        return <Button isPrimary={true} isSmall={true} className="main-header--login" to="/users/login">Log in</Button>;
     }
 
 }

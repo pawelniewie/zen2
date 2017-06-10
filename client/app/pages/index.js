@@ -1,7 +1,7 @@
-import ProjectsListWithData from './project/list/ProjectsListWithData';
+import ProjectsListWithData from './projects/list/ProjectsListWithData';
 
-import projectRoute from './project';
-import userRoute from './user';
+import projectsRoute from './projects';
+import usersRoute from './users';
 import errorsRoute from './errors';
 
 import AppLayoutWithData from '../layouts/AppLayoutWithData';
@@ -11,8 +11,8 @@ export default (app) => ({
     component: AppLayoutWithData,
     indexRoute: {component: ProjectsListWithData},
     childRoutes: [
-        projectRoute(app),
-        userRoute(app),
+        projectsRoute(app),
+        usersRoute(app),
         errorsRoute(app)
     ]
 });

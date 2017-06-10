@@ -2,7 +2,7 @@ import {assert} from 'chai';
 import reducer from './reducers';
 import * as actions from './actions';
 
-describe('pages/user/login - reducers', () => {
+describe('pages/users/login - reducers', () => {
     it(`action ${actions.userLoginStarted}`, () => {
         const state = reducer({}, actions.userLoginStarted());
         assert.deepEqual(state, {isLogging: true});
