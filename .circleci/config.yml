@@ -39,15 +39,15 @@ jobs:
       - run: yarn install
 
       - save_cache:
-        key: zen-{{ checksum "Gemfile.lock" }}
-        paths:
-            - vendor/bundle
+          key: zen-{{ checksum "Gemfile.lock" }}
+          paths:
+              - vendor/bundle
 
       - save_cache:
-        key: zen-{{ checksum "yarn.lock" }}-{{ checksum "client/yarn.lock" }}
-        paths:
-            - .node_modules
-            - client/.node_modules
+          key: zen-{{ checksum "yarn.lock" }}-{{ checksum "client/yarn.lock" }}
+          paths:
+              - .node_modules
+              - client/.node_modules
 
       # Database setup
       - run: bundle exec rails db:create
@@ -57,10 +57,10 @@ jobs:
       - run: bundle exec rails assets:precompile
 
       - save_cache:
-        key: zen-assets
-        paths:
-            - tmp/cache/assets
-            - public/assets
+          key: zen-assets
+          paths:
+              - tmp/cache/assets
+              - public/assets
 
       # Run rspec in parallel
       - type: shell
@@ -72,8 +72,8 @@ jobs:
                             $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
       # Save artifacts
-      - type: store_test_results
-        path: tmp/test-results
+      - store_test_results:
+          path: tmp/test-results
 
       - store_artifacts:
-        path: tmp/reports
+          path: tmp/reports
