@@ -4,7 +4,7 @@ jobs:
     working_directory: ~/zen
     
     docker:
-      - image: circleci/ruby:2.4.1-node
+      - image: circleci/ruby:2.4.1-node-browsers
 
       - image: circleci/postgres:9.6.3-alpine
         environment:
