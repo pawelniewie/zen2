@@ -10,7 +10,7 @@ RSpec.feature 'creating project', organization: :atlas do
 			project_page.name.set('Another')
 			project_page.key.set('ANO')
 			projects_page = project_page.create_project
-			expect(projects_page).to_not be_loaded
+			expect(projects_page).to be_loaded
 		end
 	end
 end
