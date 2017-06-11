@@ -33,7 +33,7 @@ resource "cloudflare_record" "certum_usezen_it" {
 resource "cloudflare_record" "spf_usezen_it" {
   domain = "usezen.it"
   name = "usezen.it"
-  value = "v=spf1 include:mailgun.org ~all"
+  value = "v=spf1 include:mailgun.org include:aspmx.googlemail.com include:_spf.google.com ~all"
   type = "TXT"
   ttl = 360
 }
@@ -93,5 +93,50 @@ resource "cloudflare_record" "gsuite_veritication_usezen_it" {
   name = "sfo537gpaaqd.usezen.it"
   value = "gv-feitkpzwvdd4hn.dv.googlehosted.com"
   type = "CNAME"
+  ttl = 360
+}
+
+resource "cloudflare_record" "root_mx1_usezen_it" {
+  domain = "usezen.it"
+  name = "usezen.it"
+  priority = 1
+  value = "ASPMX.L.GOOGLE.COM"
+  type = "MX"
+  ttl = 360
+}
+
+resource "cloudflare_record" "root_mx2_usezen_it" {
+  domain = "usezen.it"
+  name = "usezen.it"
+  priority = 5
+  value = "ALT1.ASPMX.L.GOOGLE.COM"
+  type = "MX"
+  ttl = 360
+}
+
+resource "cloudflare_record" "root_mx3_usezen_it" {
+  domain = "usezen.it"
+  name = "usezen.it"
+  priority = 5
+  value = "ALT2.ASPMX.L.GOOGLE.COM"
+  type = "MX"
+  ttl = 360
+}
+
+resource "cloudflare_record" "root_mx4_usezen_it" {
+  domain = "usezen.it"
+  name = "usezen.it"
+  priority = 10
+  value = "ASPMX2.GOOGLEMAIL.COM"
+  type = "MX"
+  ttl = 360
+}
+
+resource "cloudflare_record" "root_mx5_usezen_it" {
+  domain = "usezen.it"
+  name = "usezen.it"
+  priority = 10
+  value = "ASPMX3.GOOGLEMAIL.COM"
+  type = "MX"
   ttl = 360
 }
