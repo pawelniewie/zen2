@@ -15,8 +15,9 @@
 #
 
 class Team < ApplicationRecord
-  belongs_to :organization
+  acts_as_tenant :organization
+  
   has_and_belongs_to_many :users, join_table: :teams_users
 
-  validates :name, uniqueness: { scope: :organization_id }
+  validates_uniqueness_to_tenant :name
 end

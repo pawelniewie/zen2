@@ -49,4 +49,12 @@ QueryType = GraphQL::ObjectType.define do
       ctx[:current_user]
     }
   end
+
+  connection :teams, TeamInterface.connection_type do
+    argument :order_by, types[OrderSelector]
+  
+    resolve TeamResolver.new -> (_, _, ctx) {
+      TeamPolicy::Scope.new(ctx[:current_user], Team).resolve
+    }
+  end
 end

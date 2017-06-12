@@ -21,3 +21,8 @@ zen = Organization.find_by_name('Zen')
 if zen.projects.find_by_name('Zen').blank?
 	zen.projects.create!(name: 'Zen', visibility: :public, key: 'ZEN')
 end
+
+zen_team = Team.find_by_name('Zen Team')
+unless zen_team
+	zen_team = zen.teams.create!(name: 'Zen Team')
+end
