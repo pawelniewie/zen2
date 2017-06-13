@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170613200830) do
+ActiveRecord::Schema.define(version: 20170613205512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,21 @@ ActiveRecord::Schema.define(version: 20170613200830) do
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_comments_on_author_id"
     t.index ["issue_id"], name: "index_comments_on_issue_id"
+  end
+
+  create_table "custom_fields", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.text "name", null: false
+    t.text "field_type", null: false
+    t.text "owner_type", null: false
+    t.uuid "owner_id", null: false
+    t.jsonb "configuration", default: {}, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.uuid "organization_id", null: false
+    t.uuid "project_id", null: false
+    t.index ["name", "project_id"], name: "index_custom_fields_on_name_and_project_id", unique: true
+    t.index ["organization_id"], name: "index_custom_fields_on_organization_id"
+    t.index ["project_id"], name: "index_custom_fields_on_project_id"
   end
 
   create_table "delayed_jobs", id: :serial, force: :cascade do |t|
@@ -246,6 +261,8 @@ ActiveRecord::Schema.define(version: 20170613200830) do
   add_foreign_key "attachments", "organizations"
   add_foreign_key "comments", "issues"
   add_foreign_key "comments", "users", column: "author_id"
+  add_foreign_key "custom_fields", "organizations"
+  add_foreign_key "custom_fields", "projects"
   add_foreign_key "issue_types", "projects"
   add_foreign_key "issues", "organizations"
   add_foreign_key "issues", "projects"
