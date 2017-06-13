@@ -140,9 +140,11 @@ ActiveRecord::Schema.define(version: 20170613190926) do
     t.text "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.uuid "organization_id"
-    t.index ["name", "organization_id"], name: "index_project_roles_on_name_and_organization_id", unique: true
+    t.uuid "organization_id", null: false
+    t.uuid "project_id", null: false
+    t.index ["name", "project_id"], name: "index_project_roles_on_name_and_project_id", unique: true
     t.index ["organization_id"], name: "index_project_roles_on_organization_id"
+    t.index ["project_id"], name: "index_project_roles_on_project_id"
   end
 
   create_table "projects", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -243,6 +245,7 @@ ActiveRecord::Schema.define(version: 20170613190926) do
   add_foreign_key "issues", "users", column: "assignee_id"
   add_foreign_key "issues", "users", column: "reporter_id"
   add_foreign_key "project_roles", "organizations"
+  add_foreign_key "project_roles", "projects"
   add_foreign_key "projects", "organizations"
   add_foreign_key "statuses", "projects"
   add_foreign_key "teams", "organizations"

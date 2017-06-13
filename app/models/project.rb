@@ -27,6 +27,7 @@ class Project < ApplicationRecord
   has_many :issue_types
   has_many :statuses
   has_many :issues
+  has_many :roles, class_name: "ProjectRole"
 
   validates_uniqueness_to_tenant [:name, :key]
   
