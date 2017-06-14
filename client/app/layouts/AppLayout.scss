@@ -1,0 +1,11 @@
+.top-menu {
+    display: flex;
+
+    .log-in {
+        color: white;
+    }
+
+    li:last-child {
+        margin-left: auto;
+    }
+}
