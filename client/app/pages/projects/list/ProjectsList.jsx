@@ -3,7 +3,6 @@ import ListingLayout from 'app/layouts/ListingLayout';
 import Button from 'app/components/Button';
 import {Link} from 'react-router';
 
-import {Nav, NavItem} from 'react-bootstrap';
 require('./projects-list.scss');
 
 export default function ProjectsList({projects}) {
