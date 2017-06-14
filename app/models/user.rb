@@ -49,7 +49,9 @@ class User < ApplicationRecord
   belongs_to :organization
 
   has_and_belongs_to_many :teams, join_table: :teams_users
-
+  
+  has_many :custom_fields_values, class_name: "CustomFieldValue", dependent: :delete_all
+  
   audited associated_with: :organization, only: [:email, :username, :first_name, :last_name]
 
   accepts_nested_attributes_for :organization

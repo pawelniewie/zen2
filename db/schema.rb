@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614205512) do
+ActiveRecord::Schema.define(version: 20170614205513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,10 +80,7 @@ ActiveRecord::Schema.define(version: 20170614205512) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.uuid "organization_id", null: false
-    t.uuid "project_id", null: false
-    t.index ["name", "project_id"], name: "index_custom_fields_on_name_and_project_id", unique: true
     t.index ["organization_id"], name: "index_custom_fields_on_organization_id"
-    t.index ["project_id"], name: "index_custom_fields_on_project_id"
   end
 
   create_table "delayed_jobs", id: :serial, force: :cascade do |t|
@@ -273,7 +270,6 @@ ActiveRecord::Schema.define(version: 20170614205512) do
   add_foreign_key "comments", "users", column: "author_id"
   add_foreign_key "custom_field_values", "organizations"
   add_foreign_key "custom_fields", "organizations"
-  add_foreign_key "custom_fields", "projects"
   add_foreign_key "issue_types", "projects"
   add_foreign_key "issues", "organizations"
   add_foreign_key "issues", "projects"

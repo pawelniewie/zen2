@@ -34,6 +34,7 @@ class Issue < ApplicationRecord
   has_associated_audits
 
   has_many :comments
+  has_many :custom_field_values, class_name: "CustomFieldValue", dependent: :delete_all
 
   acts_as_sequenced column: :no, scope: :project_id
 

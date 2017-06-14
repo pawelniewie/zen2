@@ -28,6 +28,10 @@ class Project < ApplicationRecord
   has_many :statuses
   has_many :issues
   has_many :roles, class_name: "ProjectRole"
+  
+  has_many :issue_custom_fields, class_name: "CustomField", as: :owner, dependent: :delete_all
+  
+  has_many :custom_fields_values, class_name: "CustomFieldValue", as: :owner, dependent: :delete_all
 
   validates_uniqueness_to_tenant [:name, :key]
   

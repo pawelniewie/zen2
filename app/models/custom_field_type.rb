@@ -1,0 +1,15 @@
+class CustomFieldType
+	TEXT_CUSTOM_FIELD_TYPE = "text"
+	LONG_TEXT_CUSTOM_FIELD_TYPE = "longtext"
+	USER_CUSTOM_FIELD_TYPE = "user"
+	USERS_CUSTOM_FIELD_TYPE = "users"
+	
+	def self.all
+		[
+			TEXT_CUSTOM_FIELD_TYPE,
+			LONG_TEXT_CUSTOM_FIELD_TYPE,
+			USER_CUSTOM_FIELD_TYPE,
+			USERS_CUSTOM_FIELD_TYPE
+		]
+	end
+end
