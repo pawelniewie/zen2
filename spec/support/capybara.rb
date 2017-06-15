@@ -18,3 +18,7 @@ RSpec.configure do |config|
 		# page.driver.allow_url("*.xip.io")
 	end
 end
+
+SitePrism.configure do |config|
+	config.use_implicit_waits = true
+end
