@@ -62,6 +62,11 @@ jobs:
               - tmp/cache/assets
               - public/assets
 
+      # Run mocha
+      - type: shell
+        command: |
+          cd client && yarn test
+
       # Run rspec in parallel
       - type: shell
         command: |
