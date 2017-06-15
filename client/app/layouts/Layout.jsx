@@ -4,7 +4,6 @@ import { Menu, Icon, Button } from 'antd';
 import InlineSVG from 'react-svg-inline';
 import { Link } from 'react-router';
 import { autobind } from 'core-decorators'
-import DevTools from '../components/DevTools';
 
 const SubMenu = Menu.SubMenu;
 
@@ -42,7 +41,6 @@ export default class Layout extends React.Component {
             <footer className="main-footer">
                 <span className="main-footer--product-version">Zen 0.1.5</span>
             </footer>
-            {__DEV__ && <DevTools/>}
         </div>;
     }
 
