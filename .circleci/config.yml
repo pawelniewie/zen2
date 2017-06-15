@@ -72,10 +72,14 @@ jobs:
                             $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
       # Save artifacts
-      - store_test_results:
+      - store_artifacts:
           path: tmp/test-results
-          destination: artifacs
+          destination: Test results
 
       - store_artifacts:
           path: tmp/reports
-          destination: artifacs
+          destination: Screenshots
+
+      - store_artifacts:
+          path: log/
+          destination: Logs
