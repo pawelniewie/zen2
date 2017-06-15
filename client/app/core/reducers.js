@@ -11,7 +11,7 @@ export default function(app, asyncReducers) {
     return combineReducers({
         apollo: app.apolloClient.reducer(),
         routing: routerReducer,
-        Layout: LayoutReducer,
+        layout: LayoutReducer,
         ...asyncReducers
     });
 }

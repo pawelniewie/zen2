@@ -1,9 +1,10 @@
 import React from 'react';
-import {PropTypes as PT} from 'prop-types';
-import {Menu, Icon, Button} from 'antd';
+import { PropTypes as PT } from 'prop-types';
+import { Menu, Icon, Button } from 'antd';
 import InlineSVG from 'react-svg-inline';
-import {Link} from 'react-router';
-import {autobind} from 'core-decorators'
+import { Link } from 'react-router';
+import { autobind } from 'core-decorators'
+import DevTools from '../components/DevTools';
 
 const SubMenu = Menu.SubMenu;
 
@@ -23,7 +24,8 @@ export default class Layout extends React.Component {
                     <InlineSVG svg={logo} component={Link} to="/" className="main-header--logo"/>
                 </Menu.Item>
                 {this.props.user !== undefined ? (
-                    <SubMenu title={<span><Icon type="user"/>{this.props.user.first_name} {this.props.user.last_name}</span>}>
+                    <SubMenu title={<span><Icon
+                        type="user"/>{this.props.user.first_name} {this.props.user.last_name}</span>}>
                         <Menu.Item key="user:logout">Log out</Menu.Item>
                     </SubMenu>
                 ) : (
@@ -34,21 +36,23 @@ export default class Layout extends React.Component {
                     </Menu.Item>
                 )}
             </Menu>
-
             <main className="main-content">
                 {this.props.children}
             </main>
             <footer className="main-footer">
                 <span className="main-footer--product-version">Zen 0.1.5</span>
             </footer>
+            {__DEV__ && <DevTools/>}
         </div>;
     }
 
     @autobind
     onMenuClick(e) {
         console.log(e);
-        switch(e.key) {
-            case "user:logout": this.props.onLogOut(); break;
+        switch (e.key) {
+            case "user:logout":
+                this.props.onLogOut();
+                break;
         }
     }
 }

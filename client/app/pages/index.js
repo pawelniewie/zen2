@@ -5,11 +5,11 @@ import projectsRoute from './projects';
 import usersRoute from './users';
 import errorsRoute from './errors';
 
-import AppLayoutWithData from '../layouts/LayoutWithData';
+import LayoutWithData from '../layouts/LayoutWithData';
 
 export default (app) => ({
     path: '/',
-    component: AppLayoutWithData,
+    component: LayoutWithData,
     indexRoute: {component: ProjectsListWithData},
     childRoutes: [
         projectsRoute(app),

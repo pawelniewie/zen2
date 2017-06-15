@@ -1,9 +1,9 @@
 import React from 'react';
-import {render} from 'react-dom';
-import {Router, browserHistory} from 'react-router';
+import { render } from 'react-dom';
+import { Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
-import ApolloClient, {createNetworkInterface} from 'apollo-client';
-import {ApolloProvider} from 'react-apollo';
+import ApolloClient, { createNetworkInterface } from 'apollo-client';
+import { ApolloProvider } from 'react-apollo';
 
 import createRoutes from '../pages';
 import configureStore from './store';
