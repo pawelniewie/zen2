@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
 import {userLogin} from './actions';
-import LoginForm from './LoginForm';
+import OrganizationForm from './OrganizationForm';
 import React from 'react';
 
-const LoginFormPage = connect(
+const NewOrganizationPage = connect(
     (state) => (state.loginForm || {}),
     (dispatch) => {
         return {
@@ -12,6 +12,6 @@ const LoginFormPage = connect(
             }
         }
     }
-)(LoginForm);
+)(OrganizationForm);
 
-export default LoginFormPage;
+export default NewOrganizationPage;

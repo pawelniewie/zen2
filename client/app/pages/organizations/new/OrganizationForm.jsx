@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Icon, Input } from 'antd';
 const FormItem = Form.Item;
 
-require('./login-form.scss');
+require('./OrganizationForm.scss');
 
 import {FocusedTaskHeader, FocusedTaskContent} from 'app/layouts/FocusedTask';
 import {FormErrors, FormField, FormLabel, FormButtons} from 'app/components/Form';

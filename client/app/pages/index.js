@@ -5,7 +5,7 @@ import projectsRoute from './projects';
 import usersRoute from './users';
 import errorsRoute from './errors';
 
-import AppLayoutWithData from '../layouts/AppLayoutWithData';
+import AppLayoutWithData from '../layouts/LayoutWithData';
 
 export default (app) => ({
     path: '/',
