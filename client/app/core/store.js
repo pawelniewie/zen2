@@ -1,6 +1,7 @@
 import {createStore, applyMiddleware, compose} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import createReducers from './reducers';
+import DevTools from '../components/DevTools';
 
 /**
  * @param {App} app
@@ -17,7 +18,7 @@ export default function configureStore(app, initialState) {
                 thunkMiddleware.withExtraArgument(app),
                 app.apolloClient.middleware(),
             ),
-            window.devToolsExtension ? window.devToolsExtension() : f => f
+            __DEV__ ? DevTools.instrument() : f => f
         )
     );
 }

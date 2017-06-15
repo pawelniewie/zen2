@@ -1,6 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {Router, browserHistory} from 'react-router';
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import ApolloClient, {createNetworkInterface} from 'apollo-client';
 import {ApolloProvider} from 'react-apollo';
 
@@ -38,15 +39,16 @@ const client = new ApolloClient({
 
 const app = {
     apolloClient: client,
-    history: browserHistory,
     actionListener: new ActionListener()
 };
 
 app.store = configureStore(app, {});
+app.history = syncHistoryWithStore(browserHistory, app.store);
 app.asyncReducers = Object.create(null);
 
 global.app = app;
 const routes = createRoutes(app);
+
 render(
     <ApolloProvider store={app.store} client={client}>
         <Router history={app.history} routes={routes}/>

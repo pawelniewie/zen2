@@ -1,4 +1,5 @@
 import {combineReducers} from 'redux';
+import { routerReducer } from 'react-router-redux'
 import LayoutReducer from '../layouts/reducers';
 
 /**
@@ -9,6 +10,7 @@ import LayoutReducer from '../layouts/reducers';
 export default function(app, asyncReducers) {
     return combineReducers({
         apollo: app.apolloClient.reducer(),
+        routing: routerReducer,
         Layout: LayoutReducer,
         ...asyncReducers
     });

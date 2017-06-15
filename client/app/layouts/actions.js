@@ -1,6 +1,6 @@
 import {createAction} from 'redux-actions';
 import AppError from 'app/libs/AppError';
-import {browserHistory} from 'react-router';
+import { push } from 'react-router-redux';
 
 export const userLogOut = function () {
     return (dispatch) => {
@@ -18,7 +18,7 @@ export const userLogOut = function () {
                 if (json.error) {
                     dispatch(userLogOutFailed(new AppError(json.error)));
                 } else {
-                    dispatch(userLogOutSuccess());
+                    dispatch(push('/'));
                 }
             })
             .catch((err) => {
@@ -29,4 +29,3 @@ export const userLogOut = function () {
 
 export const userLogOutStarted = createAction('USER_LOGOUT_STARTED');
 export const userLogOutFailed = createAction('USER_LOGOUT_FAILED');
-export const userLogOutSuccess = createAction('USER_LOGOUT_SUCCESS');

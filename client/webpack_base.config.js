@@ -30,7 +30,8 @@ const config = {
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV)
-            }
+            },
+            '__DEV__': process.env.NODE_ENV !== "production"
         })
     ],
     module: {
