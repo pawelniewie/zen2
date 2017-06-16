@@ -1,2 +1,2 @@
-//= require webpack-bundle
+//= require_directory ../webpack
 
