@@ -28,7 +28,7 @@ const config = {
   },
   devtool: project.sourcemaps ? 'source-map' : true,
   output: {
-    filename: 'webpack-bundle-[name].js',
+    filename: '[name].js',
     chunkFilename: '[name]-[id].[chunkhash].js',
     path: path.resolve(__dirname, '../app/assets/webpack')
   },
