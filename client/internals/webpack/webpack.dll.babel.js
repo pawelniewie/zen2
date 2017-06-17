@@ -7,7 +7,7 @@
  * to warrant building them from scratch every time we use
  * the webpack process.
  */
-
+const path = require('path');
 const { join } = require('path');
 const defaults = require('lodash/defaultsDeep');
 const webpack = require('webpack');
@@ -17,7 +17,7 @@ const dllPlugin = require('../config').dllPlugin;
 if (!pkg.dllPlugin) { process.exit(0); }
 
 const dllConfig = defaults(pkg.dllPlugin, dllPlugin.defaults);
-const outputPath = join(process.cwd(), dllConfig.path);
+const outputPath = path.resolve(__dirname, '../../../app/assets/webpack');
 
 module.exports = require('./webpack.base.babel')({
   context: process.cwd(),
@@ -25,7 +25,7 @@ module.exports = require('./webpack.base.babel')({
   devtool: 'eval',
   output: {
     filename: '[name].dll.js',
-    path: outputPath,
+    path: path.resolve(__dirname, '../../../app/assets/webpack'),
     library: '[name]',
   },
   plugins: [

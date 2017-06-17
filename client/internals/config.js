@@ -1,6 +1,7 @@
 const resolve = require('path').resolve;
 const pullAll = require('lodash/pullAll');
 const uniq = require('lodash/uniq');
+const path = require('path');
 
 const ReactBoilerplate = {
   // This refers to the react-boilerplate version this project is based on.
@@ -37,7 +38,8 @@ const ReactBoilerplate = {
       include: ['core-js', 'eventsource-polyfill', 'babel-polyfill', 'lodash'],
 
       // The path where the DLL manifest and bundle will get built
-      path: resolve('../node_modules/react-boilerplate-dlls'),
+      path: path.resolve(__dirname, '../../app/assets/webpack'),
+
     },
 
     entry(pkg) {
