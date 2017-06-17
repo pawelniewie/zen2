@@ -13,6 +13,10 @@
   "author": "Max Stoiber",
   "license": "MIT",
   "scripts": {
+    "test": "node_modules/.bin/webpack --config webpack_test.config.js && mocha tests.js",
+    "build:production": "NODE_ENV=production node_modules/.bin/webpack --config webpack.config.js",
+    "build:development": "node_modules/.bin/webpack -w --config webpack.config.js",
+    "build:devv": "cross-env NODE_ENV=production webpack --config ./internals/webpack/webpack.dev.babel.js --color -w --progress",
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
     "analyze": "node ./internals/scripts/analyze.js",
@@ -225,6 +229,7 @@
     "react-dom": "15.4.1",
     "react-helmet": "3.2.2",
     "react-intl": "2.1.5",
+    "react-on-rails": "6.10.0",
     "react-redux": "4.4.6",
     "react-router": "3.0.0",
     "react-router-redux": "4.0.6",
@@ -292,6 +297,7 @@
     "url-loader": "0.5.7",
     "webpack": "2.2.0-rc.3",
     "webpack-dev-middleware": "1.9.0",
-    "webpack-hot-middleware": "2.15.0"
+    "webpack-hot-middleware": "2.15.0",
+    "write-file-webpack-plugin": "^4.0.2"
   }
 }
