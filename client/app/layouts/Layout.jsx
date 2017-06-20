@@ -10,7 +10,7 @@ const logo = require('!!svg-inline-loader!app/images/logo.svg');
 require('./Layout.scss');
 
 const UserMenu = (props) => {
-    return <Dropdown item   icon="user" text={props.user.first_name + " " + props.user.last_name}>
+    return <Dropdown item icon="user" text={props.user.first_name + " " + props.user.last_name}>
         <Dropdown.Menu>
             <Dropdown.Item onClick={props.onLogIn}>Log out</Dropdown.Item>
         </Dropdown.Menu>
@@ -35,7 +35,7 @@ export default class Layout extends React.Component {
 
     render() {
         return <div>
-            <Menu className="top-menu">
+            <Menu size='small' className="top-menu">
                 <Menu.Item>
                     <InlineSVG svg={logo} component={Link} to="/" className="main-header--logo"/>
                 </Menu.Item>
