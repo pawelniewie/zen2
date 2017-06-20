@@ -12,7 +12,6 @@
     "client/node_modules"
   ],
   "dependencies": {
-    "antd": "^2.11.0",
     "apollo-client": "^0.5.25",
     "babel-runtime": "^6.23.0",
     "classnames": "^2.2.5",
@@ -37,11 +36,13 @@
     "react-router-redux": "^4.0.8",
     "react-svg-inline": "^1.2.0",
     "react-tether": "^0.5.5",
-    "recompose": "^0.23.1",
+    "recompose": "^0.23.5",
     "redux": "^3.6.0",
     "redux-actions": "^1.2.0",
     "redux-logger": "^2.7.4",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "semantic-ui-css": "^2.2.10",
+    "semantic-ui-react": "^0.68.5"
   },
   "devDependencies": {
     "autoprefixer": "^6.6.0",

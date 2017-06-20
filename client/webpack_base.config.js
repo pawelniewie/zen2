@@ -46,16 +46,14 @@ const config = {
                 loaders: ["style-loader", "css-loader", "resolve-url-loader", "sass-loader?sourceMap", "postcss-loader"]
             },
             {
-                test: /.*\.svg$/,
+                test: /.*\.(svg|png|jpg|jpeg)$/,
                 exclude: /fonts/,
-                loaders: [
-                    'url-loader'
-                ]
+                loader: 'url-loader?name=assets/[name].[ext]'
             },
             {
                 test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
                 exclude: /images/,
-                loader: 'file-loader'
+                loader: 'url-loader?name=assets/[name].[ext]'
             },
             {
                 test: /\.(graphql|gql)$/,

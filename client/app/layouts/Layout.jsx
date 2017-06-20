@@ -1,15 +1,32 @@
 import React from 'react';
 import { PropTypes as PT } from 'prop-types';
-import { Menu, Icon, Button } from 'antd';
+import { Dropdown, Icon, Menu, Button } from 'semantic-ui-react'
 import InlineSVG from 'react-svg-inline';
 import { Link } from 'react-router';
-import { autobind } from 'core-decorators'
-
-const SubMenu = Menu.SubMenu;
+import { branch, renderComponent } from 'recompose';
 
 const logo = require('!!svg-inline-loader!app/images/logo.svg');
 
 require('./Layout.scss');
+
+const UserMenu = (props) => {
+    return <Dropdown item   icon="user" text={props.user.first_name + " " + props.user.last_name}>
+        <Dropdown.Menu>
+            <Dropdown.Item onClick={props.onLogIn}>Log out</Dropdown.Item>
+        </Dropdown.Menu>
+    </Dropdown>;
+};
+
+const AnonymousMenu = (props) => {
+    return <Menu.Item position="right" onClick={props.onLogIn}>
+        <Button icon="user" content="Log In"/>
+    </Menu.Item>;
+};
+
+const AnonymousOrUserMenu = branch(
+    (props) => props.user === undefined,
+    renderComponent(AnonymousMenu),
+)(UserMenu);
 
 export default class Layout extends React.Component {
     constructor(props) {
@@ -18,22 +35,13 @@ export default class Layout extends React.Component {
 
     render() {
         return <div>
-            <Menu mode="horizontal" className="top-menu" onClick={this.onMenuClick}>
+            <Menu className="top-menu">
                 <Menu.Item>
                     <InlineSVG svg={logo} component={Link} to="/" className="main-header--logo"/>
                 </Menu.Item>
-                {this.props.user !== undefined ? (
-                    <SubMenu title={<span><Icon
-                        type="user"/>{this.props.user.first_name} {this.props.user.last_name}</span>}>
-                        <Menu.Item key="user:logout">Log out</Menu.Item>
-                    </SubMenu>
-                ) : (
-                    <Menu.Item>
-                        <Button type="primary" size="small" icon="user">
-                            <Link to="/users/login" className="log-in">Log in</Link>
-                        </Button>
-                    </Menu.Item>
-                )}
+                <Menu.Menu position="right">
+                    <AnonymousOrUserMenu user={this.props.user} onLogIn={this.props.onLogIn} onLogOut={this.props.onLogOut}/>
+                </Menu.Menu>
             </Menu>
             <main className="main-content">
                 {this.props.children}
@@ -43,20 +51,11 @@ export default class Layout extends React.Component {
             </footer>
         </div>;
     }
-
-    @autobind
-    onMenuClick(e) {
-        console.log(e);
-        switch (e.key) {
-            case "user:logout":
-                this.props.onLogOut();
-                break;
-        }
-    }
 }
 
 Layout.propTypes = {
     user: PT.object,
     isLoading: PT.bool,
-    onLogOut: PT.func.isRequired
+    onLogOut: PT.func.isRequired,
+    onLogIn: PT.func.isRequired,
 };

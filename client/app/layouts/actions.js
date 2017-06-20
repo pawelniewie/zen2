@@ -1,6 +1,5 @@
 import {createAction} from 'redux-actions';
-import AppError from 'app/libs/AppError';
-import { push } from 'react-router-redux';
+import { browserHistory } from 'react-router';
 import { NO_CONTENT } from 'http-status-codes';
 
 export const userLogOut = function () {
@@ -16,9 +15,9 @@ export const userLogOut = function () {
         })
             .then(response => {
                 if (response.status != NO_CONTENT) {
-                    dispatch(userLogOutFailed(new AppError(json.error)));
+                    dispatch(userLogOutFailed(new AppError(response.json().error)));
                 } else {
-                    dispatch(push('/'));
+                    dispatch(browserHistory.push('/'));
                 }
             })
             .catch((err) => {

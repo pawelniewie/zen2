@@ -12,7 +12,7 @@ export default function FocusedTask(props) {
     const classes = classNames('focused-task', {
         'focused-task__wide': isWide
     }, className);
-    return <section className={classes} {...otherProps}>
+    return <section className={classes}>
         {children}
     </section>;
 }

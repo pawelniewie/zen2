@@ -1,7 +1,8 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {userLogOut} from './actions';
-import {graphql} from 'react-apollo';
+import { connect } from 'react-redux';
+import { userLogOut } from './actions';
+import { browserHistory } from 'react-router';
+import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import Layout from './Layout';
 
@@ -21,13 +22,16 @@ const LayoutWithData = connect(
         return {
             onLogOut: () => {
                 dispatch(userLogOut());
+            },
+            onLogIn: () => {
+                browserHistory.push('/users/login');
             }
         }
     }
 )
 (graphql(query, {
-    props: ({data: {user, isLoading}}) => {
-        return {user, isLoading};
+    props: ({ data: { user, isLoading } }) => {
+        return { user, isLoading };
     }
 })(Layout));
 

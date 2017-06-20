@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Icon, Input } from 'antd';
+import { Form, Icon, Input } from 'semantic-ui-react';
 const FormItem = Form.Item;
 
 require('./OrganizationForm.scss');
