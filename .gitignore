@@ -6,6 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
+/vendor/bundle
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -22,6 +23,7 @@ node_modules
 
 # Generated js bundles
 /app/assets/webpack/*
+/public/assets
 
 .idea/
 
