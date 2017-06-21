@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Icon, Input } from 'semantic-ui-react';
-const FormItem = Form.Item;
+import { Field } from 'redux-form';
 
 require('./OrganizationForm.scss');
 
@@ -17,6 +17,10 @@ export default class OrganizationForm extends React.Component {
 
     render() {
         return <Form onSubmit={this.onSubmit}>
+            <Form.Field>
+                <label>Organisation name</label>
+                <Input placeholder="Put a name here"/>
+            </Form.Field>
         </Form>;
     }
 

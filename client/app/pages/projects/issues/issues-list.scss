@@ -1,11 +1,9 @@
-@import '../../../styles/config';
-
 .issues-list {
 
 }
 
 .issues-list--entry {
-  border: 1px solid $semColor-border;
+  border: 1px solid;
     padding: 5px;
   border-radius: 3px;
   + .issues-list--entry {

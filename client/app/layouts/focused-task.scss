@@ -1,6 +1,3 @@
-@import '../styles/config';
-@import '../styles/mixins/card';
-
 .focused-task {
     position: absolute;
     top: 50%;
@@ -19,14 +16,9 @@
 }
 
 .focused-task--header {
-    font-size: $fontSize-huge;
-    font-weight: $fontWeight-light;
     margin-bottom: 20px;
-    color: $semColor-bigHeadersText;
 }
 
 .focused-task--content {
     padding: 20px;
-
-    @include card;
 }
