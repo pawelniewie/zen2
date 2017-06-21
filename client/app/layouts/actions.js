@@ -1,8 +1,9 @@
 import {createAction} from 'redux-actions';
+import { withApollo } from 'react-apollo';
 import { browserHistory } from 'react-router';
 import { NO_CONTENT } from 'http-status-codes';
 
-export const userLogOut = function () {
+export const userLogOut = function (apolloClient) {
     return (dispatch) => {
         dispatch(userLogOutStarted());
 
@@ -17,6 +18,7 @@ export const userLogOut = function () {
                 if (response.status != NO_CONTENT) {
                     dispatch(userLogOutFailed(new AppError(response.json().error)));
                 } else {
+                    apolloClient.resetStore();
                     dispatch(browserHistory.push('/'));
                 }
             })

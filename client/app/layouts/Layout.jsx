@@ -12,7 +12,7 @@ require('./Layout.scss');
 const UserMenu = (props) => {
     return <Dropdown item icon="user" text={props.user.first_name + " " + props.user.last_name}>
         <Dropdown.Menu>
-            <Dropdown.Item onClick={props.onLogIn}>Log out</Dropdown.Item>
+            <Dropdown.Item onClick={props.onLogOut}>Log out</Dropdown.Item>
         </Dropdown.Menu>
     </Dropdown>;
 };
