@@ -8,7 +8,7 @@ import {FocusedTaskHeader, FocusedTaskContent} from 'app/layouts/FocusedTask';
 import {FormErrors, FormField, FormLabel, FormButtons} from 'app/components/Form';
 import Button from 'app/components/Button';
 
-export default class LoginForm extends React.Component {
+export default class OrganizationForm extends React.Component {
     constructor(props) {
         super(props);
 
@@ -17,16 +17,6 @@ export default class LoginForm extends React.Component {
 
     render() {
         return <Form onSubmit={this.onSubmit}>
-            <FormItem>
-                <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Organization name" />
-            </FormItem>
-            <FormItem>
-                <Button
-                    type="primary"
-                    htmlType="submit">
-                    Create
-                </Button>
-            </FormItem>
         </Form>;
     }
 
@@ -40,12 +30,12 @@ export default class LoginForm extends React.Component {
     }
 }
 
-LoginForm.propTypes = {
+OrganizationForm.propTypes = {
     onLogin: React.PropTypes.func.isRequired,
     isLogging: React.PropTypes.bool,
     error: React.PropTypes.instanceOf(Error)
 };
 
-LoginForm.defaultProps = {
+OrganizationForm.defaultProps = {
     isLogging: false
 };
