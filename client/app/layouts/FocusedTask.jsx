@@ -1,6 +1,6 @@
 import React from 'react';
+import { Segment, Grid, Header } from 'semantic-ui-react';
 import classNames from 'classnames';
-require('./focused-task.scss');
 
 export default function FocusedTask(props) {
     const {
@@ -12,9 +12,13 @@ export default function FocusedTask(props) {
     const classes = classNames('focused-task', {
         'focused-task__wide': isWide
     }, className);
-    return <section className={classes}>
-        {children}
-    </section>;
+    return <Grid centered columns={2} doubling>
+            <Grid.Column>
+                <Segment className={classes}>
+                    {children}
+                </Segment>
+            </Grid.Column>
+        </Grid>;
 }
 
 FocusedTask.propTypes = {
@@ -22,7 +26,7 @@ FocusedTask.propTypes = {
 };
 
 export function FocusedTaskHeader(props) {
-    return <h1 className="focused-task--header">{props.children}</h1>;
+    return <Header className="focused-task--header">{props.children}</Header>;
 }
 
 export function FocusedTaskContent(props) {
