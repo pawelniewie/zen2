@@ -1,9 +1,10 @@
 import React from 'react';
+import { Form, Button } from 'semantic-ui-react';
+
 require('./login-form.scss');
 
 import {FocusedTaskHeader, FocusedTaskContent} from 'app/layouts/FocusedTask';
 import {FormErrors, FormField, FormLabel, FormButtons} from 'app/components/Form';
-import Button from 'app/components/Button';
 
 export default class LoginForm extends React.Component {
     constructor(props) {
@@ -16,25 +17,24 @@ export default class LoginForm extends React.Component {
         return <div className="login-form">
             <FocusedTaskHeader>Login</FocusedTaskHeader>
             <FocusedTaskContent>
-                <form onSubmit={this.onSubmit} className="login-form form form__label-top">
-                    <FormField>
-                        <FormLabel htmlFor="login-id">Email or login</FormLabel>
+                <Form onSubmit={this.onSubmit} className="login-form form form__label-top">
+                    <Form.Field>
+                        <label htmlFor="login-id">Email or login</label>
                         <input type="text" ref="login" className="form--control input" id="login-id"/>
-                    </FormField>
-                    <FormField>
+                    </Form.Field>
+                    <Form.Field>
                         <FormLabel htmlFor="password-id">Password</FormLabel>
                         <input type="password" ref="password" className="form--control input" id="password-id"/>
                         <FormErrors errors={this.props.error && this.props.error.message}/>
-                    </FormField>
+                    </Form.Field>
 
                     <FormButtons className="login-form--buttons">
                         <Button className="login-form--submit"
-                                isLoading={this.isLogging}
-                                isPrimary={true}
-                                loadingLabel="Logging...">Login</Button>
+                                loading={this.isLogging}
+                                primary>Login</Button>
                         <a href="#" className="login-form--forgot-password">Forgot your password?</a>
                     </FormButtons>
-                </form>
+                </Form>
             </FocusedTaskContent>
         </div>;
     }
