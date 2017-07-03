@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { userLogin } from './actions';
+import { organizationNew } from './actions';
 import OrganizationForm from './OrganizationForm';
 import React from 'react';
 import { compose } from 'react-apollo';
@@ -7,11 +7,11 @@ import { reduxForm } from 'redux-form';
 
 const NewOrganizationPage = compose(
     connect(
-        (state) => (state.loginForm || {}),
+        (state) => ({}),
         (dispatch) => {
             return {
-                onLogin: ({ login, password }) => {
-                    dispatch(userLogin(login, password));
+                onSubmit: ({ email, password, firstName, lastName, organization }) => {
+                    dispatch(organizationNew(email, password, firstName, lastName, organization.name, organization.slug));
                 }
             }
         }

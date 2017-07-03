@@ -5,23 +5,19 @@ import FocusedTask, { FocusedTaskContent } from 'app/layouts/FocusedTask';
 
 require('./OrganizationForm.scss');
 
-export default class OrganizationForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.onSubmit = this.onSubmit.bind(this)
-    }
-
-    render() {
-        return <FocusedTask>
+const OrganizationForm = (props) => {
+    const { handleSubmit, pristine, submitting } = props;
+    return (
+        <FocusedTask>
             <FocusedTaskContent>
-                <Form onSubmit={this.onSubmit}>
+                <Form onSubmit={handleSubmit}>
                     <Form.Field>
                         <label>Organisation name</label>
-                        <Field name="name" component={Input} placeholder="Put a name here"/>
+                        <Field name="organization.name" component={Input} placeholder="Put a name here"/>
                     </Form.Field>
                     <Form.Field>
                         <label>Subdomain</label>
-                        <Field name="slug" component={Input} placeholder="Your subdomain"/>
+                        <Field name="organization.slug" component={Input} placeholder="Your subdomain"/>
                     </Form.Field>
                     <Form.Field>
                         <label>E-mail</label>
@@ -35,28 +31,11 @@ export default class OrganizationForm extends React.Component {
                         <label>Last name</label>
                         <Field name="last_name" component={Input} placeholder="Last name"/>
                     </Form.Field>
-                    <Form.Button primary disabled={this.props.pristine || this.props.submitting}>Create</Form.Button>
+                    <Form.Button primary disabled={props.pristine || props.submitting}>Create</Form.Button>
                 </Form>
             </FocusedTaskContent>
-        </FocusedTask>;
-    }
-
-    onSubmit(e) {
-        e.preventDefault();
-
-        this.props.onLogin({
-            login: this.refs.login.value,
-            password: this.refs.password.value
-        });
-    }
-}
-
-OrganizationForm.propTypes = {
-    onLogin: React.PropTypes.func.isRequired,
-    isLogging: React.PropTypes.bool,
-    error: React.PropTypes.instanceOf(Error)
+        </FocusedTask>
+    );
 };
 
-OrganizationForm.defaultProps = {
-    isLogging: false
-};
+export default OrganizationForm;
