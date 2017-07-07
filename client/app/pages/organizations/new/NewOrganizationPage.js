@@ -10,8 +10,8 @@ const NewOrganizationPage = compose(
         (state) => ({}),
         (dispatch) => {
             return {
-                onSubmit: ({ email, password, firstName, lastName, organization }) => {
-                    dispatch(organizationNew(email, password, firstName, lastName, organization.name, organization.slug));
+                onSubmit: ({ user }) => {
+                    dispatch(organizationNew(user));
                 }
             }
         }

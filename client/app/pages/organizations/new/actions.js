@@ -1,8 +1,9 @@
 import {createAction} from 'redux-actions';
 import AppError from 'app/libs/AppError';
 import {browserHistory} from 'react-router';
+import prepareModelForRails from 'app/libs/prepareModelForRails';
 
-export const organizationNew = function(email, password, firstName, lastName, organizationName, organizationSlug) {
+export const organizationNew = function(user) {
     return (dispatch) => {
         dispatch(organizationNewStarted());
 
@@ -12,16 +13,7 @@ export const organizationNew = function(email, password, firstName, lastName, or
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                user: {
-                    email: email,
-                    password: password,
-                    first_name: firstName,
-                    last_name: lastName,
-                    organization_attributes: {
-                        name: organizationName,
-                        slug: organizationSlug
-                    }
-                }
+                user: prepareModelForRails(user)
             }),
             credentials: 'same-origin'
         })
