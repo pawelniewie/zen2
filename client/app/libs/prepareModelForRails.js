@@ -1,18 +1,19 @@
 import reduce from 'lodash/reduce'
 import isArray from 'lodash/isArray'
+import indexOf from 'lodash/indexOf'
 
-const prepareModelForRails = (model) => {
+const prepareModelForRails = (model, force = []) => {
     if (typeof model !== 'object') {
         return model
     } else {
         if (isArray(model)) {
-            return model.map( m => prepareModelForRails(m) )
+            return model.map( m => prepareModelForRails(m, force) )
         } else {
             return reduce(model, (result, value, key) => {
-                if (isArray(value)) {
-                    result[`${key}_attributes`] = prepareModelForRails(value)
+                if (isArray(value) || indexOf(force, key) !== -1) {
+                    result[`${key}_attributes`] = prepareModelForRails(value, force)
                 } else {
-                    result[key] = prepareModelForRails(value)
+                    result[key] = prepareModelForRails(value, force)
                 }
                 return result
             }, {})
