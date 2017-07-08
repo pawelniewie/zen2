@@ -12,7 +12,7 @@
     "client/node_modules"
   ],
   "dependencies": {
-    "apollo-client": "^0.5.25",
+    "apollo-client": "^1.7.0",
     "babel-runtime": "^6.23.0",
     "classnames": "^2.2.5",
     "click-outside": "^2.0.2",
@@ -26,7 +26,7 @@
     "lodash.partialright": "^4.2.1",
     "prop-types": "^15.5.10",
     "react": "^15.4.4",
-    "react-apollo": "^0.7.2",
+    "react-apollo": "^1.4.3",
     "react-dom": "^15.4.4",
     "react-gravatar": "^2.6.1",
     "react-mixin": "^2.0.2",
