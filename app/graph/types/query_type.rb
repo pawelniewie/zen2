@@ -44,9 +44,12 @@ QueryType = GraphQL::ObjectType.define do
     }
   end
 
-  field :currentUser, UserInterface do
+  field :currentUser, CurrentUserInterface do
     resolve -> (obj, args, ctx) {
-      ctx[:current_user]
+      {
+	      user: ctx[:current_user],
+	      anonymous: ctx[:current_user].nil?
+      }
     }
   end
 

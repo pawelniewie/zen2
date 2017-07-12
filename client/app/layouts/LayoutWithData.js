@@ -7,15 +7,18 @@ import gql from 'graphql-tag';
 import Layout from './Layout';
 
 const query = gql`{
-    user: currentUser {
-        id
-        email
-        username
-        first_name
-        last_name
+    currentUser {
+        user {
+            id
+            email
+            username
+            first_name
+            last_name
+        }
+        anonymous
     }
-}
-`;
+}`;
+
 const LayoutWithData = compose(
     withApollo,
     connect(
@@ -32,8 +35,8 @@ const LayoutWithData = compose(
         }
     ),
     graphql(query, {
-        props: ({ data: { user, isLoading } }) => {
-            return { user, isLoading };
+        props: ({ data: { currentUser, loading } }) => {
+            return { currentUser, isLoading: loading };
         }
     })
 )(Layout);

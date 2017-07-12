@@ -67,6 +67,11 @@ const config = {
                 loaders: [
                     'svgo-loader?' + svgoConfig
                 ]
+            },
+            {
+                enforce: 'pre',
+                test: /\.js$/,
+                loader: 'source-map-loader'
             }
         ],
     },
