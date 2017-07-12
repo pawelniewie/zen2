@@ -1,0 +1,9 @@
+@import './mixins/importer.scss';
+
+.main-header--logo {
+    min-width: rem-calc(20);
+}
+
+.color_inline_logo_fill {
+    fill: #000;
+}

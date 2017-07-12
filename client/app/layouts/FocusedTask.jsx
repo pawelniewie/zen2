@@ -2,6 +2,8 @@ import React from 'react';
 import { Segment, Grid, Header } from 'semantic-ui-react';
 import classNames from 'classnames';
 
+require('./focused-task.scss');
+
 export default function FocusedTask(props) {
     const {
         isWide,

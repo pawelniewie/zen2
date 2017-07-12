@@ -1,0 +1,75 @@
+@import "./units";
+@mixin typography($font-size, $line-height, $font-weight:null) {
+  font-size: rem-calc($font-size);
+  line-height: rem-calc($line-height);
+  @if $font-weight != null {
+    font-weight: $font-weight;
+  }
+}
+
+@mixin background-with-color($background, $color) {
+  background: $background;
+  color: $color;
+}
+
+@mixin border-radius($radius) {
+  -moz-border-radius: rem-calc($radius);
+  -webkit-border-radius: rem-calc($radius);
+  border-radius: rem-calc($radius);
+}
+
+@mixin transitions-all {
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+@mixin transitions-all-timed($duration, $type: "all") {
+  -webkit-transition: $type $duration ease-in-out;
+  -moz-transition: $type $duration ease-in-out;
+  -o-transition: $type $duration ease-in-out;
+  transition: $type $duration ease-in-out;
+}
+
+@mixin simple-button($text-color, $bck-color: #ffffff, $border: null, $padding: null) {
+  background: $bck-color;
+  color: $text-color;
+  @if $border != null {
+    border: rem-calc($border) solid $text-color;
+  }
+  @if $padding != null {
+    padding: rem-calc($padding);
+  }
+  @include transitions-all();
+  &:hover {
+    background: darken($text-color, 5%);
+    color: $bck-color;
+    @if $border != null {
+      border: rem-calc($border) solid darken($text-color, 55%);
+    }
+  }
+}
+
+@mixin simple-button-wide($text-color, $bck-color: #ffffff, $border: null, $padding-horizontal: null, $padding-vertical: null) {
+  background: $bck-color;
+  color: $text-color;
+
+  @if $border != null {
+    border: rem-calc($border) solid $text-color;
+  }
+
+  @if $padding-horizontal != null {
+    padding: rem-calc($padding-horizontal) rem-calc($padding-vertical);
+  }
+
+  @include transitions-all();
+
+  &:hover {
+    background: darken($text-color, 5%);
+    color: $bck-color;
+    @if $border != null {
+      border: rem-calc($border) solid darken($bck-color, 10%);
+    }
+  }
+}
