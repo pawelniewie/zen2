@@ -26,7 +26,7 @@ const ProjectsListWithData = graphql(query, {
         return {};
     },
     options: {
-        forceFetch: true
+        fetchPolicy: 'network-only'
     }
 })(ProjectsList);
 
