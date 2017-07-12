@@ -1,5 +1,5 @@
 @import "./units";
-@mixin typo($font-size, $line-height, $font-weight:null) {
+@mixin typography($font-size, $line-height, $font-weight:null) {
   font-size: rem-calc($font-size);
   line-height: rem-calc($line-height);
   @if $font-weight != null {
@@ -7,7 +7,7 @@
   }
 }
 
-@mixin bck-color ($background, $color) {
+@mixin background-with-color($background, $color) {
   background: $background;
   color: $color;
 }
@@ -31,7 +31,6 @@
   -o-transition: $type $duration ease-in-out;
   transition: $type $duration ease-in-out;
 }
-
 
 @mixin simple-button($text-color, $bck-color: #ffffff, $border: null, $padding: null) {
   background: $bck-color;
