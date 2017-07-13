@@ -35,6 +35,6 @@ class Organization < ApplicationRecord
   private
 
   def downcase_slug
-    self.slug = slug.downcase
+    self.slug = slug&.downcase
   end
 end

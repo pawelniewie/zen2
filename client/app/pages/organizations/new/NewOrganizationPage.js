@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import prepareModelForRails from 'app/libs/prepareModelForRails';
-import prepareErrorsForReduxForm from 'app/libs/prepareErrorsForReduxForm';
+import { prepareModelForRails } from 'app/libs/prepareModelForRails';
+import { prepareErrorsForReduxForm } from 'app/libs/prepareErrorsForReduxForm';
 import OrganizationForm from './OrganizationForm';
 import React from 'react';
 import { compose } from 'react-apollo';

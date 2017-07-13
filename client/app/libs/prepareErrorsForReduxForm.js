@@ -3,7 +3,7 @@ import indexOf from 'lodash/indexOf'
 import reduce from 'lodash/reduce'
 import set from 'lodash/set'
 
-const prepareErrorsForReduxForm = (errors) => {
+export const prepareErrorsForReduxForm = (errors) => {
     if (typeof errors !== 'object') {
         return errors
     } else {
@@ -21,5 +21,3 @@ const prepareErrorsForReduxForm = (errors) => {
         }
     }
 };
-
-export default prepareErrorsForReduxForm;

@@ -5,12 +5,17 @@ import FocusedTask, { FocusedTaskContent } from 'app/layouts/FocusedTask';
 
 require('./OrganizationForm.scss');
 
+const FieldErrors = (props) => {
+    const { errors } = props;
+    return (<Message error visible><Message.List>{errors.map((error) => (<Message.Item content={error}/>))}</Message.List></Message>);
+};
+
 const SemanticInput = (props) => {
     const { meta: { touched, error }, input } = props;
     return (
         <div>
             <Input onChange={(e, { value }) => input.onChange(value)}/>
-            {touched && error && <Message error content={error}/>}
+            {touched && error && <FieldErrors errors={error}/>}
         </div>
     );
 };

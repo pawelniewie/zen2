@@ -2,7 +2,7 @@ import reduce from 'lodash/reduce'
 import isArray from 'lodash/isArray'
 import indexOf from 'lodash/indexOf'
 
-const prepareModelForRails = (model, force = []) => {
+export const prepareModelForRails = (model, force = []) => {
     if (typeof model !== 'object') {
         return model
     } else {
@@ -20,5 +20,3 @@ const prepareModelForRails = (model, force = []) => {
         }
     }
 };
-
-export default prepareModelForRails;
