@@ -55,6 +55,8 @@ class User < ApplicationRecord
   audited associated_with: :organization, only: [:email, :username, :first_name, :last_name]
 
   accepts_nested_attributes_for :organization
+  
+  before_validation :generate_username
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -72,6 +74,12 @@ class User < ApplicationRecord
 
   def full_name
     "#{first_name} #{last_name}".chomp
+  end
+  
+  private
+  
+  def generate_username
+    self.username ||= (first_name || last_name || email).parameterize
   end
 
 end

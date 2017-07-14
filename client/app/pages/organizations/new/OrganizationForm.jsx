@@ -14,7 +14,7 @@ const SemanticInput = (props) => {
     const { meta: { touched, error }, input } = props;
     return (
         <div>
-            <Input onChange={(e, { value }) => input.onChange(value)}/>
+            <Input onChange={(e, { value }) => input.onChange(value)} {...props}/>
             {touched && error && <FieldErrors errors={error}/>}
         </div>
     );
@@ -42,6 +42,10 @@ const OrganizationForm = (props) => {
                     <Form.Field>
                         <label>E-mail</label>
                         <Field name="email" component={SemanticInput} placeholder="Your business e-mail"/>
+                    </Form.Field>
+                    <Form.Field>
+                        <label>Password</label>
+                        <Field name="password" component={SemanticInput} placeholder="Make it at least 8 characters" type="password"/>
                     </Form.Field>
                     <Form.Field>
                         <label>First name</label>
