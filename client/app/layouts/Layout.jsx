@@ -4,6 +4,7 @@ import { Dropdown, Icon, Menu, Button } from 'semantic-ui-react'
 import InlineSVG from 'react-svg-inline';
 import { Link } from 'react-router';
 import { branch, renderComponent, mapProps } from 'recompose';
+import IssueViewModal from '../components/issue_view/IssueViewModal';
 
 const logo = require('!!svg-inline-loader!app/images/logo.svg');
 
@@ -47,6 +48,7 @@ const Layout = (props) => {
         <footer className="main-footer">
             <span className="main-footer--product-version">Zen 0.1.5</span>
         </footer>
+        <IssueViewModal/>
     </div>;
 };
 

@@ -1,0 +1,47 @@
+@import "../../styles/mixins/importer";
+
+.issue__top {
+    @include font-default();
+    margin-top: rem-calc(30);
+    &--key {
+        @include typography(16, 20, 500);
+        color: $color-brand-red;
+        border: rem-calc(1) $color-brand-red solid;
+        padding: rem-calc(10) rem-calc(20);
+        @include border-radius(3);
+    }
+}
+
+
+.issue__content {
+    border-right: rem-calc(1) rgba($color-brand-grey, 0.4) solid;
+    padding-right: rem-calc(20);
+    margin-top: rem-calc(30);
+    @include font-default();
+    h2 {
+        @include typography(24, 36, 700);
+    }
+}
+
+.issue__info {
+    &--meta {
+        padding-left: rem-calc(20);
+        margin-top: rem-calc(100);
+    }
+    &--status {
+        h3 {
+            color: $color-brand-grey;
+            @include typography(24, 36, 400);
+            @include font-default();
+        }
+        .grid-x {
+            margin-top: rem-calc(10);
+        }
+    }
+}
+
+.label__inner {
+    @include font-default();
+    font-weight: 300;
+}
+

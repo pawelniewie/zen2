@@ -1,5 +1,7 @@
-.issues-list {
+@import "../../../styles/mixins/importer.scss";
 
+.issues-list {
+    @include font-default();
 }
 
 .issues-list--entry {

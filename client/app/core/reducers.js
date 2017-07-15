@@ -2,6 +2,7 @@ import {combineReducers} from 'redux';
 import { routerReducer } from 'react-router-redux'
 import LayoutReducer from '../layouts/reducers';
 import { reducer as formReducer } from 'redux-form';
+import { dialogReducer } from 'redux-dialog';
 
 /**
  * @param {App} app
@@ -14,6 +15,7 @@ export default function(app, asyncReducers) {
         routing: routerReducer,
         layout: LayoutReducer,
         form: formReducer,
+        dialogs: dialogReducer,
         ...asyncReducers
     });
 }
