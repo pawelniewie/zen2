@@ -5,9 +5,10 @@ import reduxDialog from 'redux-dialog';
 
 require('./issues-list.scss');
 
-const IssueView = (props) => {
+const IssueView = ({issue, loading}) => {
     return (
         <div>
+            {issue && <div>{issue.summary}</div>}
             Chuj, dupa i kamieni kupa.
         </div>
     )
@@ -21,7 +22,7 @@ const IssueListItem = (props) => {
 
     return (
         <li className="issues-list--entry" key={issue.id}>
-                <Dialog onAfterOpen={ () => console.log('On After Open') } onRequestClose={ () => console.log('On Request Close') } contentLabel="Issue View"/>
+                <Dialog onAfterOpen={ () => console.log('On After Open') } issue={issue}/>
                 <span className="issues-list--entry--main">
                     <span className="issues-list--key">{issue.key}</span>
                     <span className="issues-list--summary">

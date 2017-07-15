@@ -3,7 +3,7 @@ class IssueResolver < GraphQL::Rails::Resolver
   resolve :order_by, :resolve_order
 
   resolve :key, :resolve_key
-  resolve :id
+  resolve :id, :resolve_id
 
   def resolve_project(args)
     @result = @result.joins(:project).where(projects: { id: args[:id] }) if args[:id]
@@ -24,6 +24,10 @@ class IssueResolver < GraphQL::Rails::Resolver
     else
       @result = @result.none
     end
+  end
+
+  def resolve_id(issue_id)
+    @result.where(id: issue_id)
   end
 
   def model
