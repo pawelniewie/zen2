@@ -1,13 +1,27 @@
 import React from 'react';
 import Label from 'app/components/Label';
 import { PropTypes as PT } from 'prop-types';
+import reduxDialog from 'redux-dialog';
 
 require('./issues-list.scss');
 
+const IssueView = (props) => {
+    return (
+        <div>
+            Chuj, dupa i kamieni kupa.
+        </div>
+    )
+};
+
 const IssueListItem = (props) => {
     const { issue } = props;
+    const Dialog = reduxDialog({
+        name: 'issueView-' + issue.id
+    })(IssueView);
+
     return (
         <li className="issues-list--entry" key={issue.id}>
+                <Dialog onAfterOpen={ () => console.log('On After Open') } onRequestClose={ () => console.log('On Request Close') } contentLabel="Issue View"/>
                 <span className="issues-list--entry--main">
                     <span className="issues-list--key">{issue.key}</span>
                     <span className="issues-list--summary">
