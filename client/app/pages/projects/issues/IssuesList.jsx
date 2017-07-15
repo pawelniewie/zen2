@@ -5,18 +5,19 @@ require('./issues-list.scss');
 
 const IssueListItem = (props) => {
     const { issue } = props;
-    return (<li className="issues-list--entry" key={issue.id}>
+    return (
+        <li className="issues-list--entry" key={issue.id}>
                 <span className="issues-list--entry--main">
                     <span className="issues-list--key">{issue.key}</span>
-                <span className="issues-list--summary">{issue.summary}</span>
-
+                    <span className="issues-list--summary">{issue.summary}</span>
                 </span>
-        <span className="issues-list--entry--details">
+                <span className="issues-list--entry--details">
                     <span className="issues-list--status">
                         <Label isWarning={true}>In progress</Label>
                     </span>
                 </span>
-    </li>);
+        </li>
+    );
 };
 
 export default function IssuesList({issues}) {
