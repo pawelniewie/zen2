@@ -29,7 +29,7 @@ const IssueView = ({issue, loading}) => {
                                           <div className="large-10 cell">
                                               Assigned to:
                                               <br/>
-                                              <span class="issue__assignee--name">Ewelina Sygut</span>
+                                              <span className="issue__assignee--name">Ewelina Sygut</span>
                                           </div>
                                       </div>
                                   </div>
