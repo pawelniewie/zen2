@@ -44,7 +44,7 @@
     "redux-thunk": "^2.1.0",
     "semantic-ui-css": "^2.2.10",
     "semantic-ui-react": "^0.68.5",
-    "redux-dialog": "^0.0.9"
+    "redux-dialog": "negomi/redux-dialog"
   },
   "devDependencies": {
     "autoprefixer": "^6.6.0",
