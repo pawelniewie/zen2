@@ -1,9 +1,14 @@
 import React from 'react';
 import { Label, Icon } from 'semantic-ui-react';
+import { branch, renderComponent } from 'recompose';
 
 require('./IssueView.scss');
 
-const IssueView = ({issue, loading}) => {
+const IssueViewLoading = (props) => {
+    return (<div>Loading...</div>);
+};
+
+const IssueViewLoaded = ({issue}) => {
     return (
         <div className="issue__dialog--wrapper">
             <div className="grid-container">
@@ -13,7 +18,7 @@ const IssueView = ({issue, loading}) => {
                             <div className="grid-x">
                                 <div className="large-4 cell">
                                   <span className="issue__top--key">
-                                    TEST-1
+                                    {issue.key}
                                   </span>
                                 </div>
                                 <div className="large-8 cell">
@@ -35,7 +40,7 @@ const IssueView = ({issue, loading}) => {
                             </div>
                         </div>
                         <div className="issue__content">
-                            <h2>Sample summary</h2>
+                            <h2>{issue.summary}</h2>
                             <p>Litwo! Ojczyzno moja! Ty jesteś jak zdrowie. Ile cię trzeba było rzęd ruszyć
                                 lub zgonu. Po drodze Woźny ciągle jako świeca przez nosy, a resztę rozdzielono
                                 między wierzycieli. Zamku żaden wziąść nie przerywał tylko są łąki i cofnął się.
@@ -99,5 +104,10 @@ const IssueView = ({issue, loading}) => {
         </div>
     )
 };
+
+const IssueView = branch(
+    (props) => !props.loading && props.issue,
+    renderComponent(IssueViewLoaded),
+)(IssueViewLoading);
 
 export default IssueView;

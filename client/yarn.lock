@@ -3362,6 +3362,14 @@ react-modal@^1.4.0:
     prop-types "^15.5.7"
     react-dom-factories "^1.0.0"
 
+react-modal@^2.2.0:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-2.2.2.tgz#4bbf98bc506e61c446c9f57329c7a488ea7d504b"
+  dependencies:
+    exenv "1.2.0"
+    prop-types "^15.5.10"
+    react-dom-factories "^1.0.0"
+
 react-on-rails@6.10.0:
   version "6.10.0"
   resolved "https://registry.yarnpkg.com/react-on-rails/-/react-on-rails-6.10.0.tgz#bc9e01b5e0fd225baad4d4c69d9b5114a2ca228b"
@@ -3508,11 +3516,11 @@ redux-actions@^1.2.0:
 
 redux-dialog@pawelniewie/redux-dialog:
   version "0.1.0"
-  resolved "https://codeload.github.com/pawelniewie/redux-dialog/tar.gz/4d82814b5197b0a6ec5328c1744e359b00701276"
+  resolved "https://codeload.github.com/pawelniewie/redux-dialog/tar.gz/4fa7a55c8b788e5c0e8f6a19b078d3e16cf695a6"
   dependencies:
     react "^15.3.0"
     react-dom "^15.3.0"
-    react-modal "^1.4.0"
+    react-modal "^2.2.0"
     react-redux "^5.0.5"
     redux "^3.5.2"
 

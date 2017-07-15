@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
 import { graphql, compose, withApollo } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import { userLogOut } from './actions';
 import IssueView from './IssueView';
 
 const query = gql`
@@ -28,12 +26,6 @@ const IssueViewWithData = compose(
         (state) => state,
         (dispatch, ownProps) => {
             return {
-                onLogOut: () => {
-                    dispatch(userLogOut(ownProps.client));
-                },
-                onLogIn: () => {
-                    browserHistory.push('/users/login');
-                }
             }
         }
     ),
