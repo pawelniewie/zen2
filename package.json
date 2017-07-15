@@ -10,5 +10,8 @@
     "postinstall": "cd client && yarn install",
     "rails-server": "echo 'visit http://localhost:3000/hello_world' && heroku local -f Procfile.dev",
     "test": "rspec"
+  },
+  "dependencies": {
+    "redux-dialog": "^0.0.9"
   }
 }
