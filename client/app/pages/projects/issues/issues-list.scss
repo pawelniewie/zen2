@@ -57,7 +57,16 @@
     &--status {
         h3 {
             color: $color-brand-grey;
-            @include typography(24, 36, 700);
+            @include typography(24, 36, 400);
+            @include font-default();
+        }
+        .grid-x {
+            margin-top: rem-calc(10);
         }
     }
+}
+
+ .label__inner {
+        @include font-default();
+        font-weight: 300;
 }

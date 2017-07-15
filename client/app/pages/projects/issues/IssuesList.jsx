@@ -60,23 +60,37 @@ const IssueView = ({issue, loading}) => {
                           <h3>About this task:</h3>
                           <div className="issue__info--status">
                               <div className="grid-x">
-                                  <div className="large-4 cell">
+                                  <div className="large-5 cell">
                                       <h3>Status:</h3>
                                   </div>
-                                  <div className="auto cell">
+                                  <div className="large-7 cell">
                                       <Label color="orange" size="big">
-                                          Is Open
+                                          <span className="label__inner">
+                                             Is Open
+                                          </span>
                                       </Label>
                                   </div>
                               </div>
                               <div className="grid-x">
-                                  <large-3 className="large-4 cell">
-                                      Category
-                                  </large-3>
-                                  <div className="auto cell">
+                                  <div className="large-5 cell">
+                                      <h3>Category</h3>
+                                  </div>
+                                  <div className="large-7 cell">
                                       <Label color="grey" size="medium">
-                                          Design
+                                          <span className="label__inner">
+                                            Marketing
+                                          </span>
                                       </Label>
+                                  </div>
+                              </div>
+                              <div className="grid-x">
+                                  <div className="large-5 cell">
+                                      <h3>Reporter</h3>
+                                  </div>
+                                  <div className="large-7 cell">
+                                      <span className="label__inner">
+                                        Pawel Pe
+                                      </span>
                                   </div>
                               </div>
                           </div>
