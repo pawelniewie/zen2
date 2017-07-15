@@ -43,7 +43,8 @@
     "redux-logger": "^2.7.4",
     "redux-thunk": "^2.1.0",
     "semantic-ui-css": "^2.2.10",
-    "semantic-ui-react": "^0.68.5"
+    "semantic-ui-react": "^0.68.5",
+    "redux-dialog": "^0.0.9"
   },
   "devDependencies": {
     "autoprefixer": "^6.6.0",
