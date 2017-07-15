@@ -40,6 +40,7 @@
 
 
 .issue__content {
+    border-right: rem-calc(1) rgba($color-brand-grey, 0.4) solid;
     padding-right: rem-calc(20);
     margin-top: rem-calc(30);
     @include font-default();
@@ -49,14 +50,13 @@
 }
 
 .issue__info {
-    &--meta {
-        border-left: rem-calc(1) rgba($color-brand-grey, 0.4) solid;
+    &--meta {   
         padding-left: rem-calc(20);
-        height: 80vw;
-        margin-top: 10vw;
+        margin-top: rem-calc(100);
     }
     &--status {
         h3 {
+            color: $color-brand-grey;
             @include typography(24, 36, 700);
         }
     }
