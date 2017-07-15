@@ -1,36 +1,10 @@
-@import "../../../styles/mixins/importer.scss";
-
-.issues-list {
-    @include font-default();
-}
-
-.issues-list--entry {
-  border: 1px solid;
-    padding: 5px;
-  border-radius: 3px;
-  + .issues-list--entry {
-    margin-top: 5px;
-  }
-}
-
-.issues-list--key {
-  width: 150px;
-}
-
-.issues-list--status {
-  float: right;
-}
-
-.issues-list--summary {
-  max-width: 400px;
-  margin-left: 16px;
-}
+@import "../../styles/mixins/importer";
 
 .issue__top {
     @include font-default();
     margin-top: rem-calc(30);
     &--key {
-        @include typography(16, 20, 500);    
+        @include typography(16, 20, 500);
         color: $color-brand-red;
         border: rem-calc(1) $color-brand-red solid;
         padding: rem-calc(10) rem-calc(20);
@@ -50,7 +24,7 @@
 }
 
 .issue__info {
-    &--meta {   
+    &--meta {
         padding-left: rem-calc(20);
         margin-top: rem-calc(100);
     }
@@ -66,7 +40,8 @@
     }
 }
 
- .label__inner {
-        @include font-default();
-        font-weight: 300;
+.label__inner {
+    @include font-default();
+    font-weight: 300;
 }
+

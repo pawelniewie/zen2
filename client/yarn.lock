@@ -1309,7 +1309,7 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-create-react-class@^15.5.1, create-react-class@^15.6.0:
+create-react-class@^15.5.1, create-react-class@^15.5.2, create-react-class@^15.5.3, create-react-class@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.0.tgz#ab448497c26566e1e29413e883207d57cfe7bed4"
   dependencies:
@@ -2331,7 +2331,7 @@ loader-utils@^1.0.2, loader-utils@^1.0.3:
     emojis-list "^2.0.0"
     json5 "^0.5.0"
 
-lodash-es@^4.17.3, lodash-es@^4.2.1:
+lodash-es@^4.17.3, lodash-es@^4.2.0, lodash-es@^4.2.1:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.4.tgz#dcc1d7552e150a0640073ba9cb31d70f032950e7"
 
@@ -2370,7 +2370,7 @@ lodash._isiterateecall@^3.0.0:
   version "3.0.9"
   resolved "https://registry.yarnpkg.com/lodash._isiterateecall/-/lodash._isiterateecall-3.0.9.tgz#5203ad7ba425fae842460e696db9cf3e6aac057c"
 
-lodash.assign@^3.0.0, lodash.assign@^3.2.0:
+lodash.assign@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/lodash.assign/-/lodash.assign-3.2.0.tgz#3ce9f0234b4b2223e296b8fa0ac1fee8ebca64fa"
   dependencies:
@@ -3227,7 +3227,7 @@ prop-types@15.5.8:
   dependencies:
     fbjs "^0.8.9"
 
-prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.8, prop-types@^15.5.9:
+prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.5.9:
   version "15.5.10"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.10.tgz#2797dfc3126182e3a95e3dfbb2e893ddd7456154"
   dependencies:
@@ -3323,6 +3323,10 @@ react-apollo@^1.4.3:
   optionalDependencies:
     react-dom "0.14.x || 15.* || ^15.0.0 || ^16.0.0-alpha"
 
+react-dom-factories@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-dom-factories/-/react-dom-factories-1.0.0.tgz#f43c05e5051b304f33251618d5bc859b29e46b6d"
+
 "react-dom@0.14.x || 15.* || ^15.0.0 || ^16.0.0-alpha", react-dom@^15.3.0, react-dom@^15.4.4:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.6.1.tgz#2cb0ed4191038e53c209eb3a79a23e2a4cf99470"
@@ -3347,26 +3351,20 @@ react-mixin@^2.0.2:
     object-assign "^2.0.0"
     smart-mixin "^1.2.0"
 
-react-modal@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-1.4.0.tgz#c50cd02bcd3487f4b53177fa6285f1a5ad49c56e"
+react-modal@^1.4.0:
+  version "1.9.7"
+  resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-1.9.7.tgz#07ef56790b953e3b98ef1e2989e347983c72871d"
   dependencies:
+    create-react-class "^15.5.2"
     element-class "^0.2.0"
     exenv "1.2.0"
-    lodash.assign "^3.2.0"
+    lodash.assign "^4.2.0"
+    prop-types "^15.5.7"
+    react-dom-factories "^1.0.0"
 
 react-on-rails@6.10.0:
   version "6.10.0"
   resolved "https://registry.yarnpkg.com/react-on-rails/-/react-on-rails-6.10.0.tgz#bc9e01b5e0fd225baad4d4c69d9b5114a2ca228b"
-
-react-redux@4.4.5:
-  version "4.4.5"
-  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-4.4.5.tgz#f509a2981be2252d10c629ef7c559347a4aec457"
-  dependencies:
-    hoist-non-react-statics "^1.0.3"
-    invariant "^2.0.0"
-    lodash "^4.2.0"
-    loose-envify "^1.1.0"
 
 react-redux@^4.4.6:
   version "4.4.8"
@@ -3378,6 +3376,18 @@ react-redux@^4.4.6:
     lodash "^4.2.0"
     loose-envify "^1.1.0"
     prop-types "^15.5.4"
+
+react-redux@^5.0.5:
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.5.tgz#f8e8c7b239422576e52d6b7db06439469be9846a"
+  dependencies:
+    create-react-class "^15.5.3"
+    hoist-non-react-statics "^1.0.3"
+    invariant "^2.0.0"
+    lodash "^4.2.0"
+    lodash-es "^4.2.0"
+    loose-envify "^1.1.0"
+    prop-types "^15.5.10"
 
 react-router-redux@^4.0.8:
   version "4.0.8"
@@ -3496,15 +3506,15 @@ redux-actions@^1.2.0:
     lodash "^4.13.1"
     reduce-reducers "^0.1.0"
 
-redux-dialog@negomi/redux-dialog:
-  version "0.0.9"
-  resolved "https://codeload.github.com/negomi/redux-dialog/tar.gz/eb54de6a12e970b541faf3b3bb4ec5f2912e9fc4"
+redux-dialog@pawelniewie/redux-dialog:
+  version "0.1.0"
+  resolved "https://codeload.github.com/pawelniewie/redux-dialog/tar.gz/4d82814b5197b0a6ec5328c1744e359b00701276"
   dependencies:
     react "^15.3.0"
     react-dom "^15.3.0"
-    react-modal "1.4.0"
-    react-redux "4.4.5"
-    redux "3.5.2"
+    react-modal "^1.4.0"
+    react-redux "^5.0.5"
+    redux "^3.5.2"
 
 redux-form@^6.8.0:
   version "6.8.0"
@@ -3529,16 +3539,7 @@ redux-thunk@^2.1.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.2.0.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"
 
-redux@3.5.2:
-  version "3.5.2"
-  resolved "https://registry.yarnpkg.com/redux/-/redux-3.5.2.tgz#4533745e970b647ec26066a83aa30e9e26faf843"
-  dependencies:
-    lodash "^4.2.1"
-    lodash-es "^4.2.1"
-    loose-envify "^1.1.0"
-    symbol-observable "^0.2.3"
-
-redux@^3.4.0, redux@^3.6.0:
+redux@^3.4.0, redux@^3.5.2, redux@^3.6.0:
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/redux/-/redux-3.7.1.tgz#bfc535c757d3849562ead0af18ac52122cd7268e"
   dependencies:
@@ -4005,10 +4006,6 @@ svgo@^0.7.0:
     mkdirp "~0.5.1"
     sax "~1.2.1"
     whet.extend "~0.9.9"
-
-symbol-observable@^0.2.3:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-0.2.4.tgz#95a83db26186d6af7e7a18dbd9760a2f86d08f40"
 
 symbol-observable@^1.0.2, symbol-observable@^1.0.3, symbol-observable@^1.0.4:
   version "1.0.4"

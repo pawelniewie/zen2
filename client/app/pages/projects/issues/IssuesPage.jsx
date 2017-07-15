@@ -47,7 +47,7 @@ export default createComponent((app) => {
                 return {
                     onViewIssue: (issue) => {
                         console.log(issue);
-                        dispatch(openDialog('issueView-' + issue.id))
+                        dispatch(openDialog('Issue View', { issueId: issue.id }))
                     }
                 }
             }

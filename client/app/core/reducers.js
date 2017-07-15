@@ -15,7 +15,7 @@ export default function(app, asyncReducers) {
         routing: routerReducer,
         layout: LayoutReducer,
         form: formReducer,
-        dialogReducer: dialogReducer,
+        dialogs: dialogReducer,
         ...asyncReducers
     });
 }
