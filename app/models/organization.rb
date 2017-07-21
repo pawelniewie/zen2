@@ -14,10 +14,10 @@
 #
 
 class Organization < ApplicationRecord
-  has_many :users
-  has_many :projects
-  has_many :issues
-  has_many :teams
+  has_many :users, dependent: :delete_all
+  has_many :projects, dependent: :delete_all
+  has_many :issues, dependent: :delete_all
+  has_many :teams, dependent: :delete_all
 
   has_associated_audits
 

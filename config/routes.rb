@@ -6,9 +6,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  devise_for :gods, controllers: {
-    sessions: 'gods/sessions'
-  }
+  devise_for :gods, ActiveAdmin::Devise.config
 
   # match urls where the host starts with 'www.'
   constraints(subdomain: 'www') do
@@ -23,6 +21,9 @@ Rails.application.routes.draw do
 
   constraints(subdomain: '') do
     root 'organizations#index'
+    
+    ActiveAdmin.routes(self)
+    
     resources :organizations
   end
   
