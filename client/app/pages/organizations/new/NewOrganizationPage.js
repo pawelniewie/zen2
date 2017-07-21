@@ -3,13 +3,14 @@ import { prepareModelForRails } from 'app/libs/prepareModelForRails';
 import { prepareErrorsForReduxForm } from 'app/libs/prepareErrorsForReduxForm';
 import OrganizationForm from './OrganizationForm';
 import React from 'react';
-import { compose } from 'react-apollo';
+import { compose, withApollo } from 'react-apollo';
 import { reduxForm, SubmissionError } from 'redux-form';
 
 const NewOrganizationPage = compose(
+    withApollo,
     connect(
         (state) => ({}),
-        (dispatch) => {
+        (dispatch, ownProps) => {
             return {
                 onSubmit: (values) => {
                     return fetch('/users.json', {
@@ -27,7 +28,8 @@ const NewOrganizationPage = compose(
                             if (json.errors) {
                                 throw new SubmissionError(prepareErrorsForReduxForm(json.errors));
                             } else {
-                                dispatch(organizationNewSuccess());
+                                ownProps.client.resetStore();
+                                window.location.assign(json.user.organization.url);
                             }
                         });
                 }
