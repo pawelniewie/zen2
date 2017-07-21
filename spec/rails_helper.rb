@@ -50,4 +50,6 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 	
 	config.include LoginHelpers
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include ResponseHelpers, type: :controller
 end
