@@ -9,7 +9,7 @@ end
 Capybara.configure do |config|
 	config.always_include_port = true
 	config.default_driver = :selenium
-	config.default_host = "http://127.0.0.1.xip.io"
+	config.app_host = "http://127.0.0.1.xip.io"
 end
 
 RSpec.configure do |config|
