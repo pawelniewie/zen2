@@ -8,12 +8,12 @@ const IssueViewLoading = (props) => {
     return (<div>Loading...</div>);
 };
 
-const UserAssignedView = (props) => {
+const UserAssignedView = ({issue}) => {
     return (
     <div className="user__fullname">
         {issue.assignee.full_name}
     </div>)
-}
+};
 
 const UserUnassignedView = () => {
     return (
@@ -21,14 +21,14 @@ const UserUnassignedView = () => {
             Unassigned
         </div>
     )
-}
+};
 
-const ReporterAssigned = (props) => {
+const ReporterAssigned = ({issue}) => {
     return (
     <div className="reporter__fullname">
         {issue.reporter.full_name}
     </div>)
-}
+};
 
 const ReporterUnAssigned = () => {
     return (
@@ -36,7 +36,8 @@ const ReporterUnAssigned = () => {
             Not set
         </div>
     )
-}
+};
+
 const DisplayReporterView = branch(
     (props) => props.issue.reporter,
     renderComponent(ReporterAssigned),
