@@ -23,6 +23,25 @@ const UserUnassignedView = () => {
     )
 }
 
+const ReporterAssigned = (props) => {
+    return (
+    <div className="reporter__fullname">
+        {issue.reporter.full_name}
+    </div>)
+}
+
+const ReporterUnAssigned = () => {
+    return (
+        <div className="reporter__noassignee">
+            Not set
+        </div>
+    )
+}
+const DisplayReporterView = branch(
+    (props) => props.issue.reporter,
+    renderComponent(ReporterAssigned),
+)(ReporterUnAssigned);
+
 const DisplayUserNameView = branch(
     (props) => props.issue.assignee,
     renderComponent(UserAssignedView),
@@ -102,7 +121,7 @@ const IssueViewLoaded = ({issue}) => {
                                     </div>
                                     <div className="large-7 cell">
                                       <span className="label__inner">
-                                        Pawel Pe
+                                        <DisplayReporterView issue={issue} />
                                       </span>
                                     </div>
                                 </div>

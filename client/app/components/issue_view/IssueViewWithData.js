@@ -17,6 +17,9 @@ query Issue($issueId: ID) {
       username
       email
     }
+    reporter {
+        first_name
+    }
   }
 }`;
 
