@@ -3,7 +3,8 @@ import { graphql, compose } from 'react-apollo';
 import React from 'react';
 import { connect } from 'react-redux';
 import { openDialog } from 'redux-dialog';
-
+import UserFragment from 'app/gql/fragments/userFragment';
+import ReporterFragment from 'app/gql/fragments/reporterFragment';
 import createComponent from 'app/functions/createComponent';
 import ListingLayout from 'app/layouts/ListingLayout';
 import Button from 'app/components/Button';
@@ -19,10 +20,6 @@ query IssuesForProject($project: ProjectSelector) {
         summary
         no
         description
-        assignee {
-          username
-          email
-        }
       }
     }
   }

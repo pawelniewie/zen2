@@ -8,6 +8,26 @@ const IssueViewLoading = (props) => {
     return (<div>Loading...</div>);
 };
 
+const UserAssignedView = (props) => {
+    return (
+    <div className="user__fullname">
+        {issue.assignee.full_name}
+    </div>)
+}
+
+const UserUnassignedView = () => {
+    return (
+        <div className="user__noassignee">
+            Unassigned
+        </div>
+    )
+}
+
+const DisplayUserNameView = branch(
+    (props) => props.issue.assignee,
+    renderComponent(UserAssignedView),
+)(UserUnassignedView);
+
 const IssueViewLoaded = ({issue}) => {
     return (
         <div className="issue__dialog--wrapper">
@@ -32,7 +52,9 @@ const IssueViewLoaded = ({issue}) => {
                                             <div className="large-10 cell">
                                                 Assigned to:
                                                 <br/>
-                                                <span className="issue__assignee--name">Ewelina Sygut</span>
+                                                <span className="issue__assignee--name">
+                                                    <DisplayUserNameView issue={issue} />
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -41,21 +63,9 @@ const IssueViewLoaded = ({issue}) => {
                         </div>
                         <div className="issue__content">
                             <h2>{issue.summary}</h2>
-                            <p>Litwo! Ojczyzno moja! Ty jesteś jak zdrowie. Ile cię trzeba było rzęd ruszyć
-                                lub zgonu. Po drodze Woźny ciągle jako świeca przez nosy, a resztę rozdzielono
-                                między wierzycieli. Zamku żaden wziąść nie przerywał tylko są łąki i cofnął się.
-                                już późno i przymioty. Stąd droga co je posłyszał, znikał nagle uciekły i
-                                ubiory. Była to mówiąc, że były zajęte stołu przywoławszy dwie ławy umiała się
-                                od rana wiedział, że nasi synowie i w szlacheckim stanie trudno było wyłożyć
-                                koszt na oknach donice z Podkomorzym przy Bernardynie, bernardyn zmówił krótki
-                                pacierz po drożynach goni i uroda jej oczyma spotkał się i, czyje były,
-                                odgadywał. Przypadkiem oczy podniósł, i liczba żołnierza i wznosi chmurę pyłu.
-                                dalej z postawy lecz go kaznodzieją, że Hrabia z mosiężnymi dzwonki. Tam stała
-                                młoda dziewczyna. - Tadeuszowi wrzasnął tuż przy boku rzuciwszy wzrok stryja ku
-                                północy, aż kędy pieprz rośnie gdzie panieńskim rumieńcem dzięcielina pała a
-                                potem Sędzia każe u nas. Do zobaczenia! tak krzycząc pan Podkomorzy i czytając,
-                                z nowych powitań. Gdy się rówiennicą a każdy mimowolnie głowy potakiwał. Sędzia
-                                go grzecznie, na nowo pytania. Cóż.</p>
+                            <p>
+                                {issue.description}
+                            </p>
                         </div>
                     </div>
                     <div className="large-4 cell">
