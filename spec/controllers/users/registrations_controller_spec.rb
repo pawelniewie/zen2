@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Users::RegistrationsController do
-	before { @request.env["devise.mapping"] = Devise.mappings[:user] }
+	before {@request.env["devise.mapping"] = Devise.mappings[:user]}
 	
 	context 'successful registration' do
 		let(:valid_params) do
@@ -26,15 +26,17 @@ RSpec.describe Users::RegistrationsController do
 		it 'returns organization details' do
 			expect(response).to have_http_status(:created)
 			expect(json).to include(
-				"first_name" => "Pawel",
-				"last_name" => "Smith",
-				"organization" => include(
-					"slug" => "acme",
-					"name" => "Acme",
-					"url" => "http://acme.test.host"
+				"user" => include(
+					"first_name" => "Pawel",
+					"last_name" => "Smith",
+					"organization" => include(
+						"slug" => "acme",
+						"name" => "Acme",
+						"url" => "http://acme.test.host"
+					)
 				)
 			)
-			expect(json).to_not include("email")
+			expect(json["user"]).to_not include("email")
 		end
 	end
 end
