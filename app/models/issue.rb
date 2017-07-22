@@ -13,6 +13,7 @@
 #  status          :string
 #  created_at      :datetime         default(Wed, 18 Jan 2017 19:30:40 UTC +00:00), not null
 #  updated_at      :datetime         default(Wed, 18 Jan 2017 19:30:40 UTC +00:00), not null
+#  status_id       :integer
 #
 # Indexes
 #
@@ -21,6 +22,7 @@
 #  index_issues_on_organization_id    (organization_id)
 #  index_issues_on_project_id         (project_id)
 #  index_issues_on_reporter_id        (reporter_id)
+#  index_issues_on_status_id          (status_id)
 #
 
 class Issue < ApplicationRecord
@@ -29,6 +31,7 @@ class Issue < ApplicationRecord
   belongs_to :project
   belongs_to :assignee, class_name: 'User'
   belongs_to :reporter, class_name: 'User'
+  belongs_to :status
 
   audited associated_with: :project
   has_associated_audits

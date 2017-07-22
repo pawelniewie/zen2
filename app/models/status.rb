@@ -17,13 +17,17 @@
 #
 
 class Status < ApplicationRecord
-  belongs_to :project
-
-  audited associated_with: :project
-
-  validates :name, presence: true, uniqueness: { scope: :project_id }
-  validates :category, inclusion: { in: StatusCategory.all }
-  validates :project, presence: true
-
-  acts_as_sequenced column: :position, scope: :project_id
+	belongs_to :project
+	
+	audited associated_with: :project
+	
+	validates :name, presence: true, uniqueness: { scope: :project_id }
+	validates :category, inclusion: { in: StatusCategory.all }
+	validates :project, presence: true
+	
+	has_many :issues, dependent: :restrict_with_error
+	
+	scope :category_new, -> {where(category: StatusCategory::NEW)}
+	
+	acts_as_sequenced column: :position, scope: :project_id
 end

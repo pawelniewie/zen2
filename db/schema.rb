@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170721190627) do
+ActiveRecord::Schema.define(version: 20170722145329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -157,11 +157,13 @@ ActiveRecord::Schema.define(version: 20170721190627) do
     t.string "status"
     t.datetime "created_at", default: "2017-01-18 19:30:40", null: false
     t.datetime "updated_at", default: "2017-01-18 19:30:40", null: false
+    t.bigint "status_id"
     t.index ["assignee_id"], name: "index_issues_on_assignee_id"
     t.index ["no", "project_id"], name: "index_issues_on_no_and_project_id", unique: true
     t.index ["organization_id"], name: "index_issues_on_organization_id"
     t.index ["project_id"], name: "index_issues_on_project_id"
     t.index ["reporter_id"], name: "index_issues_on_reporter_id"
+    t.index ["status_id"], name: "index_issues_on_status_id"
   end
 
   create_table "organizations", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -287,6 +289,7 @@ ActiveRecord::Schema.define(version: 20170721190627) do
   add_foreign_key "issue_types", "projects"
   add_foreign_key "issues", "organizations"
   add_foreign_key "issues", "projects"
+  add_foreign_key "issues", "statuses"
   add_foreign_key "issues", "users", column: "assignee_id"
   add_foreign_key "issues", "users", column: "reporter_id"
   add_foreign_key "project_roles", "organizations"

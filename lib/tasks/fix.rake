@@ -11,5 +11,16 @@ namespace :fix do
 			end
 		end
 	end
+	
+	task set_status_for_issues: [:environment, :defaults_for_projects] do
+		Issue
+			.where(status_id: nil)
+			.find_in_batches do |issues|
+			
+			issues.each do |issue|
+				issue.update!(status: issue.project.statuses.category_new.first)
+			end
+		end
+	end
 
 end
