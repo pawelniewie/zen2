@@ -5,7 +5,7 @@ class CreateIssueService < ApplicationService
 
   def call
     result = try! do
-      issue = Issue.new(@issue.slice('summary', 'description').merge(project_id: @project.id))
+      issue = Issue.new(@issue.slice('summary', 'description').merge(project_id: @project.id, reporter: current_user))
 
       authorize issue, :create?
 
