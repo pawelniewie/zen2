@@ -8,7 +8,7 @@ import loadingIndicator from 'app/mixins/loadingIndicator';
 import {autobind} from 'core-decorators';
 import reactMixin from 'react-mixin';
 
-require('./issue-form.scss');
+require('./IssueForm.scss');
 
 export default class IssueForm extends React.Component {
     constructor() {
