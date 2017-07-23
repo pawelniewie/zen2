@@ -7,7 +7,7 @@ import { ApolloProvider } from 'react-apollo';
 
 import createRoutes from '../pages';
 import configureStore from './store';
-import ActionListener from '../libs/ActionListener';
+import ActionListener from '../utils/ActionListener';
 
 require('../styles/main.scss');
 
