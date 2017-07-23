@@ -6,7 +6,7 @@ import CreateProjectForm from './ProjectForm';
 import { reduxForm, SubmissionError } from 'redux-form';
 
 import { createProjectCanceled, createProjectSuccess } from './actions';
-import createFormErrors from 'app/utils/createFormErrors';
+import createFormErrors from 'app/utils/graphqlErrorsForReduxForm';
 import createComponent from 'app/utils/createComponent';
 
 const mutation = gql`mutation ProjectCreation($project: ProjectInput!) {

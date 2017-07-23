@@ -1,9 +1,9 @@
 import {assert} from 'chai';
-import * as subject from './prepareErrorsForReduxForm';
+import subject from './railsErrorsForReduxForm';
 
-describe('libs/prepareErrorsForReduxForm', () => {
+describe('utils/railsErrorsForReduxForm', () => {
     it('unmarshal nested errors', () => {
-        assert.deepEqual(subject.prepareErrorsForReduxForm({
+        assert.deepEqual(subject({
             "organization.name": [
                 "error"
             ]

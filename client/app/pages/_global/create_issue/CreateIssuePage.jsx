@@ -5,7 +5,7 @@ import FocusedTask, {FocusedTaskContent, FocusedTaskHeader} from 'app/layouts/Fo
 import React from 'react';
 import {createIssueCanceled, createIssueSuccess} from './actions';
 import createComponent from 'app/utils/createComponent';
-import createFormErrors from 'app/utils/createFormErrors';
+import createFormErrors from 'app/utils/graphqlErrorsForReduxForm';
 
 
 const mutation = gql`mutation IssueCreation($issue: IssueInput!, $projectId: ID!) {

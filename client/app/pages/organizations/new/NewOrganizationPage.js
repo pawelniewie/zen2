@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { prepareModelForRails } from 'app/utils/prepareModelForRails';
-import { prepareErrorsForReduxForm } from 'app/utils/prepareErrorsForReduxForm';
+import prepareModelForRails from 'app/utils/prepareModelForRails';
+import railsErrorsForReduxForm from 'app/utils/railsErrorsForReduxForm';
 import OrganizationForm from './OrganizationForm';
 import React from 'react';
 import { compose, withApollo } from 'react-apollo';
@@ -26,7 +26,7 @@ const NewOrganizationPage = compose(
                         .then(response => response.json())
                         .then(json => {
                             if (json.errors) {
-                                throw new SubmissionError(prepareErrorsForReduxForm(json.errors));
+                                throw new SubmissionError(railsErrorsForReduxForm(json.errors));
                             } else {
                                 ownProps.client.resetStore();
                                 window.location.assign(json.user.organization.url);

@@ -12,10 +12,12 @@
  *
  * @return {Object} object with errors assi
  */
-export default function createFormErrors(errors, options) {
+export default function graphqlErrorsForReduxForm(errors, options) {
     if (!Array.isArray(errors)) {
         return {};
     }
+
+    options = options || {};
 
     return errors.reduce((errors, error) => {
         const field = options.stripPrefix ? error.field.replace(options.stripPrefix, '') : error.field;
