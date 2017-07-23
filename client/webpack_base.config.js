@@ -23,7 +23,13 @@ const config = {
         extensions: ['.js', '.jsx'],
         alias: {
             react: path.resolve('./node_modules/react'),
-            'react-dom': path.resolve('./node_modules/react-dom')
+            'react-dom': path.resolve('./node_modules/react-dom'),
+            'react-redux': path.resolve('./node_modules/react-redux'),
+            'prop-types': path.resolve('./node_modules/prop-types'),
+            'object-assign': path.resolve('./node_modules/object-assign'),
+            'redux-form': path.resolve('./node_modules/redux-form'),
+            'graphql-tag': path.resolve('./node_modules/graphql-tag'),
+            'hoist-non-react-statics': path.resolve('./node_modules/hoist-non-react-statics'),
         }
     },
     plugins: [
