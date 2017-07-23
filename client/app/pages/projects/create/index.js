@@ -1,4 +1,4 @@
-import CreateProjectFormPath from './CreateProjectFormPage';
+import CreateProjectFormPath from './NewProjectPage';
 import {createProjectCanceled, createProjectSuccess} from './actions';
 import createRoute from 'app/functions/route';
 

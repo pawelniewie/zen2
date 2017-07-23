@@ -1,24 +1,10 @@
 import React from 'react';
-import { Form, Icon, Input, Message } from 'semantic-ui-react';
+import { Form, Message } from 'semantic-ui-react';
 import { Field } from 'redux-form';
 import FocusedTask, { FocusedTaskContent } from 'app/layouts/FocusedTask';
+import SemanticInput from '../../../components/SemanticInput';
 
 require('./OrganizationForm.scss');
-
-const FieldErrors = (props) => {
-    const { errors } = props;
-    return (<Message error visible><Message.List>{errors.map((error) => (<Message.Item key={error} content={error}/>))}</Message.List></Message>);
-};
-
-const SemanticInput = (props) => {
-    const { meta: { touched, error }, input } = props;
-    return (
-        <div>
-            <Input onChange={(e, { value }) => input.onChange(value)} {...props}/>
-            {touched && error && <FieldErrors errors={error}/>}
-        </div>
-    );
-};
 
 const OrganizationForm = (props) => {
     const { error, handleSubmit, pristine, submitting } = props;
