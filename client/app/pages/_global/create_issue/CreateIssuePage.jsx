@@ -4,8 +4,8 @@ import gql from 'graphql-tag';
 import FocusedTask, {FocusedTaskContent, FocusedTaskHeader} from 'app/layouts/FocusedTask';
 import React from 'react';
 import {createIssueCanceled, createIssueSuccess} from './actions';
-import createComponent from 'app/functions/createComponent';
-import createFormErrors from 'app/functions/createFormErrors';
+import createComponent from 'app/utils/createComponent';
+import createFormErrors from 'app/utils/createFormErrors';
 
 
 const mutation = gql`mutation IssueCreation($issue: IssueInput!, $projectId: ID!) {

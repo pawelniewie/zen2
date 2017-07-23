@@ -1,6 +1,6 @@
 import CreateIssuePage from 'app/pages/_global/create_issue/CreateIssuePage';
 import {createIssueCanceled, createIssueSuccess} from 'app/pages/_global/create_issue/actions';
-import createRoute from 'app/libs/route';
+import createRoute from 'app/utils/route';
 
 export default (app) => {
     const redirectToProjectPage = (action, route) => {

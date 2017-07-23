@@ -3,7 +3,7 @@ import { graphql, compose } from 'react-apollo';
 import React from 'react';
 import { connect } from 'react-redux';
 import { openDialog } from 'redux-dialog';
-import createComponent from 'app/functions/createComponent';
+import createComponent from 'app/utils/createComponent';
 import ListingLayout from 'app/layouts/ListingLayout';
 import Button from 'app/components/Button';
 import IssuesList from './IssuesList';

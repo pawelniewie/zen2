@@ -1,5 +1,5 @@
 import {createAction} from 'redux-actions';
-import AppError from 'app/libs/AppError';
+import AppError from 'app/utils/AppError';
 import {browserHistory} from 'react-router';
 
 export const userLogin = function(login, password) {

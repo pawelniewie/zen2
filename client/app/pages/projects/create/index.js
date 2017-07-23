@@ -1,6 +1,6 @@
 import CreateProjectFormPath from './NewProjectPage';
 import {createProjectCanceled, createProjectSuccess} from './actions';
-import createRoute from 'app/libs/route';
+import createRoute from 'app/utils/route';
 
 export default (app) => {
     const redirectToMainPage = () => {
