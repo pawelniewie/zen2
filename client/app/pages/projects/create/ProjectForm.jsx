@@ -33,7 +33,7 @@ export default class CreateProjectForm extends React.Component {
                          content="Fill in the form to create a new project, you'll become an admin automatically."/>
 
                 <Form onSubmit={handleSubmit} className="attached fluid segment">
-                    {error && <strong>{error}</strong>}
+                    {error && <Message error visible content={error}/>}
 
                     <Form.Field>
                         <label>Project name</label>

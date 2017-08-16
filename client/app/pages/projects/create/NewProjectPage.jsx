@@ -7,6 +7,7 @@ import { reduxForm, SubmissionError } from 'redux-form';
 
 import { createProjectCanceled, createProjectSuccess } from './actions';
 import createFormErrors from 'app/utils/graphqlErrorsForReduxForm';
+import apolloErrorsForReduxForm from 'app/utils/apolloErrorsForReduxForm';
 import createComponent from 'app/utils/createComponent';
 
 const mutation = gql`mutation ProjectCreation($project: ProjectInput!) {
@@ -41,6 +42,8 @@ export default createComponent((app) => {
                                 } else {
                                     app.store.dispatch(createProjectSuccess());
                                 }
+                            }).catch((error) => {
+                                return Promise.reject(new SubmissionError(apolloErrorsForReduxForm(error)));
                             });
                     },
                     onCancel: () => {

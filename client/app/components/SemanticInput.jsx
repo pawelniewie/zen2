@@ -5,7 +5,7 @@ import FieldErrors from './FieldErrors';
 const SemanticInput = (props) => {
     const { meta: { touched, error }, input } = props;
     return (
-        <div>
+        <div data-field-name={input.name}>
             <Input onChange={(e, { value }) => input.onChange(value)} {...props}/>
             {touched && error && <FieldErrors errors={error}/>}
         </div>
