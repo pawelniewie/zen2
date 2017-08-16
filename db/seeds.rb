@@ -27,7 +27,7 @@ unless zen_team
 	zen_team = zen.teams.create!(name: 'Zen Team')
 end
 
-test_project = zen.projects.find_by_key('TES')
+test_project = zen.projects.find_by_key('TEST')
 unless test_project.issue_custom_fields.find_by_name('Tester')
 	test_project.issue_custom_fields.create!(name: 'Tester', field_type: CustomFieldType::USER_CUSTOM_FIELD_TYPE)
 end

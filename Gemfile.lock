@@ -507,6 +507,10 @@ GEM
       equalizer (~> 0.0, >= 0.0.9)
     warden (1.2.7)
       rack (>= 1.0)
+    webpacker (2.0)
+      activesupport (>= 4.2)
+      multi_json (~> 1.2)
+      railties (>= 4.2)
     websocket (1.2.4)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
@@ -552,7 +556,7 @@ DEPENDENCIES
   graphiql-rails!
   graphql!
   graphql-rails-resolver!
-  jbuilder (~> 2.0)!
+  jbuilder!
   jwt!
   listen (~> 3.0.5)!
   lograge!
@@ -563,10 +567,10 @@ DEPENDENCIES
   paperclip!
   pg!
   pry-byebug!
-  puma (~> 3.0)!
+  puma!
   pundit!
   rack-cors!
-  rails (>= 5.0.0)!
+  rails!
   rails-commons!
   rails-observers!
   react_on_rails (~> 6)!
@@ -585,6 +589,7 @@ DEPENDENCIES
   tzinfo-data!
   uglifier!
   virtus!
+  webpacker!
   wisper (= 2.0.0.rc1)!
   zero_downtime_migrations!
 
@@ -592,4 +597,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.15.1
+   1.15.3
