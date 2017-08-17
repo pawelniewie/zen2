@@ -49,7 +49,11 @@ module.exports = {
     modules: [
       resolve(settings.source_path),
       'node_modules'
-    ]
+    ],
+    alias: {
+      'app': resolve(join(entryPath, 'client'))
+    }
+
   },
 
   resolveLoader: {

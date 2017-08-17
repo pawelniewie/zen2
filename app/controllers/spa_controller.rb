@@ -1,6 +1,6 @@
 class SpaController < ApplicationController
 
-  layout 'spa'
+  layout 'client'
 
   def index
     if current_tenant.blank?

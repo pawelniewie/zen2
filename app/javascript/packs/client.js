@@ -5,12 +5,11 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 
-import createRoutes from '../pages';
-import configureStore from './store';
-import ActionListener from '../utils/ActionListener';
+import createRoutes from './client/pages';
+import configureStore from './client/core/store';
+import ActionListener from './client/utils/ActionListener';
 
-require('../styles/main.scss');
-
+require('./client/styles/main.scss');
 
 require('es6-promise').polyfill();
 require('isomorphic-fetch');

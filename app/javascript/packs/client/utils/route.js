@@ -70,7 +70,7 @@ class Route {
  * @param {string} path
  * @returns {Route}
  */
-module.exports = (app, path) => {
+export default function createRoute(app, path) {
     return new Route(app, path);
 };
 

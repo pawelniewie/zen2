@@ -5,9 +5,6 @@ export default handleActions({
     [actions.userLogOutStarted]: (state) => {
         return {...state, isLoggingOut: true};
     },
-    [actions.userLogOutSuccess]: (state) => {
-        return state;
-    },
     [actions.userLogOutFailed]: (state, action) => {
         return {...state, isLoggingOut: false, error: action.payload};
     }

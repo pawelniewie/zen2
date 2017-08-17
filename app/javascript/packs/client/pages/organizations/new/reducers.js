@@ -2,13 +2,13 @@ import * as actions from './actions';
 import {handleActions} from 'redux-actions';
 
 export default handleActions({
-    [actions.userLoginStarted]: (state) => {
+    [actions.organizationNewStarted]: (state) => {
         return {...state, isLogging: true};
     },
-    [actions.userLoginSuccess]: (state) => {
+    [actions.organizationNewSuccess]: (state) => {
         return state;
     },
-    [actions.userLoginFailed]: (state, action) => {
+    [actions.organizationNewFailed]: (state, action) => {
         return {...state, isLogging: false, error: action.payload};
     }
 }, {
