@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    title
+      | Zen
+    = csrf_meta_tags
+    = stylesheet_pack_tag 'client', media: 'all'
+  body
+    = yield
+    = javascript_pack_tag 'client'

@@ -30,3 +30,5 @@ node_modules
 app/assets/webpack/
 .env
 client/tests.js
+/public/packs
+/node_modules
