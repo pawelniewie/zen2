@@ -1,5 +1,5 @@
 import { assert } from 'chai';
-import subject from './graphqlErrorsForReduxForm';
+import subject from 'app/utils/graphqlErrorsForReduxForm';
 
 describe('utils/graphqlErrorsForReduxForm', () => {
     it('unmarshal nested errors', () => {

@@ -1,5 +1,5 @@
 import {assert} from 'chai';
-import * as actions from './actions';
+import * as actions from 'app/pages/users/login/actions';
 
 describe('pages/users/login - actions', () => {
     it('user login success', () => {

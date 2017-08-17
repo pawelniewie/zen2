@@ -29,7 +29,7 @@ jobs:
           key: zen-{{ checksum "Gemfile.lock" }}
 
       - restore_cache:
-          key: zen-{{ checksum "yarn.lock" }}-{{ checksum "client/yarn.lock" }}
+          key: zen-{{ checksum "yarn.lock" }}
 
       - restore_cache:
           key: zen-assets
@@ -48,10 +48,9 @@ jobs:
               - vendor/bundle
 
       - save_cache:
-          key: zen-{{ checksum "yarn.lock" }}-{{ checksum "client/yarn.lock" }}
+          key: zen-{{ checksum "yarn.lock" }}
           paths:
-              - .node_modules
-              - client/.node_modules
+              - node_modules
 
       # Database setup
       - run: bundle exec rails db:create
@@ -69,7 +68,7 @@ jobs:
       # Run mocha
       - type: shell
         command: |
-          cd client && yarn test
+          yarn test
 
       # Run rspec in parallel
       - type: shell

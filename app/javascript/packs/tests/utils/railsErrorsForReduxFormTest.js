@@ -1,5 +1,5 @@
 import {assert} from 'chai';
-import subject from './railsErrorsForReduxForm';
+import subject from 'app/utils/railsErrorsForReduxForm';
 
 describe('utils/railsErrorsForReduxForm', () => {
     it('unmarshal nested errors', () => {

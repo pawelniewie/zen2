@@ -1,5 +1,5 @@
 import { assert } from 'chai';
-import subject from './apolloErrorsForReduxForm';
+import subject from 'app/utils/apolloErrorsForReduxForm';
 
 xdescribe('utils/apolloErrorsForReduxForm', () => {
     it('unmarshal nested errors', () => {

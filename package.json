@@ -7,9 +7,7 @@
     "npm": "4.1.1"
   },
   "scripts": {
-    "postinstall": "cd client && yarn install",
-    "rails-server": "echo 'visit http://localhost:3000/hello_world' && heroku local -f Procfile.dev",
-    "test": "rspec"
+    "test": "RAILS_ENV=test bin/webpack && node_modules/.bin/mocha --recursive public/packs-test/tests"
   },
   "dependencies": {
     "apollo-client": "^1.9.1",
@@ -40,6 +38,7 @@
     "js-yaml": "^3.9.1",
     "key": "^0.1.11",
     "lodash.partialright": "^4.2.1",
+    "mocha": "^3.5.0",
     "node-sass": "^4.5.3",
     "path-complete-extname": "^0.1.0",
     "postcss-loader": "^2.0.6",

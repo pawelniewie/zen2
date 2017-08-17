@@ -1,6 +1,6 @@
 import {assert} from 'chai';
-import reducer from './reducers';
-import * as actions from './actions';
+import reducer from 'app/pages/users/login/reducers';
+import * as actions from 'app/pages/users/login/actions';
 
 describe('pages/users/login - reducers', () => {
     it(`action ${actions.userLoginStarted}`, () => {
