@@ -44,12 +44,13 @@ jobs:
 
       # Bundle install dependencies
       - run: bundle install --path vendor/bundle --jobs 3
-      - run: yarn install
 
       - save_cache:
           key: zen-bundle-{{ checksum "Gemfile.lock" }}
           paths:
               - vendor/bundle
+
+      - run: yarn install
 
       - save_cache:
           key: zen-yarn-{{ checksum "yarn.lock" }}
