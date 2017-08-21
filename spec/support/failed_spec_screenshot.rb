@@ -22,20 +22,20 @@ RSpec.configure do |config|
 			driver = Capybara.current_session.driver
 			case Capybara.current_driver
 				when :selenium
-					save_to filename, '.errors' do |path|
+					save_to filename, '-errors.txt' do |path|
 						puts "Saving errors: #{path}"
 						File.open(path, 'w') { |file| file.write(driver.browser.manage.logs.get('browser')) }
 					end
 				when :webkit
 					unless driver.error_messages.empty?
-						save_to filename, '.errors' do |path|
+						save_to filename, '-errors.txt' do |path|
 							puts "Saving errors: #{path}"
 							File.open(path, 'w') { |file| file.write(driver.error_messages) }
 						end
 					end
 					
 					unless driver.console_messages.empty?
-						save_to filename, '.console' do |path|
+						save_to filename, '-console.txt' do |path|
 							puts "Saving console output: #{path}"
 							File.open(path, 'w') { |file| file.write(driver.console_messages) }
 						end
