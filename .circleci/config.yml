@@ -43,14 +43,14 @@ jobs:
           command: 'sudo npm install -g yarn@latest'
 
       # Bundle install dependencies
-      - run: bundle install --path vendor/bundle --jobs 3
+      - run: bundle check || bundle install --path vendor/bundle --jobs 3
 
       - save_cache:
           key: zen-bundle-{{ checksum "Gemfile.lock" }}
           paths:
               - vendor/bundle
 
-      - run: yarn install
+      - run: yarn check || yarn install
 
       - save_cache:
           key: zen-yarn-{{ checksum "yarn.lock" }}
