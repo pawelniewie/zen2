@@ -22,13 +22,13 @@ npm-debug.log*
 node_modules
 
 # Generated js bundles
-/app/assets/webpack/*
 /public/assets
+/public/packs
+/public/packs-test
 
+# RubyMine
 .idea/
 
-app/assets/webpack/
+# Local settings
 .env
-client/tests.js
-/public/packs
-/node_modules
+config/database.yml

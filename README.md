@@ -1,19 +1,32 @@
 [![CircleCI](https://circleci.com/gh/pawelniewie/zen2.svg?style=svg)](https://circleci.com/gh/pawelniewie/zen2)
 
 # Prerequisites
-* Install rbenv
-* Install postgres server and make sure it's started
-* Install heroku cli
-* `rbenv install 2.4.1`
-* `rake db:setup`
 
-# Installing dependencies
+## Mac OS X
 
-`bundle && yarn install`
+* Install system dependencies
+  
+  `brew install rbenv rbenv-gemset postgres node yarn`
+  
+* Checkout source code
+
+	```
+	mkdir -p ~/Development
+	git clone git@github.com:pawelniewie/zen2.git ~/Development/zen
+	cd  ~/Development/zen
+	```
+  
+* Install ruby version that we use
+
+	`rbenv install`
+    
+* Setup project
+
+	`bin/setup`
 
 # Running dev mode
 
-`heroku local -f Procfile.dev`
+`foreman start -f Procfile.dev`
 
 # Settings up credentials for GraphiQL
 
