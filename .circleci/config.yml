@@ -68,7 +68,8 @@ jobs:
       - run: bundle exec rails assets:precompile
 
       - save_cache:
-          key: zen-assets
+          key: zen-assets-{{ epoch }}
+          key: zen-assets-
           paths:
               - tmp/cache/assets
               - public/assets
