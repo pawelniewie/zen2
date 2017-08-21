@@ -4,6 +4,6 @@ class OrganizationsController < ApplicationController
   end
   
   def new
-    render layout: 'spa', template: 'spa/index'
+    render layout: 'client', template: 'spa/index'
   end
 end
