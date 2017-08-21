@@ -28,15 +28,19 @@ jobs:
           command: 'echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf'
 
       - restore_cache:
-          key: zen-bundle-{{ checksum "Gemfile.lock" }}
-          key: zen-bundle-
+          keys:
+            - zen-bundle-{{ checksum "Gemfile.lock" }}
+            - zen-bundle-
 
       - restore_cache:
-          key: zen-yarn-{{ checksum "yarn.lock" }}
-          key: zen-yarn-
+          keys:
+            - zen-yarn-{{ checksum "yarn.lock" }}
+            - zen-yarn-
 
       - restore_cache:
-          key: zen-assets
+          keys:
+            - zen-assets-{{ epoch }}
+            - zen-assets-
 
       - run:
           name: update-yarn
@@ -69,7 +73,6 @@ jobs:
 
       - save_cache:
           key: zen-assets-{{ epoch }}
-          key: zen-assets-
           paths:
               - tmp/cache/assets
               - public/assets
