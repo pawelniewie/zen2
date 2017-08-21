@@ -27,6 +27,10 @@ jobs:
           name: Fix resolv.conf
           command: 'echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf'
 
+      - run:
+          name: Set up hosts
+          command: 'echo -e "\n127.0.0.1 atlas.127.0.0.1.xip.io zen.127.0.0.1.xip.io another.127.0.0.1.xip.io" | sudo tee -a /etc/hosts'
+
       - restore_cache:
           keys:
             - zen-bundle-{{ checksum "Gemfile.lock" }}
