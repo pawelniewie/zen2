@@ -62,8 +62,6 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       # Database setup
-      - run: rm -rf config/database.yml
-      - run: bundle exec rails db:create
       - run: bundle exec rails db:schema:load
 
       # Precompile assets
@@ -74,6 +72,8 @@ jobs:
           paths:
               - tmp/cache/assets
               - public/assets
+              - public/packs
+              - public/packs-test
 
       # Run mocha
       - type: shell
