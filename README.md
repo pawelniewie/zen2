@@ -8,6 +8,10 @@
   
   `brew install rbenv rbenv-gemset postgres node yarn`
   
+  Run PostgreSQL if it's not running:
+  
+  `brew services start postgres`
+  
 * Checkout source code
 
 	```
