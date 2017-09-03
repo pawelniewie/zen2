@@ -16,3 +16,7 @@
         }
     }
 }
+.create-project-button {
+	@include simple-button-wide($color-brand-text-light, $color-brand-green, null, 12, 20);
+	@include border-radius(3);
+}

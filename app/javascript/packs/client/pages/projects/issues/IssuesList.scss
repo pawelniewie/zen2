@@ -25,3 +25,27 @@
   max-width: 400px;
   margin-left: 16px;
 }
+
+.create-issue-button {
+	@include simple-button-wide($color-brand-text-light, $color-brand-blue, null, 12, 20);
+	@include border-radius(3);
+}
+
+
+.issue-list-item {
+	padding-top: rem-calc(10) !important;
+	padding-bottom: rem-calc(10) !important;
+}
+
+.issue-list-header {
+	text-align:  right;
+	@include typography(18, 24, 700);
+	@include font-default();
+	padding-bottom: rem-calc(15);
+}
+.issue-list-header-key {
+	text-align: left;
+	@include typography(18, 24, 700);
+	@include font-default();
+	padding-bottom: rem-calc(15);
+}

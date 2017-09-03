@@ -7,7 +7,7 @@ require('./projects-list.scss');
 
 export default function ProjectsList({projects}) {
     return <ListingLayout title="Projects" sideHeaderContent={
-        <Button isSmall={true} to="/projects/new">Create project</Button>
+        <Button className="create-project-button" isSmall={true} to="/projects/new">Create project</Button>
     }>
         <table className="table projects-list">
             <thead>

@@ -32,7 +32,7 @@ const IssuePage = (props) => {
     const { issues, params, onViewIssue } = props;
     return (
         <ListingLayout title="Issues" sideHeaderContent={
-            <Button isSmall={true} to={`/projects/${params.projectName}/create-issue`}>New issue</Button>
+            <Button className="create-issue-button" isSmall={true} to={`/projects/${params.projectName}/create-issue`}>New issue</Button>
         }>
             <IssuesList issues={issues} onViewIssue={onViewIssue}/>
         </ListingLayout>
