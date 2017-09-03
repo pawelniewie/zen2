@@ -1,7 +1,87 @@
+@import './../../../styles/mixins/importer.scss';
 .issue-form {
-    
+    label {
+        @include typography(18, 24 700);
+        @include font-default();
+        padding-bottom: rem-calc(10);
+        color: #555555;
+    }
+    textarea {
+        width: 100%;
+				min-height: rem-calc(140);
+				border: rem-calc(1) solid rgba(228, 228, 228, 1);
+				appearance: none;
+				outline: none;
+    }
+    .form--buttons {
+        margin-top: rem-calc(20);
+    }
+}
+#summary-id {
+	width: 100%;
+	display: block;
+	padding: rem-calc(9) rem-calc(10);
+	width: 100%;
+	height: rem-calc(40);
+	border: rem-calc(1) solid rgba(228, 228, 228, 1);
+	background-color: #fff;
+	color: #000;
+	appearance: none;
+	outline: none;
+}
+.issue-form--project {
+    width: 100%;
 }
 
-.issue-form--project {
-    width: 50%;
+.select-button {
+    &:after {
+        transform: rotate(-45deg);
+    }
+}
+
+.issue-form-button--create {
+background: #000;
+border: rem-calc(1) solid rgba(228, 228, 228, 1);
+@include transitions-all();
+}
+.issue-form-button--cancel {
+ background: #fff;
+ color: #000;
+ border: rem-calc(1) solid rgba(228, 228, 228, 1);
+ @include transitions-all();
+
+}
+
+.select-button {
+    @include transitions-all;
+    @include font-default;
+    @include typography(12, 20, 400);
+    position: relative;
+    display: block;
+    padding: rem-calc(9) rem-calc(30) rem-calc(9) rem-calc(10);
+    width: 100%;
+    height: rem-calc(40);
+    background-color: #fff;
+    border: rem-calc(1) solid rgba(228, 228, 228, 1);
+    font-size: rem-calc(12);
+    color: #000;
+    text-align: left;
+    cursor: pointer;
+    // appearance: none;
+    outline: none;
+    &:after {
+        @include transitions-all;
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: rem-calc(15);
+        right: rem-calc(9);
+        width: rem-calc(8);
+        height: rem-calc(8);
+        border-width: rem-calc(2) rem-calc(2) 0 0;
+        border-style: solid;
+        border-color: #000;
+        transform: rotate(135deg);
+        pointer-events: none;
+    }
 }
