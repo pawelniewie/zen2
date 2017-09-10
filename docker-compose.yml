@@ -36,7 +36,7 @@ services:
   website:
     build:
       context: .
-      dockerfile: Dockerfile-rails
+      dockerfile: Dockerfile
     depends_on:
       - 'postgres'
       - 'redis'
@@ -54,7 +54,7 @@ services:
   worker:
     build:
       context: .
-      dockerfile: Dockerfile-rails
+      dockerfile: Dockerfile
     depends_on:
       - 'postgres'
       - 'redis'

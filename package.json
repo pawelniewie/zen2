@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "engines": {
-    "node": "6.9.0",
-    "npm": "4.1.1"
+    "node": "8.4.0",
+    "npm": "5.3.0"
   },
   "scripts": {
     "test": "RAILS_ENV=test bin/webpack && node_modules/.bin/mocha --recursive public/packs-test/tests"

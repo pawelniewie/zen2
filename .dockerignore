@@ -1,13 +1,8 @@
 *
+!.postcssrc.yml
+!.babelrc
 !app
-!client/.babelrc
-!client/app
-!client/package.json
-!client/yarn.lock
-!client/postcss.config.js
-!client/webpack.config.js
-!client/webpack_base.config.js
-!client/webpack_test.config.js
+!bin
 !config
 !db
 !lib
