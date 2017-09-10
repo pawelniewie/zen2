@@ -1,6 +1,7 @@
 *
 !.postcssrc.yml
 !.babelrc
+!docker
 !app
 !bin
 !config

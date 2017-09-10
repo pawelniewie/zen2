@@ -15,7 +15,7 @@ RUN set -ex \
 WORKDIR $INSTALL_PATH
 
 COPY Gemfile Gemfile.lock ./
-RUN bundle install --binstubs --jobs 3
+RUN bundle install --binstubs --jobs 3 --path vendor/bundle
 
 COPY package.json yarn.lock ./
 RUN yarn install
@@ -26,6 +26,8 @@ RUN bundle exec rake RAILS_ENV=production DATABASE_URL=postgresql://user:pass@12
 
 VOLUME ["$INSTALL_PATH/public"]
 
-ENTRYPOINT ["bin/rails"]
+RUN chmod +x docker/entrypoint.sh
 
-CMD ["s"]
+ENTRYPOINT ["docker/entrypoint.sh"]
+
+CMD ["rails", "s"]

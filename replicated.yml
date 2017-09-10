@@ -1,0 +1,154 @@
+---
+replicated_api_version: 2.10.4
+name: "Zen"
+
+#
+# https://www.replicated.com/docs/packaging-an-application/application-properties
+#
+properties:
+  app_url: http://{{repl ConfigOption "hostname" }}
+  console_title: "Zen"
+
+onsole_support_markdown: |
+  Documentation for My Enterprise Application can be found [here](http://docs.my-enterprise-application.com).
+
+  When contacting us for help, please download a Support Bundle (below) and attach it to the ticket.  The support
+  bundle contains generic system information collected from this server.  It does _not_ contain any data from
+  your instance of My Enterprise Application.
+
+#
+# Settings screen
+# https://www.replicated.com/docs/packaging-an-application/config-screen
+#
+config:
+- name: hostname
+  title: Hostname
+  description: Ensure this domain name is routable on your network.
+  items:
+  - name: hostname
+    title: Hostname
+    value: '{{repl ConsoleSetting "tls.hostname"}}'
+    type: text
+    test_proc:
+      display_name: Check DNS
+      command: resolve_host
+- name: database
+  title: Database
+  description: The database password is randomly generated for you, if you want to set it your self please do so before starting.
+  items:
+  - name: postgres_pass
+    title: Postgres Password
+    type: text
+    value_cmd:
+      name: generate_random_password
+      value_at: 0
+    required: true
+
+backup:
+  enabled: true
+  hidden: false
+  pause_containers: false
+  script: |
+    #!/bin/sh
+    replicated admin --no-tty backup-postgres-db
+
+cmds:
+- name: secret_key
+  cmd: random
+  args:
+  - "64"
+  - "[A-Za-z0-9]"
+- name: generate_random_password
+  cmd: random
+  args:
+  - "16"
+#
+# Define how the application containers will be created and started
+# https://www.replicated.com/docs/packaging-an-application/components-and-containers
+#
+components:
+- name: Redis
+  containers:
+  - source: public
+    image_name: redis
+    version: 3.0.5
+- name: PostgreSQL
+  containers:
+  - source: public
+    image_name: postgres
+    version: 9.6
+    env_vars:
+    #
+    # Specifiy the name for our PostgreSQL database, the username for the
+    # PostgreSQL database we created and the password for the PostgreSQL
+    # user.
+    #
+    - name: POSTGRES_DB
+      static_val: 'zen'
+    - name: POSTGRES_USER
+      static_val: 'postgres'
+    - name: POSTGRES_PASSWORD
+      static_val: '{{repl ConfigOption "postgres_pass" }}'
+    - name: PGDATA
+      static_val: '/var/lib/postgresql/data/zen'
+    ports:
+    - private_port: "5432"
+      public_port: "5432"
+    #
+    # Store the postgres data in a named volume so the data is available after
+    # a restart and a backup mounted folder used during snapshots
+    #
+    volumes:
+    - host_path: zen-database
+      container_path: /var/lib/postgresql/data
+      owner: 999
+    - host_path: /backup/postgres
+      container_path: /backup
+      owner: 999
+    config_files:
+    - filename: /backup.sh
+      file_mode: "0755"
+      file_owner: "999"
+      contents: |
+        #!/bin/bash
+        set -e
+        PGUSER=postgres pg_dump zen > db-backup
+        mv db-backup /backup
+
+
+state:
+  ready:
+    command: http_status_code
+    args:
+    - 'http://{{repl NodePublicIPAddress "My Component" "my-web-container" }}/ping'
+    - '200'
+    - '5'
+    timeout: 900
+
+admin_commands:
+- alias: redis-cli
+  command: [redis-cli]
+  run_type: exec
+  component: Redis
+  container: redis
+- alias: backup-postgres-db
+  command:
+  - /backup.sh
+  run_type: exec
+  component: PostgreSQL
+  image:
+    image_name: postgres
+    version: 9.6
+
+host_requirements:
+  docker_version: "1.10.3"
+  cpu_cores: 2
+  cpu_mhz: 2400
+  memory: 8GB
+  disk_space: 8GB
+  replicated_version: ">=2.3.0 <2.4.1"
+
+#
+# Documentation for additional features
+# https://www.replicated.com/docs/packaging-an-application
+#

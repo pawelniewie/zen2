@@ -1,23 +1,11 @@
-#!/bin/bash
+#!/bin/sh
+# https://stackoverflow.com/a/38732187/1935918
+set -e
 
-bundle check || bundle install --jobs 1 --retry 5 --with test development webkit
-
-if [ -n "$DATABASE_URL" ];then
-  COUNT=0
-  connected=1
-
-  until [[ $connected == 0 ]]; do
-    ruby /wait-for-db.rb "$DATABASE_URL"
-    connected=$?
-
-    if (( $COUNT > 10 ));then
-      echo "Could not connect to db in 10 seconds"
-      exit 1
-    fi
-    echo "Waiting for db $COUNT time"
-    ((COUNT++))
-    sleep 1
-  done
+if [ -f tmp/pids/server.pid ]; then
+  rm tmp/pids/server.pid
 fi
 
-exec bundle exec $@
+bundle exec rake db:migrate 2>/dev/null || bundle exec rake db:setup
+
+exec bundle exec "$@"

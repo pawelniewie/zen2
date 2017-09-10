@@ -102,6 +102,8 @@ source 'https://rubygems.org' do
   
   gem 'webpacker'
 
+  gem "health_check"
+  
   group :development, :test do
     # Call 'byebug' anywhere in the code to stop execution and get a debugger console
     gem 'pry-byebug', platform: :mri
