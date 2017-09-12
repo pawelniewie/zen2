@@ -1,21 +1,20 @@
 @import './../styles/mixins/importer.scss';
-
 .top-menu {
-    display: flex;
-
-    .log-in {
-        color: white;
-    }
-
-    li:last-child {
-        margin-left: auto;
-    }
+	display: flex;
+	.log-in {
+		color: white;
+	}
+	li:last-child {
+		margin-left: auto;
+	}
 }
+
 .main-footer {
 	border-top: rem-calc(1) solid rgba(#999, 0.1);
 	height: rem-calc(20);
 	padding: rem-calc(10);
 }
+
 .main-footer--product-version {
 	text-align: left;
 	background: #000;
