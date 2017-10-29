@@ -58,7 +58,7 @@ jobs:
           paths:
               - vendor/bundle
 
-      - run: yarn install
+      - run: yarn install --ignore-engines
 
       - save_cache:
           key: zen-yarn-{{ checksum "yarn.lock" }}
