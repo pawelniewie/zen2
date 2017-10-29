@@ -72,6 +72,8 @@ jobs:
       # Database setup
       - run: bundle exec rails db:schema:load
 
+      - run: rake tmp:cache:clear
+
       # Precompile assets
       - run: bundle exec rails assets:precompile
 
