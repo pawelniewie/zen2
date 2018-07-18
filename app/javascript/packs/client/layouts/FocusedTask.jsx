@@ -14,13 +14,15 @@ export default function FocusedTask(props) {
     const classes = classNames('focused-task', {
         'focused-task__wide': isWide
     }, className);
-    return <Grid centered columns={2} doubling>
-            <Grid.Column>
+    return <div className="create-task--wrapper">
+		<div className="grid-container">
+            <div className="grid-x">
                 <Segment className={classes}>
                     {children}
                 </Segment>
-            </Grid.Column>
-        </Grid>;
+            </div>
+        </div>
+				</div>;
 }
 
 FocusedTask.propTypes = {

@@ -1,58 +1,58 @@
 @import './../styles/mixins/importer.scss';
-
 .focused-task {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    width: 500px;
-    max-width: 500px;
-
-    &.focused-task__wide {
-        width: 700px;
-        max-width: 700px;
-    }
-
-    &--header {
-        margin-bottom: rem-calc(20);
-        padding: rem-calc(10) !important;
-        padding-bottom: rem-calc(5) !important;
-    }
-
-    &--content {
-        padding: rem-calc(10);
-    }
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 20px;
+	width: 500px;
+	max-width: 500px;
+	&.focused-task__wide {
+		width: 700px;
+		max-width: 700px;
+	}
+	&--header {
+		margin-bottom: rem-calc(20);
+		padding: rem-calc(10) !important;
+		padding-bottom: rem-calc(5) !important;
+	}
+	&--content {
+		padding: rem-calc(10);
+	}
 }
 
 .form--field {
-    display: block;
-    label {
-        display: block;
-        padding: rem-calc(5);
-        padding-left: 0px;
-        @include typography(16, 23, 700);
-    }
-    input {
-        display: block;
-        padding: rem-calc(5);
-    }
+	display: block;
+	label {
+		display: block;
+		padding: rem-calc(5);
+		padding-left: 0px;
+		@include typography(16, 23, 700);
+	}
+	input {
+		display: block;
+		padding: rem-calc(5);
+	}
+}
+
+.create-task--wrapper {
+	margin-top: rem-calc(340);
 }
 
 .form--description {
-    margin-top: rem-calc(10);
-    margin-bottom: rem-calc(10);
-    @include typography(14, 17, 600);
+	margin-top: rem-calc(10);
+	margin-bottom: rem-calc(10);
+	@include typography(14, 17, 600);
 }
 
 .button__primary {
-    @include simple-button-wide($color-brand-text-light, darken($color-brand-blue, 5%), 1, 15, 10);
-    @include border-radius(5);
-    margin-right: rem-calc(10);
+	@include simple-button-wide($color-brand-text-light, darken($color-brand-blue, 5%), 1, 15, 10);
+	@include border-radius(5);
+	margin-right: rem-calc(10);
 }
 
 .button__link {
-    @include simple-button-wide($color-brand-text-light, darken($color-brand-red, 10%), 1, 15, 10);
-    @include border-radius(5);
-    margin-right: rem-calc(10);
+	@include simple-button-wide($color-brand-text-light, darken($color-brand-red, 10%), 1, 15, 10);
+	@include border-radius(5);
+	margin-right: rem-calc(10);
 }

@@ -25,7 +25,7 @@ export default class IssueForm extends React.Component {
         return <form onSubmit={this.onSubmit} className="issue-form form form__label-top">
             <FormField>
                 <FormLabel htmlFor={'project-id'}>Project</FormLabel>
-                <ProjectSelector id="project-id" className="issue-form--project"
+                <ProjectSelector id="project-id" className="issue-form--project select-button"
                                  controlRef={this.formField('project')}/>
                 <FormErrors errors={this.getErrors('project')}/>
             </FormField>
@@ -43,12 +43,12 @@ export default class IssueForm extends React.Component {
             </FormField>
             <FormField>
                 <FormLabel>Assignee</FormLabel>
-                <Assignee controlRef={this.formField('assignee')}/>
+                <Assignee className="select-button" controlRef={this.formField('assignee')}/>
             </FormField>
 
             <FormButtons>
-                <Button isPrimary={true} isLoading={this.state.isLoading} loadingLabel="Creating...">Create</Button>
-                <Button isLink={true} onClick={this.onCancel}>Cancel</Button>
+                <Button className="issue-form-button--create" isPrimary={true} isLoading={this.state.isLoading} loadingLabel="Creating...">Create</Button>
+                <Button className="issue-form-button--cancel" isLink={true} onClick={this.onCancel}>Cancel</Button>
             </FormButtons>
         </form>
     }

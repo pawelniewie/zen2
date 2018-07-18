@@ -1,5 +1,22 @@
+@import './../../../styles/mixins/importer.scss';
 .projects-list {
-    .projects-list--key {
-        width: 100px;
+    .projects-list {
+        &--header {
+            padding: rem-calc(20);
+            @include typography(18, 24, 700);
+        }
+        &--header {
+            padding: rem-calc(10);
+            @include typography(16, 24, 700);
+        }
     }
+    .item-header {
+        &--key {
+            width: 100px;
+        }
+    }
+}
+.create-project-button {
+	@include simple-button-wide($color-brand-text-light, $color-brand-green, null, 12, 20);
+	@include border-radius(3);
 }
